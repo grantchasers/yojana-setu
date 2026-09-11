@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Authentication - YojanaSetu</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'surface-container-highest': '#dae2fd', 'secondary-container': '#fe932c', 'surface-tint': '#396285', 'on-error-container': '#93000a', 'on-primary-container': '#7fa7cd', 'on-tertiary-fixed-variant': '#005323', 'error-container': '#ffdad6', 'on-surface-variant': '#42474e', 'secondary-fixed-dim': '#ffb77d', 'surface-container-lowest': '#ffffff', 'on-secondary-fixed': '#2f1500', 'on-secondary': '#ffffff', 'secondary-fixed': '#ffdcc3', 'surface-container': '#eaedff', 'inverse-surface': '#283044', 'on-primary': '#ffffff', 'on-background': '#131b2e', 'tertiary-container': '#00431b', 'inverse-on-surface': '#eef0ff', 'on-error': '#ffffff', 'on-tertiary': '#ffffff', 'error': '#ba1a1a', 'surface-dim': '#d2d9f4', 'background': '#faf8ff', 'outline': '#72777e', 'primary': '#00263f', 'primary-container': '#0b3c5d', 'primary-fixed-dim': '#a3cbf2', 'inverse-primary': '#a3cbf2', 'on-secondary-container': '#663500', 'tertiary': '#002b0f', 'on-primary-fixed': '#001d32', 'on-primary-fixed-variant': '#1f4a6c', 'on-tertiary-container': '#55b66c', 'secondary': '#904d00', 'tertiary-fixed-dim': '#79db8d', 'on-surface': '#131b2e', 'primary-fixed': '#cee5ff', 'tertiary-fixed': '#95f8a7', 'on-tertiary-fixed': '#00210a', 'surface': '#faf8ff', 'outline-variant': '#c2c7ce', 'surface-container-high': '#e2e7ff', 'surface-variant': '#dae2fd', 'on-secondary-fixed-variant': '#6e3900', 'surface-bright': '#faf8ff', 'surface-container-low': '#f2f3ff' }, borderRadius: { 'DEFAULT': '0.125rem', 'lg': '0.25rem', 'xl': '0.5rem', 'full': '0.75rem' }, spacing: { 'space-lg': '1.5rem', 'gutter-md': '1.5rem', 'margin-lg': '3rem', 'space-xl': '2rem', 'margin-md': '2rem', 'gutter-lg': '2rem', 'margin': '1rem', 'space-xs': '0.25rem', 'gutter': '1rem', 'space-md': '1rem', 'space-sm': '0.5rem' }, fontFamily: { 'title-lg': ['Noto Sans'], 'display-lg-mobile': ['Noto Sans'], 'title-sm': ['Noto Sans'], 'body-sm': ['Noto Sans'], 'headline-lg-mobile': ['Noto Sans'], 'label-sm': ['Noto Sans'], 'headline-sm': ['Noto Sans'], 'body-md': ['Noto Sans'], 'label-md': ['Noto Sans'], 'display-lg': ['Noto Sans'], 'label-lg': ['Noto Sans'], 'title-md': ['Noto Sans'], 'body-lg': ['Noto Sans'], 'headline-lg': ['Noto Sans'], 'headline-md': ['Noto Sans'] }, fontSize: { 'title-lg': ['18px', { lineHeight: '26px', fontWeight: '700' }], 'display-lg-mobile': ['30px', { lineHeight: '40px', letterSpacing: '-0.01em', fontWeight: '700' }], 'title-sm': ['14px', { lineHeight: '22px', fontWeight: '600' }], 'body-sm': ['13px', { lineHeight: '20px', fontWeight: '400' }], 'headline-lg-mobile': ['24px', { lineHeight: '34px', fontWeight: '700' }], 'label-sm': ['11px', { lineHeight: '16px', letterSpacing: '0.03em', fontWeight: '600' }], 'headline-sm': ['18px', { lineHeight: '28px', fontWeight: '600' }], 'body-md': ['14px', { lineHeight: '24px', fontWeight: '400' }], 'label-md': ['12px', { lineHeight: '18px', letterSpacing: '0.02em', fontWeight: '600' }], 'display-lg': ['40px', { lineHeight: '52px', letterSpacing: '-0.02em', fontWeight: '700' }], 'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.01em', fontWeight: '600' }], 'title-md': ['16px', { lineHeight: '24px', fontWeight: '600' }], 'body-lg': ['16px', { lineHeight: '26px', fontWeight: '400' }], 'headline-lg': ['28px', { lineHeight: '38px', fontWeight: '700' }], 'headline-md': ['22px', { lineHeight: '32px', fontWeight: '600' }] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased min-h-screen flex items-center justify-center p-gutter-md"><main class="w-full max-w-md bg-surface-container-lowest rounded-xl p-margin-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col w-full">
+<!-- Audio Readout Accessibility Ribbon -->
+<div class="mb-space-md flex items-center justify-between bg-surface-container px-gutter py-space-sm rounded-xl text-on-surface">
+<div class="flex items-center space-x-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">volume_up</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Assistive Audio / ऑडियो सहायता</span>
+</div>
+<button aria-label="Listen to page contents in Hindi and English" class="flex items-center space-x-space-xs bg-surface-container-lowest px-space-sm py-space-xs rounded-lg text-primary shadow-sm hover:bg-surface-container-high transition-colors" id="audio-toggle-btn" type="button">
+<span class="material-symbols-outlined text-[16px]" id="audio-icon">play_circle</span>
+<span class="font-label-md text-label-md font-semibold" id="audio-text">सुनें / Listen</span>
+</button>
+</div>
+<!-- Civic Authority Emblem & Header -->
+<header class="text-center mb-space-lg">
+<div class="inline-flex items-center justify-center p-space-sm bg-surface-container rounded-full mb-space-sm">
+<span class="material-symbols-outlined text-primary text-[28px]" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+</div>
+<div class="inline-block px-space-sm py-space-xs bg-surface-container-highest text-primary font-label-sm text-label-sm uppercase rounded-full mb-space-sm">
+      GOVERNMENT OF INDIA • सामाजिक न्याय एवं अधिकारिता मंत्रालय
+    </div>
+<h1 class="font-headline-md text-headline-md text-primary mb-space-xs leading-tight">
+      Direct Access to Subsidized Credit &amp; Schemes
+    </h1>
+<p class="font-title-sm text-title-sm text-secondary mb-space-sm">
+      वंचित वर्ग के उद्यमियों के लिए सीधे सरकारी योजनाओं का सेतु
+    </p>
+<div class="bg-surface-container-low p-space-sm rounded-lg text-left">
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Under the aegis of <strong class="text-on-surface font-semibold">Ministry of Social Justice and Empowerment (MoSJE)</strong> &amp; <strong class="text-on-surface font-semibold">NSFDC</strong>.
+      </p>
+</div>
+</header>
+<!-- Photographic Context Graphic -->
+<div class="mb-space-lg relative rounded-xl overflow-hidden shadow-sm bg-surface-container">
+<img class="w-full h-32 object-cover" data-alt="Dignified Indian micro-entrepreneurs, including an artisan woman working at a handloom workshop and a young male technician in a bright semi-rural cooperative facility in India. Natural morning sunlight, candid expression, authentic community atmosphere with muted saffron and navy tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARL5VpkrB_iHop35nxm4d6detGaB20puUYIMQkb1jmPIs6Hozn8z6gAQK2i1TQVUbTgw5YEOVDboukPlJj44alOeJwY_-1z7Ou3dAR8NLin7H4deX-kY6jLkX4ooUc8JEDPUYjWdhdVEmi7glBYt4G76whOeV7OaDHxXkaZeiSs3K_V8p4ngWx5FdxOXeMla1zWrdAZ6LWdxgjfZEHCz86KQOLPUmsxCuNKsb5zNe3D5IzAA0zM0N0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent flex items-end p-space-sm">
+<span class="font-label-sm text-label-sm text-on-primary bg-primary/70 backdrop-blur px-space-sm py-space-xs rounded">
+        Direct Credit Access • zero agent fee
+      </span>
+</div>
+</div>
+<!-- Primary Language Selection Action Block -->
+<section aria-label="Language Options" class="space-y-space-md mb-space-lg">
+<!-- English Flow Selection -->
+<a class="group block w-full p-space-md rounded-xl bg-surface-container hover:bg-surface-container-high transition-all text-left shadow-sm hover:shadow-md" href="#continue-en">
+<div class="flex items-start justify-between">
+<div class="space-y-space-xs min-w-0 pr-space-sm">
+<div class="flex items-center space-x-space-xs">
+<span class="font-title-md text-title-md text-primary font-bold group-hover:text-primary-container transition-colors">
+              Continue in English
+            </span>
+<span class="material-symbols-outlined text-primary text-[18px]">arrow_forward</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Proceed to discover concessional loans, direct welfare, and state subsidies.
+          </p>
+</div>
+<div class="h-10 w-10 flex-shrink-0 flex items-center justify-center rounded-lg bg-surface-container-lowest text-primary shadow-sm group-hover:bg-primary group-hover:text-on-primary transition-all">
+<span class="font-title-sm text-title-sm font-bold">EN</span>
+</div>
+</div>
+</a>
+<!-- Hindi Flow Selection (Emphasized saffron accent) -->
+<a class="group block w-full p-space-md rounded-xl bg-secondary-fixed hover:bg-secondary-fixed-dim transition-all text-left shadow-sm hover:shadow-md" href="#continue-hi">
+<div class="flex items-start justify-between">
+<div class="space-y-space-xs min-w-0 pr-space-sm">
+<div class="flex items-center space-x-space-xs">
+<span class="font-title-md text-title-md text-on-secondary-fixed font-bold">
+              हिंदी में जारी रखें
+            </span>
+<span class="material-symbols-outlined text-on-secondary-fixed text-[18px]">arrow_forward</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-secondary-fixed-variant leading-relaxed">
+            रियायती ऋण, वित्तीय सहायता, सरकारी सब्सिडी और योजनाओं की सीधी जानकारी पाएं।
+          </p>
+</div>
+<div class="h-10 w-10 flex-shrink-0 flex items-center justify-center rounded-lg bg-secondary text-on-secondary shadow-sm">
+<span class="font-title-sm text-title-sm font-bold">अ</span>
+</div>
+</div>
+</a>
+<!-- Regional Languages Footnote -->
+<div class="bg-surface-container-low px-space-sm py-space-xs rounded-lg text-center">
+<p class="font-label-sm text-label-sm text-on-surface-variant">
+        Also available soon in: <span class="font-semibold text-on-surface">मराठी, தமிழ், తెలుగు, বাংলা, ਪੰਜਾਬੀ</span>
+</p>
+</div>
+</section>
+<!-- Key Assurance Values List -->
+<section aria-label="Key Benefits" class="mb-space-lg space-y-space-sm">
+<div class="px-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">
+        Key Safeguards &amp; Facilities
+      </span>
+</div>
+<!-- Assurance 1 -->
+<div class="flex items-start space-x-space-sm bg-surface-container-low p-space-sm rounded-xl">
+<div class="h-8 w-8 flex-shrink-0 rounded-lg bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+</div>
+<div class="min-w-0 flex-1">
+<h2 class="font-title-sm text-title-sm text-on-surface font-semibold">100% Direct Matching</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          No middlemen, touts, or unofficial agent fees (बिचौलियों से पूर्ण मुक्ति).
+        </p>
+</div>
+</div>
+<!-- Assurance 2 -->
+<div class="flex items-start space-x-space-sm bg-surface-container-low p-space-sm rounded-xl">
+<div class="h-8 w-8 flex-shrink-0 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">percent</span>
+</div>
+<div class="min-w-0 flex-1">
+<h2 class="font-title-sm text-title-sm text-on-surface font-semibold">Subsidized Interest from 4% p.a.</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Affordable interest rates paired with flexible extended moratorium periods.
+        </p>
+</div>
+</div>
+<!-- Assurance 3 -->
+<div class="flex items-start space-x-space-sm bg-surface-container-low p-space-sm rounded-xl">
+<div class="h-8 w-8 flex-shrink-0 rounded-lg bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined text-[18px]">account_balance_wallet</span>
+</div>
+<div class="min-w-0 flex-1">
+<h2 class="font-title-sm text-title-sm text-on-surface font-semibold">Verified Channel Partners</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Direct applications to State Channelising Agencies (SCAs), PSBs &amp; RRBs near you.
+        </p>
+</div>
+</div>
+</section>
+<!-- Toll-Free Citizen Support Ribbon -->
+<footer class="bg-primary-container p-space-md rounded-xl text-on-primary shadow-sm space-y-space-xs">
+<div class="flex items-center space-x-space-xs">
+<span class="material-symbols-outlined text-[20px] text-secondary-container">call</span>
+<span class="font-title-sm text-title-sm font-semibold">National Citizen Helpline</span>
+</div>
+<div class="flex items-baseline justify-between pt-space-xs">
+<div>
+<p class="font-headline-sm text-headline-sm font-bold tracking-wide text-on-primary">
+          1800-11-7788
+        </p>
+<p class="font-label-sm text-label-sm text-on-primary-container">
+          Toll-Free • Monday to Saturday (9:00 AM – 6:00 PM)
+        </p>
+</div>
+<button class="font-label-sm text-label-sm bg-secondary-container text-on-secondary-container px-space-sm py-space-xs rounded-lg font-bold hover:brightness-105 transition" onclick="alert('Callback request recorded. Our representative will contact you on your registered mobile number shortly.')" type="button">
+        कॉल बैक मांगें
+      </button>
+</div>
+</footer>
+</div>
+<script>
+  // Simple accessible text-to-speech simulation for multilingual audio assistance
+  const audioBtn = document.getElementById('audio-toggle-btn');
+  const audioIcon = document.getElementById('audio-icon');
+  const audioText = document.getElementById('audio-text');
+  let isPlaying = false;
+
+  if (audioBtn) {
+    audioBtn.addEventListener('click', function() {
+      if (!isPlaying) {
+        isPlaying = true;
+        audioIcon.innerText = 'pause_circle';
+        audioText.innerText = 'रोकें / Pause';
+        audioBtn.classList.add('bg-surface-container-highest');
+        
+        if ('speechSynthesis' in window) {
+          const utterance = new SpeechSynthesisUtterance("योजनासेतु में आपका स्वागत है। Welcome to YojanaSetu. Select Continue in English or Hindi mein jaari rakhein.");
+          utterance.onend = function() {
+            resetAudio();
+          };
+          window.speechSynthesis.speak(utterance);
+        }
+      } else {
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+        }
+        resetAudio();
+      }
+    });
+  }
+
+  function resetAudio() {
+    isPlaying = false;
+    audioIcon.innerText = 'play_circle';
+    audioText.innerText = 'सुनें / Listen';
+    audioBtn.classList.remove('bg-surface-container-highest');
+  }
+</script></main></body></html>

@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>YojanaSetu - National Scheme Matching Portal</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'surface-container-highest': '#dae2fd', 'secondary-container': '#fe932c', 'surface-tint': '#396285', 'on-error-container': '#93000a', 'on-primary-container': '#7fa7cd', 'on-tertiary-fixed-variant': '#005323', 'error-container': '#ffdad6', 'on-surface-variant': '#42474e', 'secondary-fixed-dim': '#ffb77d', 'surface-container-lowest': '#ffffff', 'on-secondary-fixed': '#2f1500', 'on-secondary': '#ffffff', 'secondary-fixed': '#ffdcc3', 'surface-container': '#eaedff', 'inverse-surface': '#283044', 'on-primary': '#ffffff', 'on-background': '#131b2e', 'tertiary-container': '#00431b', 'inverse-on-surface': '#eef0ff', 'on-error': '#ffffff', 'on-tertiary': '#ffffff', 'error': '#ba1a1a', 'surface-dim': '#d2d9f4', 'background': '#faf8ff', 'outline': '#72777e', 'primary': '#00263f', 'primary-container': '#0b3c5d', 'primary-fixed-dim': '#a3cbf2', 'inverse-primary': '#a3cbf2', 'on-secondary-container': '#663500', 'tertiary': '#002b0f', 'on-primary-fixed': '#001d32', 'on-primary-fixed-variant': '#1f4a6c', 'on-tertiary-container': '#55b66c', 'secondary': '#904d00', 'tertiary-fixed-dim': '#79db8d', 'on-surface': '#131b2e', 'primary-fixed': '#cee5ff', 'tertiary-fixed': '#95f8a7', 'on-tertiary-fixed': '#00210a', 'surface': '#faf8ff', 'outline-variant': '#c2c7ce', 'surface-container-high': '#e2e7ff', 'surface-variant': '#dae2fd', 'on-secondary-fixed-variant': '#6e3900', 'surface-bright': '#faf8ff', 'surface-container-low': '#f2f3ff' }, borderRadius: { 'DEFAULT': '0.125rem', 'lg': '0.25rem', 'xl': '0.5rem', 'full': '0.75rem' }, spacing: { 'space-lg': '1.5rem', 'gutter-md': '1.5rem', 'margin-lg': '3rem', 'space-xl': '2rem', 'margin-md': '2rem', 'gutter-lg': '2rem', 'margin': '1rem', 'space-xs': '0.25rem', 'gutter': '1rem', 'space-md': '1rem', 'space-sm': '0.5rem' }, fontFamily: { 'title-lg': ['Noto Sans'], 'display-lg-mobile': ['Noto Sans'], 'title-sm': ['Noto Sans'], 'body-sm': ['Noto Sans'], 'headline-lg-mobile': ['Noto Sans'], 'label-sm': ['Noto Sans'], 'headline-sm': ['Noto Sans'], 'body-md': ['Noto Sans'], 'label-md': ['Noto Sans'], 'display-lg': ['Noto Sans'], 'label-lg': ['Noto Sans'], 'title-md': ['Noto Sans'], 'body-lg': ['Noto Sans'], 'headline-lg': ['Noto Sans'], 'headline-md': ['Noto Sans'] }, fontSize: { 'title-lg': ['18px', { lineHeight: '26px', fontWeight: '700' }], 'display-lg-mobile': ['30px', { lineHeight: '40px', letterSpacing: '-0.01em', fontWeight: '700' }], 'title-sm': ['14px', { lineHeight: '22px', fontWeight: '600' }], 'body-sm': ['13px', { lineHeight: '20px', fontWeight: '400' }], 'headline-lg-mobile': ['24px', { lineHeight: '34px', fontWeight: '700' }], 'label-sm': ['11px', { lineHeight: '16px', letterSpacing: '0.03em', fontWeight: '600' }], 'headline-sm': ['18px', { lineHeight: '28px', fontWeight: '600' }], 'body-md': ['14px', { lineHeight: '24px', fontWeight: '400' }], 'label-md': ['12px', { lineHeight: '18px', letterSpacing: '0.02em', fontWeight: '600' }], 'display-lg': ['40px', { lineHeight: '52px', letterSpacing: '-0.02em', fontWeight: '700' }], 'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.01em', fontWeight: '600' }], 'title-md': ['16px', { lineHeight: '24px', fontWeight: '600' }], 'body-lg': ['16px', { lineHeight: '26px', fontWeight: '400' }], 'headline-lg': ['28px', { lineHeight: '38px', fontWeight: '700' }], 'headline-md': ['22px', { lineHeight: '32px', fontWeight: '600' }] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased min-h-screen"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-20 px-gutter-md flex items-center gap-space-sm bg-surface-container-lowest"><img alt="YojanaSetu Official Emblem" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XQ0chKXZN4x3iBM_v57_A4IDJ7GT_m12Tnlui_yZkw7-3ES_3A_C2MHw5PDm-OnBR3SyYwJnnb4Sv213XPHi-04B1K53W1wZ4hf5G4Nhx2o9b9lXVCxaePKFpOORpGz7pZoPcjVJw3kaWdmmJRSO6yRK1pk52a6ZAOJsShIW2uq5oCALIrpv9UENMmETFUiDryYr-ET5MV8Tagx0xv65pupAm76WjKnW2LIcGr0Wnir9wDTvpQR0PLY-M"/><div class="flex flex-col"><span class="font-title-sm text-title-sm text-primary leading-tight tracking-tight">योजनासेतु | YojanaSetu</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-none mt-1">Govt. of India | MoSJE</span></div></div><div class="px-gutter-md py-space-sm bg-primary-container text-on-primary-container flex items-center justify-between"><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-primary">Public Utility Portal</span><span class="inline-flex items-center px-space-xs py-0.5 rounded-lg bg-tertiary text-tertiary-fixed font-label-sm text-label-sm">Live Verified</span></div><nav class="flex flex-col gap-1 p-space-sm overflow-y-auto" data-active-classes="bg-primary-container text-on-primary font-bold shadow-sm"><span class="px-space-sm pt-space-xs pb-1 font-label-sm text-label-sm text-outline uppercase tracking-wider">Beneficiary Services / सेवाएँ</span><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-xl">dashboard</span><span class="font-body-md text-body-md">Dashboard (डैशबोर्ड)</span></a><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="scheme-recommender" href="#"><span class="material-symbols-outlined text-xl">smart_toy</span><span class="font-body-md text-body-md">Scheme Recommender (योजना सिफारिश)</span></a><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="emi-calculator" href="#"><span class="material-symbols-outlined text-xl">calculate</span><span class="font-body-md text-body-md">EMI Calculator (ईएमआई कैलकुलेटर)</span></a><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="partner-locator" href="#"><span class="material-symbols-outlined text-xl">storefront</span><span class="font-body-md text-body-md">Partner Locator (साझेदार खोजें)</span></a><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="my-applications" href="#"><span class="material-symbols-outlined text-xl">folder_shared</span><span class="font-body-md text-body-md">My Applications (मेरे आवेदन)</span></a><div class="my-space-xs h-[1px] bg-outline-variant/50"></div><span class="px-space-sm pt-space-xs pb-1 font-label-sm text-label-sm text-outline uppercase tracking-wider">Administration / प्रशासन</span><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="admin-partners" href="#"><span class="material-symbols-outlined text-xl">corporate_fare</span><span class="font-body-md text-body-md">Admin: Partners (साझेदार प्रबंधन)</span></a><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="admin-scheme-master" href="#"><span class="material-symbols-outlined text-xl">tune</span><span class="font-body-md text-body-md">Admin: Scheme Master (योजना मास्टर)</span></a><div class="my-space-xs h-[1px] bg-outline-variant/50"></div><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="help-guidelines" href="#"><span class="material-symbols-outlined text-xl">help</span><span class="font-body-md text-body-md">Help &amp; Guidelines (सहायता)</span></a></nav></div><div class="p-space-sm bg-surface-container m-space-sm rounded-xl"><div class="flex items-center gap-2 text-secondary mb-1"><span class="material-symbols-outlined text-sm">support_agent</span><span class="font-label-sm text-label-sm uppercase font-bold">National Helpdesk</span></div><div class="font-title-sm text-title-sm text-primary">1800-11-7788</div><p class="font-label-sm text-label-sm text-on-surface-variant">Toll Free • 9:30 AM - 6:00 PM</p></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-20 bg-surface-container-lowest/95 backdrop-blur-xl z-40 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 w-full px-gutter-lg flex items-center justify-between"><div class="flex flex-col"><div class="font-title-md text-title-md text-primary tracking-tight font-bold">सामाजिक न्याय और अधिकारिता मंत्रालय</div><div class="font-label-sm text-label-sm text-on-surface-variant">Ministry of Social Justice and Empowerment, Government of India</div></div><div class="flex items-center gap-space-md"><div class="inline-flex items-center bg-surface-container rounded-full p-1 border border-outline-variant/40"><button class="px-3 py-1 text-label-sm font-label-sm rounded-full bg-primary text-on-primary shadow-sm" type="button">English</button><button class="px-3 py-1 text-label-sm font-label-sm rounded-full text-on-surface-variant hover:text-on-surface" type="button">हिंदी</button></div><button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-primary transition-colors" title="Voice Assist / वाक् सहायता" type="button"><span class="material-symbols-outlined text-lg">mic</span><span class="font-label-sm text-label-sm">Voice</span></button><div class="relative"><button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined">notifications</span></button><span class="absolute top-1 right-1 w-4 h-4 bg-error text-on-error rounded-full font-label-sm text-[10px] flex items-center justify-center font-bold">2</span></div><div class="h-8 w-[1px] bg-outline-variant/60"></div><div class="flex items-center gap-space-sm pl-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgw8NYcUh3xzIwD8jjd2eWp7EEJsH-FMUbDQP1tLW5T7ZK1n1hRZONM2rks1o7SPQ_gmZiWlt7lk5sSemjBMZd7LWdPHQHNGuMRlBC1B8Aq-U578C9T--OSFpnCsufjA0vJIPAPV5uMcXQRBVoEJz44aRV7VaLzpYO7sLw7paYDSfaJOVEKlpVSYAlHaly9oTDs1LQ_lHnUPu6JjREbdj3E7zeJbr_PvJEViIdQ_HMV_1Uya4xESBq"/><div class="flex flex-col text-left"><span class="font-title-sm text-title-sm text-on-surface leading-tight">Ramesh Kumar</span><span class="font-label-sm text-label-sm text-secondary leading-none font-bold">Applicant / आवेदक</span></div></div></div></div></header><main class="w-full pt-20 bg-background min-h-[calc(100vh-48px)] px-gutter-lg py-space-lg"><div class="flex flex-col w-full">
+<div class="w-full space-y-space-lg">
+<!-- Breadcrumb & Desk Context Banner -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm bg-surface-container-low px-gutter-md py-space-sm rounded-xl">
+<div class="flex items-center gap-2 text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-base">shield_person</span>
+<span>Governance Portal</span>
+<span>/</span>
+<span class="text-primary font-bold">Desk Audit &amp; Partner Management</span>
+<span class="bg-surface-container-highest text-primary font-label-sm text-label-sm px-2 py-0.5 rounded">Q3 Review Cycle</span>
+</div>
+<div class="flex items-center gap-space-md text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-tertiary"></span> System Synchronized: Today, 11:42 IST</span>
+<span class="text-outline">|</span>
+<span>Authorized Officer: <strong>S. Venkatachalam (Director, Credit)</strong></span>
+</div>
+</div>
+<!-- Screen Title Header with Official Badging -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md pb-space-xs">
+<div class="max-w-3xl space-y-1">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container text-primary font-label-sm text-label-sm tracking-wide uppercase">
+<span class="material-symbols-outlined text-sm">corporate_fare</span>
+          MoSJE Financial Intermediary Oversight
+        </div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Channel Partner Governance &amp; Allocation | चैनल पार्टनर प्रबंधन</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Monitor State Channelising Agencies (SCAs), Public Sector Banks (PSBs), and RRBs under MoSJE Credit Directives.</p>
+</div>
+<div class="flex items-center gap-space-sm self-start lg:self-end">
+<button class="h-12 px-space-md rounded bg-surface-container-highest hover:bg-surface-dim text-primary font-label-lg text-label-lg flex items-center gap-2 transition-colors shadow-sm" id="exportReportBtn" type="button">
+<span class="material-symbols-outlined text-lg">download</span>
+<span>Export Regulatory Report</span>
+</button>
+<button class="h-12 px-space-md rounded bg-secondary text-on-secondary hover:bg-on-secondary-container font-label-lg text-label-lg flex items-center gap-2 transition-all shadow-sm" id="addPartnerModalTrigger" type="button">
+<span class="material-symbols-outlined text-lg">add_business</span>
+<span>Add Channel Partner</span>
+</button>
+</div>
+</div>
+<!-- Administrative KPI Metric Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Total Active Partners</span>
+<div class="font-display-lg text-display-lg text-primary mt-1 leading-none">84</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1 block">Across 28 States &amp; UTs</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center gap-2 font-label-sm text-label-sm text-tertiary">
+<span class="material-symbols-outlined text-base">check_circle</span>
+<span>100% Onboarded via PFMS</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Total Funds Allocated</span>
+<div class="font-display-lg text-display-lg text-primary mt-1 leading-none">₹420.50<span class="font-title-sm text-title-sm font-normal text-on-surface-variant ml-1">Cr</span></div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1 block">FY 2024–25 Sanctioned Cap</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">payments</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant">
+<span class="font-bold text-primary">₹367.51 Cr</span> disbursed to accounts
+        </div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Avg Fund Utilization</span>
+<div class="font-display-lg text-display-lg text-primary mt-1 leading-none">87.4%</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1 block">Benchmark target: ≥80%</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center gap-2">
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 87.4%;"></div>
+</div>
+<span class="font-label-sm text-label-sm font-bold text-tertiary">+4.2%</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Portfolio Health (NPA)</span>
+<div class="font-display-lg text-display-lg text-primary mt-1 leading-none">3.8%</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1 block">Gross Non-Performing Ratio</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined">health_and_safety</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center gap-1.5 font-label-sm text-label-sm text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span>Prudential Ceiling Limit: 5.0%</span>
+</div>
+</div>
+</div>
+<!-- Institutional Field Visual & Context Strip -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter bg-surface-container-lowest rounded-xl p-space-md shadow-sm items-center">
+<div class="lg:col-span-8 flex flex-col md:flex-row gap-space-md items-start md:items-center">
+<div class="w-full md:w-48 h-28 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Official auditing meeting of government bank managers and MoSJE administrative officers reviewing credit files in a brightly lit institutional conference room in New Delhi with files and laptops" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-IOwpqsnKvaD0oqqilf1QKZ9rVgyXmyDXaTE-FmAtWACRVqdhJ1O2ScabHO2-YPL7DcElt2ZDjNEr6pVkeaN11cANDrH-3xx-vYD4ZWVK31ioWzqR3Dp66nVedBXmbtycHzh4FkUlXD7AACuCNswl-9bE87hJ3Bvqr848rGtBDhmKWAqzk50KYz574hVFxjpL9zZr6C7i5tREtXniG-SJNuusmJauA7HbtpSgD1DkCMqQ2pNVl4wO"/>
+</div>
+<div class="space-y-1">
+<div class="font-title-sm text-title-sm text-primary">Direct Beneficiary Transfer (DBT) Safeguard Protocol Active</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Partners breaching the 5.0% Gross NPA threshold trigger automated routing restrictions on concessional micro-credit products. Desk audits require direct sign-off before fiscal limits can be reassigned.</p>
+<div class="flex flex-wrap gap-2 pt-1 font-label-sm text-label-sm">
+<span class="bg-surface-container text-primary px-2 py-0.5 rounded font-bold">NSFDC Mandate</span>
+<span class="bg-surface-container text-primary px-2 py-0.5 rounded font-bold">NBCFDC Directives</span>
+<span class="bg-surface-container text-primary px-2 py-0.5 rounded font-bold">RBI Priority Sector Norms</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-4 flex flex-col items-start lg:items-end justify-center bg-surface-container-low p-space-sm rounded-lg">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Dynamic Routing Status</span>
+<div class="flex items-center gap-2 mt-1">
+<span class="w-3 h-3 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-title-md text-title-md text-primary font-bold">Algorithmic Load Balancing Live</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-right">Routing 1,240 daily applicants across verified nodes</span>
+</div>
+</div>
+<!-- Table Management Bar: Filters, Search, Batch Control -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-md">
+<div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-md">
+<!-- Search Input -->
+<div class="relative flex-1 max-w-lg">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full h-12 pl-10 pr-4 bg-surface-container-low rounded text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none shadow-sm placeholder:text-on-surface-variant" id="partnerSearch" placeholder="Search by partner name, nodal state, or type..." type="text"/>
+</div>
+<!-- Filter Chips & Actions -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="inline-flex rounded bg-surface-container p-1 text-label-sm font-label-sm">
+<button class="filter-btn active px-3 py-1.5 rounded bg-primary text-on-primary shadow-sm" data-filter="all" type="button">All Types (84)</button>
+<button class="filter-btn px-3 py-1.5 rounded text-on-surface-variant hover:text-on-surface" data-filter="SCA" type="button">SCAs (32)</button>
+<button class="filter-btn px-3 py-1.5 rounded text-on-surface-variant hover:text-on-surface" data-filter="PSB" type="button">PSBs (18)</button>
+<button class="filter-btn px-3 py-1.5 rounded text-on-surface-variant hover:text-on-surface" data-filter="RRB" type="button">RRBs (34)</button>
+</div>
+<button class="h-12 px-space-md rounded bg-surface-container-highest hover:bg-surface-dim text-primary font-label-lg text-label-lg flex items-center gap-2 transition-colors" id="batchUpdateTrigger" type="button">
+<span class="material-symbols-outlined text-lg">rule_settings</span>
+<span>Batch Update Thresholds</span>
+</button>
+</div>
+</div>
+<!-- Partner Directory Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-3 px-4 rounded-l">Partner Name &amp; State</th>
+<th class="py-3 px-4">Partner Type</th>
+<th class="py-3 px-4">Allocated Budget &amp; Util. %</th>
+<th class="py-3 px-4">Gross NPA Ratio (Desk Audit)</th>
+<th class="py-3 px-4">Schemes Handled</th>
+<th class="py-3 px-4">Eligibility Status</th>
+<th class="py-3 px-4 text-center rounded-r">Applicant Routing</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md text-on-surface" id="partnerTableBody">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors partner-row" data-name="upscfdc uttar pradesh" data-type="SCA">
+<td class="py-4 px-4 align-middle">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center font-title-sm text-title-sm text-primary flex-shrink-0">
+                    UP
+                  </div>
+<div class="min-w-0">
+<div class="font-title-sm text-title-sm text-primary truncate">UP Scheduled Castes Finance &amp; Dev Corp (UPSCFDC)</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">location_on</span>
+<span>Uttar Pradesh • SCA-UP-004</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4 align-middle">
+<span class="inline-flex items-center px-2.5 py-1 rounded font-label-sm text-label-sm bg-surface-container-highest text-primary font-bold">
+                  SCA
+                </span>
+</td>
+<td class="py-4 px-4 align-middle">
+<div class="w-48 space-y-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="font-bold text-primary">₹68.40 Cr</span>
+<span class="text-tertiary font-bold">91.2% Utilized</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 91.2%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block text-xs">Cap: ₹75.00 Cr</span>
+</div>
+</td>
+<td class="py-4 px-4 align-middle">
+<div class="flex items-center gap-2">
+<div class="relative w-24">
+<input class="npa-input w-full h-9 px-2 text-right font-title-sm text-title-sm bg-surface-container-low rounded text-on-surface focus:bg-surface-container-lowest focus:outline-none" data-original="2.8" type="text" value="2.8"/>
+<span class="absolute right-2 top-1/2 -translate-y-1/2 text-on-surface-variant font-label-sm text-label-sm">%</span>
+</div>
+<span class="status-indicator text-tertiary material-symbols-outlined text-base" title="Within Permissible Bounds">verified</span>
+</div>
+</td>
+<td class="py-4 px-4 align-middle">
+<div class="flex flex-wrap gap-1 max-w-xs">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container text-on-surface-variant">Term Loan</span>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container text-on-surface-variant">Micro Finance</span>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container text-on-surface-variant">Mahila Samriddhi</span>
+</div>
+</td>
+<td class="py-4 px-4 align-middle">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded font-label-sm text-label-sm bg-surface-container text-tertiary font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                  Active / सक्रिय
+                </span>
+</td>
+<td class="py-4 px-4 align-middle text-center">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer routing-toggle" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-surface-container-lowest after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-surface-container-lowest after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors partner-row" data-name="bank of baroda nationalised bank" data-type="PSB">
+<td class="py-4 px-4 align-middle">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center font-title-sm text-title-sm text-primary flex-shrink-0">
+                    BOB
+                  </div>
+<div class="min-w-0">
+<div class="font-title-sm text-title-sm text-primary truncate">Bank of Baroda (Nationalised Bank)</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">account_balance</span>
+<span>National Central • PSB-BOB-012</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4 align-middle">
+<span class="inline-flex items-center px-2.5 py-1 rounded font-label-sm text-label-sm bg-surface-container-highest text-primary font-bold">
+                  PSB
+                </span>
+</td>
+<td class="py-4 px-4 align-middle">
+<div class="w-48 space-y-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="font-bold text-primary">₹140.80 Cr</span>
+<span class="text-tertiary font-bold">88.0% Utilized</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 88%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block text-xs">Cap: ₹160.00 Cr</span>
+</div>
+</td>
+<td class="py-4 px-4 align-middle">
+<div class="flex items-center gap-2">
+<div class="relative w-24">
+<input class="npa-input w-full h-9 px-2 text-right font-title-sm text-title-sm bg-surface-container-low rounded text-on-surface focus:bg-surface-container-lowest focus:outline-none" data-original="3.4" type="text" value="3.4"/>
+<span class="absolute right-2 top-1/2 -translate-y-1/2 text-on-surface-variant font-label-sm text-label-sm">%</span>
+</div>
+<span class="status-indicator text-tertiary material-symbols-outlined text-base" title="Within Permissible Bounds">verified</span>
+</div>
+</td>
+<td class="py-4 px-4 align-middle">
+<div class="flex flex-wrap gap-1 max-w-xs">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container text-on-surface-variant">Term Loan</span>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container text-on-surface-variant">Education Loan</span>
+</div>
+</td>
+<td class="py-4 px-4 align-middle">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded font-label-sm text-label-sm bg-surface-container text-tertiary font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                  Active / सक्रिय
+                </span>
+</td>
+<td class="py-4 px-4 align-middle text-center">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer routing-toggle" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-surface-container-lowest after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-surface-container-lowest after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors partner-row" data-name="baroda up bank rural regional bank" data-type="RRB">
+<td class="py-4 px-4 align-middle">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center font-title-sm text-title-sm text-primary flex-shrink-0">
+                    BUP
+                  </div>
+<div class="min-w-0">
+<div class="font-title-sm text-title-sm text-primary truncate">Baroda UP Bank (Regional Rural Bank)</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">hub</span>
+<span>Eastern UP • RRB-BUP-031</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4 align-middle">
+<span class="inline-flex items-center px-2.5 py-1 rounded font-label-sm text-label-sm bg-surface-container-highest text-primary font-bold">
+                  RRB
+                </span>
+</td>
+<td class="py-4 px-4 align-middle">
+<div class="w-48 space-y-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="font-bold text-primary">₹25.80 Cr</span>
+<span class="text-secondary font-bold">64.5% Utilized</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-secondary-container h-full rounded-full" style="width: 64.5%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block text-xs">Cap: ₹40.00 Cr</span>
+</div>
+</td>
+<td class="py-4 px-4 align-middle">
+<div class="flex items-center gap-2">
+<div class="relative w-24">
+<input class="npa-input w-full h-9 px-2 text-right font-title-sm text-title-sm bg-error-container text-on-error-container rounded focus:outline-none" data-original="6.9" type="text" value="6.9"/>
+<span class="absolute right-2 top-1/2 -translate-y-1/2 text-on-error-container font-label-sm text-label-sm">%</span>
+</div>
+<span class="status-indicator text-error material-symbols-outlined text-base" title="NPA Breached 5% Cap Limit">warning</span>
+</div>
+</td>
+<td class="py-4 px-4 align-middle">
+<div class="flex flex-wrap gap-1 max-w-xs">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container text-on-surface-variant">Micro Finance</span>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container text-on-surface-variant">Mahila Samriddhi</span>
+</div>
+</td>
+<td class="py-4 px-4 align-middle">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded font-label-sm text-label-sm bg-error-container text-on-error-container font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                  Capacity Capped / सीमित
+                </span>
+</td>
+<td class="py-4 px-4 align-middle text-center">
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer routing-toggle" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-surface-container-lowest after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-surface-container-lowest after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low transition-colors partner-row" data-name="msscdc maharashtra state scheduled castes dev corp" data-type="SCA">
+<td class="py-4 px-4 align-middle">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center font-title-sm text-title-sm text-primary flex-shrink-0">
+                    MH
+                  </div>
+<div class="min-w-0">
+<div class="font-title-sm text-title-sm text-primary truncate">Maharashtra State Scheduled Castes Dev Corp (MSSCDC)</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">location_on</span>
+<span>Maharashtra • SCA-MH-009</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4 align-middle">
+<span class="inline-flex items-center px-2.5 py-1 rounded font-label-sm text-label-sm bg-surface-container-highest text-primary font-bold">
+                  SCA
+                </span>
+</td>
+<td class="py-4 px-4 align-middle">
+<div class="w-48 space-y-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="font-bold text-primary">₹51.75 Cr</span>
+<span class="text-tertiary font-bold">94.1% Utilized</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 94.1%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block text-xs">Cap: ₹55.00 Cr</span>
+</div>
+</td>
+<td class="py-4 px-4 align-middle">
+<div class="flex items-center gap-2">
+<div class="relative w-24">
+<input class="npa-input w-full h-9 px-2 text-right font-title-sm text-title-sm bg-surface-container-low rounded text-on-surface focus:bg-surface-container-lowest focus:outline-none" data-original="2.1" type="text" value="2.1"/>
+<span class="absolute right-2 top-1/2 -translate-y-1/2 text-on-surface-variant font-label-sm text-label-sm">%</span>
+</div>
+<span class="status-indicator text-tertiary material-symbols-outlined text-base" title="Exemplary Asset Quality">verified</span>
+</div>
+</td>
+<td class="py-4 px-4 align-middle">
+<div class="flex flex-wrap gap-1 max-w-xs">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container text-on-surface-variant">Term Loan</span>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container text-on-surface-variant">Mahila Samriddhi</span>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container text-on-surface-variant">Green Business</span>
+</div>
+</td>
+<td class="py-4 px-4 align-middle">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded font-label-sm text-label-sm bg-surface-container text-tertiary font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                  Active / सक्रिय
+                </span>
+</td>
+<td class="py-4 px-4 align-middle text-center">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer routing-toggle" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-surface-container-lowest after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-surface-container-lowest after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination & Desk Footnote -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-sm pt-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<div>
+          Showing <strong>4</strong> of <strong>84</strong> channel institutions | Statutory audit mandated under section 14(1) NSFDC Act
+        </div>
+<div class="inline-flex items-center gap-1 bg-surface-container-low p-1 rounded">
+<button class="w-8 h-8 flex items-center justify-center rounded hover:bg-surface-container text-on-surface-variant disabled:opacity-40" disabled="" type="button">
+<span class="material-symbols-outlined text-base">chevron_left</span>
+</button>
+<span class="px-3 py-1 font-bold text-primary bg-surface-container-lowest rounded">1</span>
+<button class="w-8 h-8 flex items-center justify-center rounded hover:bg-surface-container text-on-surface-variant" type="button">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded hover:bg-surface-container text-on-surface-variant" type="button">3</button>
+<span class="px-1 text-outline">...</span>
+<button class="w-8 h-8 flex items-center justify-center rounded hover:bg-surface-container text-on-surface-variant" type="button">21</button>
+<button class="w-8 h-8 flex items-center justify-center rounded hover:bg-surface-container text-on-surface-variant" type="button">
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Governance Policy Guidelines Container -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm space-y-2">
+<div class="flex items-center gap-2 text-primary font-title-sm text-title-sm">
+<span class="material-symbols-outlined text-secondary">verified_user</span>
+          Automatic Traffic Throttle
+        </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Partners whose reported Gross NPA exceeds 5.0% for two consecutive reporting quarters have automated applicant dispatch withheld until restructuring verification.
+        </p>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm space-y-2">
+<div class="flex items-center gap-2 text-primary font-title-sm text-title-sm">
+<span class="material-symbols-outlined text-secondary">balance</span>
+          PFMS Fund Refill Triggers
+        </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Tranche releases operate on a minimum 75% certified utilization threshold. State agencies can submit unutilized balance reconciliation requests online.
+        </p>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm space-y-2">
+<div class="flex items-center gap-2 text-primary font-title-sm text-title-sm">
+<span class="material-symbols-outlined text-secondary">gavel</span>
+          Statutory Compliance
+        </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          All allocated loans are subject to CAG performance auditing and direct verification with Aadhaar-linked Jan Dhan Bank accounts.
+        </p>
+</div>
+</div>
+</div>
+<!-- Modal: Add New Channel Partner (Initially Hidden) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-inverse-surface/60 backdrop-blur-sm hidden" id="addPartnerModal">
+<div class="bg-surface-container-lowest rounded-xl max-w-2xl w-full p-space-lg shadow-xl m-space-md space-y-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary">Onboard Channel Partner (नया चैनल पार्टनर)</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Issue institutional accreditation under MoSJE Concessional Credit Schemes</p>
+</div>
+<button class="w-8 h-8 rounded-full hover:bg-surface-container flex items-center justify-center text-on-surface-variant" id="closeAddPartnerModal" type="button">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<form class="space-y-space-md" id="newPartnerForm">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Institution Name</label>
+<input class="w-full h-11 px-3 rounded bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none" placeholder="e.g., Punjab Gramin Bank" required="" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Partner Type</label>
+<select class="w-full h-11 px-3 rounded bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none" required="">
+<option value="SCA">State Channelising Agency (SCA)</option>
+<option value="PSB">Public Sector Bank (PSB)</option>
+<option value="RRB">Regional Rural Bank (RRB)</option>
+<option value="NBFC-MFI">NBFC - MFI</option>
+</select>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Operating State / Union Territory</label>
+<select class="w-full h-11 px-3 rounded bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none" required="">
+<option value="UP">Uttar Pradesh</option>
+<option value="MH">Maharashtra</option>
+<option value="TN">Tamil Nadu</option>
+<option value="BR">Bihar</option>
+<option value="RJ">Rajasthan</option>
+<option value="ALL">Pan India (National Bank)</option>
+</select>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Sanctioned Credit Allocation (₹ Crores)</label>
+<div class="flex items-center">
+<span class="h-11 px-3 rounded-l bg-surface-container-high text-primary font-bold flex items-center">₹</span>
+<input class="w-full h-11 px-3 rounded-r bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none" placeholder="25.00" required="" step="0.5" type="number"/>
+</div>
+</div>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Authorized Loan Products</label>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-2 pt-1 font-label-sm text-label-sm">
+<label class="flex items-center gap-2 p-2 bg-surface-container-low rounded cursor-pointer">
+<input checked="" class="rounded text-primary" type="checkbox"/>
+<span>Term Loan Scheme</span>
+</label>
+<label class="flex items-center gap-2 p-2 bg-surface-container-low rounded cursor-pointer">
+<input checked="" class="rounded text-primary" type="checkbox"/>
+<span>Micro Finance Scheme</span>
+</label>
+<label class="flex items-center gap-2 p-2 bg-surface-container-low rounded cursor-pointer">
+<input checked="" class="rounded text-primary" type="checkbox"/>
+<span>Mahila Samriddhi</span>
+</label>
+<label class="flex items-center gap-2 p-2 bg-surface-container-low rounded cursor-pointer">
+<input class="rounded text-primary" type="checkbox"/>
+<span>Green Business</span>
+</label>
+<label class="flex items-center gap-2 p-2 bg-surface-container-low rounded cursor-pointer">
+<input class="rounded text-primary" type="checkbox"/>
+<span>Education Loan</span>
+</label>
+<label class="flex items-center gap-2 p-2 bg-surface-container-low rounded cursor-pointer">
+<input class="rounded text-primary" type="checkbox"/>
+<span>Swachhta Udyami</span>
+</label>
+</div>
+</div>
+<div class="pt-space-sm flex justify-end gap-space-sm">
+<button class="h-11 px-space-md rounded bg-surface-container text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg transition-colors" id="cancelAddPartner" type="button">
+            Cancel
+          </button>
+<button class="h-11 px-space-md rounded bg-secondary text-on-secondary hover:bg-on-secondary-container font-label-lg text-label-lg flex items-center gap-1.5 transition-all shadow-sm" type="submit">
+<span class="material-symbols-outlined text-base">verified</span>
+<span>Issue Accreditation</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+<!-- Notification Toast Container -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none" id="toastNotification">
+<div class="flex items-center gap-3 bg-primary text-on-primary px-4 py-3 rounded-lg shadow-xl font-label-lg text-label-lg">
+<span class="material-symbols-outlined text-tertiary-fixed">check_circle</span>
+<span id="toastMessage">Desk Audit settings synchronized successfully.</span>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    // Interactive Elements Handling
+    const searchInput = document.getElementById('partnerSearch');
+    const tableRows = document.querySelectorAll('.partner-row');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const toast = document.getElementById('toastNotification');
+    const toastMsg = document.getElementById('toastMessage');
+
+    function showToast(message) {
+      if (!toast || !toastMsg) return;
+      toastMsg.textContent = message;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 3500);
+    }
+
+    // Live Search Filter
+    if (searchInput) {
+      searchInput.addEventListener('input', function(e) {
+        const query = e.target.value.toLowerCase().trim();
+        tableRows.forEach(row => {
+          const text = row.getAttribute('data-name') || '';
+          if (text.includes(query)) {
+            row.style.display = '';
+          } else {
+            row.style.display = 'none';
+          }
+        });
+      });
+    }
+
+    // Category Filter Chips
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        filterButtons.forEach(b => {
+          b.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm', 'active');
+          b.classList.add('text-on-surface-variant');
+        });
+        this.classList.add('bg-primary', 'text-on-primary', 'shadow-sm', 'active');
+        this.classList.remove('text-on-surface-variant');
+
+        const filter = this.getAttribute('data-filter');
+        tableRows.forEach(row => {
+          const type = row.getAttribute('data-type');
+          if (filter === 'all' || type === filter) {
+            row.style.display = '';
+          } else {
+            row.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Inline NPA Desk Audit Updates
+    const npaInputs = document.querySelectorAll('.npa-input');
+    npaInputs.forEach(input => {
+      input.addEventListener('change', function() {
+        const val = parseFloat(this.value);
+        const row = this.closest('tr');
+        const icon = row ? row.querySelector('.status-indicator') : null;
+        
+        if (isNaN(val)) {
+          this.value = this.getAttribute('data-original');
+          return;
+        }
+
+        if (val > 5.0) {
+          this.className = "npa-input w-full h-9 px-2 text-right font-title-sm text-title-sm bg-error-container text-on-error-container rounded focus:outline-none";
+          if (icon) {
+            icon.textContent = "warning";
+            icon.className = "status-indicator text-error material-symbols-outlined text-base";
+            icon.title = "NPA Breached 5% Limit";
+          }
+          showToast(`Alert: Institution NPA set to ${val}%. Restrictive traffic ceiling applied.`);
+        } else {
+          this.className = "npa-input w-full h-9 px-2 text-right font-title-sm text-title-sm bg-surface-container-low rounded text-on-surface focus:bg-surface-container-lowest focus:outline-none";
+          if (icon) {
+            icon.textContent = "verified";
+            icon.className = "status-indicator text-tertiary material-symbols-outlined text-base";
+            icon.title = "Within Permissible Bounds";
+          }
+          showToast(`Audit Record Updated: Portfolio NPA registered at ${val}%.`);
+        }
+      });
+    });
+
+    // Routing Allocation Toggles
+    const toggles = document.querySelectorAll('.routing-toggle');
+    toggles.forEach(toggle => {
+      toggle.addEventListener('change', function() {
+        const row = this.closest('tr');
+        const partnerName = row ? row.querySelector('.font-title-sm').textContent : 'Channel Partner';
+        if (this.checked) {
+          showToast(`Applicant routing enabled for ${partnerName}`);
+        } else {
+          showToast(`Traffic routing paused for ${partnerName}`);
+        }
+      });
+    });
+
+    // Modal Operations
+    const modalTrigger = document.getElementById('addPartnerModalTrigger');
+    const modal = document.getElementById('addPartnerModal');
+    const closeModal = document.getElementById('closeAddPartnerModal');
+    const cancelBtn = document.getElementById('cancelAddPartner');
+    const partnerForm = document.getElementById('newPartnerForm');
+
+    function toggleModal(show) {
+      if (!modal) return;
+      if (show) {
+        modal.classList.remove('hidden');
+      } else {
+        modal.classList.add('hidden');
+      }
+    }
+
+    if (modalTrigger) modalTrigger.addEventListener('click', () => toggleModal(true));
+    if (closeModal) closeModal.addEventListener('click', () => toggleModal(false));
+    if (cancelBtn) cancelBtn.addEventListener('click', () => toggleModal(false));
+
+    if (partnerForm) {
+      partnerForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        toggleModal(false);
+        showToast('New Channel Partner successfully accredited in live governance ledger.');
+        partnerForm.reset();
+      });
+    }
+
+    // Export Action
+    const exportBtn = document.getElementById('exportReportBtn');
+    if (exportBtn) {
+      exportBtn.addEventListener('click', function() {
+        showToast('Generating MoSJE Partner Compliance Ledger (CSV & Signed PDF)...');
+      });
+    }
+
+    // Batch Update Action
+    const batchBtn = document.getElementById('batchUpdateTrigger');
+    if (batchBtn) {
+      batchBtn.addEventListener('click', function() {
+        showToast('Batch audit verification requested for all active SCAs.');
+      });
+    }
+  })();
+</script></main><footer class="w-full bg-surface-container-lowest py-space-sm px-gutter-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-wrap items-center justify-between text-on-surface-variant text-label-sm font-label-sm gap-space-md"><div>Official portal of the Ministry of Social Justice &amp; Empowerment • Government of India</div><div class="flex items-center gap-space-md"><span class="inline-flex items-center gap-1 text-tertiary"><span class="material-symbols-outlined text-base">verified_user</span> Certified Data Privacy</span><span>Helpline: 1800-11-7788</span><span>Accessibility / Screen Reader Compliant</span></div></div></footer></div></body></html>

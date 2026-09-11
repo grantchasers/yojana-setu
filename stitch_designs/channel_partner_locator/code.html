@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>YojanaSetu - National Scheme Matching Portal</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'surface-container-highest': '#dae2fd', 'secondary-container': '#fe932c', 'surface-tint': '#396285', 'on-error-container': '#93000a', 'on-primary-container': '#7fa7cd', 'on-tertiary-fixed-variant': '#005323', 'error-container': '#ffdad6', 'on-surface-variant': '#42474e', 'secondary-fixed-dim': '#ffb77d', 'surface-container-lowest': '#ffffff', 'on-secondary-fixed': '#2f1500', 'on-secondary': '#ffffff', 'secondary-fixed': '#ffdcc3', 'surface-container': '#eaedff', 'inverse-surface': '#283044', 'on-primary': '#ffffff', 'on-background': '#131b2e', 'tertiary-container': '#00431b', 'inverse-on-surface': '#eef0ff', 'on-error': '#ffffff', 'on-tertiary': '#ffffff', 'error': '#ba1a1a', 'surface-dim': '#d2d9f4', 'background': '#faf8ff', 'outline': '#72777e', 'primary': '#00263f', 'primary-container': '#0b3c5d', 'primary-fixed-dim': '#a3cbf2', 'inverse-primary': '#a3cbf2', 'on-secondary-container': '#663500', 'tertiary': '#002b0f', 'on-primary-fixed': '#001d32', 'on-primary-fixed-variant': '#1f4a6c', 'on-tertiary-container': '#55b66c', 'secondary': '#904d00', 'tertiary-fixed-dim': '#79db8d', 'on-surface': '#131b2e', 'primary-fixed': '#cee5ff', 'tertiary-fixed': '#95f8a7', 'on-tertiary-fixed': '#00210a', 'surface': '#faf8ff', 'outline-variant': '#c2c7ce', 'surface-container-high': '#e2e7ff', 'surface-variant': '#dae2fd', 'on-secondary-fixed-variant': '#6e3900', 'surface-bright': '#faf8ff', 'surface-container-low': '#f2f3ff' }, borderRadius: { 'DEFAULT': '0.125rem', 'lg': '0.25rem', 'xl': '0.5rem', 'full': '0.75rem' }, spacing: { 'space-lg': '1.5rem', 'gutter-md': '1.5rem', 'margin-lg': '3rem', 'space-xl': '2rem', 'margin-md': '2rem', 'gutter-lg': '2rem', 'margin': '1rem', 'space-xs': '0.25rem', 'gutter': '1rem', 'space-md': '1rem', 'space-sm': '0.5rem' }, fontFamily: { 'title-lg': ['Noto Sans'], 'display-lg-mobile': ['Noto Sans'], 'title-sm': ['Noto Sans'], 'body-sm': ['Noto Sans'], 'headline-lg-mobile': ['Noto Sans'], 'label-sm': ['Noto Sans'], 'headline-sm': ['Noto Sans'], 'body-md': ['Noto Sans'], 'label-md': ['Noto Sans'], 'display-lg': ['Noto Sans'], 'label-lg': ['Noto Sans'], 'title-md': ['Noto Sans'], 'body-lg': ['Noto Sans'], 'headline-lg': ['Noto Sans'], 'headline-md': ['Noto Sans'] }, fontSize: { 'title-lg': ['18px', { lineHeight: '26px', fontWeight: '700' }], 'display-lg-mobile': ['30px', { lineHeight: '40px', letterSpacing: '-0.01em', fontWeight: '700' }], 'title-sm': ['14px', { lineHeight: '22px', fontWeight: '600' }], 'body-sm': ['13px', { lineHeight: '20px', fontWeight: '400' }], 'headline-lg-mobile': ['24px', { lineHeight: '34px', fontWeight: '700' }], 'label-sm': ['11px', { lineHeight: '16px', letterSpacing: '0.03em', fontWeight: '600' }], 'headline-sm': ['18px', { lineHeight: '28px', fontWeight: '600' }], 'body-md': ['14px', { lineHeight: '24px', fontWeight: '400' }], 'label-md': ['12px', { lineHeight: '18px', letterSpacing: '0.02em', fontWeight: '600' }], 'display-lg': ['40px', { lineHeight: '52px', letterSpacing: '-0.02em', fontWeight: '700' }], 'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.01em', fontWeight: '600' }], 'title-md': ['16px', { lineHeight: '24px', fontWeight: '600' }], 'body-lg': ['16px', { lineHeight: '26px', fontWeight: '400' }], 'headline-lg': ['28px', { lineHeight: '38px', fontWeight: '700' }], 'headline-md': ['22px', { lineHeight: '32px', fontWeight: '600' }] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased min-h-screen"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-20 px-gutter-md flex items-center gap-space-sm bg-surface-container-lowest"><img alt="YojanaSetu Official Emblem" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XQ0chKXZN4x3iBM_v57_A4IDJ7GT_m12Tnlui_yZkw7-3ES_3A_C2MHw5PDm-OnBR3SyYwJnnb4Sv213XPHi-04B1K53W1wZ4hf5G4Nhx2o9b9lXVCxaePKFpOORpGz7pZoPcjVJw3kaWdmmJRSO6yRK1pk52a6ZAOJsShIW2uq5oCALIrpv9UENMmETFUiDryYr-ET5MV8Tagx0xv65pupAm76WjKnW2LIcGr0Wnir9wDTvpQR0PLY-M"/><div class="flex flex-col"><span class="font-title-sm text-title-sm text-primary leading-tight tracking-tight">योजनासेतु | YojanaSetu</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-none mt-1">Govt. of India | MoSJE</span></div></div><div class="px-gutter-md py-space-sm bg-primary-container text-on-primary-container flex items-center justify-between"><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-primary">Public Utility Portal</span><span class="inline-flex items-center px-space-xs py-0.5 rounded-lg bg-tertiary text-tertiary-fixed font-label-sm text-label-sm">Live Verified</span></div><nav class="flex flex-col gap-1 p-space-sm overflow-y-auto" data-active-classes="bg-primary-container text-on-primary font-bold shadow-sm"><span class="px-space-sm pt-space-xs pb-1 font-label-sm text-label-sm text-outline uppercase tracking-wider">Beneficiary Services / सेवाएँ</span><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-xl">dashboard</span><span class="font-body-md text-body-md">Dashboard (डैशबोर्ड)</span></a><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="scheme-recommender" href="#"><span class="material-symbols-outlined text-xl">smart_toy</span><span class="font-body-md text-body-md">Scheme Recommender (योजना सिफारिश)</span></a><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="emi-calculator" href="#"><span class="material-symbols-outlined text-xl">calculate</span><span class="font-body-md text-body-md">EMI Calculator (ईएमआई कैलकुलेटर)</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl transition-colors bg-primary-container text-on-primary font-bold shadow-sm" data-path="partner-locator" href="#"><span class="material-symbols-outlined text-xl">storefront</span><span class="font-body-md text-body-md">Partner Locator (साझेदार खोजें)</span></a><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="my-applications" href="#"><span class="material-symbols-outlined text-xl">folder_shared</span><span class="font-body-md text-body-md">My Applications (मेरे आवेदन)</span></a><div class="my-space-xs h-[1px] bg-outline-variant/50"></div><span class="px-space-sm pt-space-xs pb-1 font-label-sm text-label-sm text-outline uppercase tracking-wider">Administration / प्रशासन</span><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="admin-partners" href="#"><span class="material-symbols-outlined text-xl">corporate_fare</span><span class="font-body-md text-body-md">Admin: Partners (साझेदार प्रबंधन)</span></a><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="admin-scheme-master" href="#"><span class="material-symbols-outlined text-xl">tune</span><span class="font-body-md text-body-md">Admin: Scheme Master (योजना मास्टर)</span></a><div class="my-space-xs h-[1px] bg-outline-variant/50"></div><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="help-guidelines" href="#"><span class="material-symbols-outlined text-xl">help</span><span class="font-body-md text-body-md">Help &amp; Guidelines (सहायता)</span></a></nav></div><div class="p-space-sm bg-surface-container m-space-sm rounded-xl"><div class="flex items-center gap-2 text-secondary mb-1"><span class="material-symbols-outlined text-sm">support_agent</span><span class="font-label-sm text-label-sm uppercase font-bold">National Helpdesk</span></div><div class="font-title-sm text-title-sm text-primary">1800-11-7788</div><p class="font-label-sm text-label-sm text-on-surface-variant">Toll Free • 9:30 AM - 6:00 PM</p></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-20 bg-surface-container-lowest/95 backdrop-blur-xl z-40 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 w-full px-gutter-lg flex items-center justify-between"><div class="flex flex-col"><div class="font-title-md text-title-md text-primary tracking-tight font-bold">सामाजिक न्याय और अधिकारिता मंत्रालय</div><div class="font-label-sm text-label-sm text-on-surface-variant">Ministry of Social Justice and Empowerment, Government of India</div></div><div class="flex items-center gap-space-md"><div class="inline-flex items-center bg-surface-container rounded-full p-1 border border-outline-variant/40"><button class="px-3 py-1 text-label-sm font-label-sm rounded-full bg-primary text-on-primary shadow-sm" type="button">English</button><button class="px-3 py-1 text-label-sm font-label-sm rounded-full text-on-surface-variant hover:text-on-surface" type="button">हिंदी</button></div><button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-primary transition-colors" title="Voice Assist / वाक् सहायता" type="button"><span class="material-symbols-outlined text-lg">mic</span><span class="font-label-sm text-label-sm">Voice</span></button><div class="relative"><button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined">notifications</span></button><span class="absolute top-1 right-1 w-4 h-4 bg-error text-on-error rounded-full font-label-sm text-[10px] flex items-center justify-center font-bold">2</span></div><div class="h-8 w-[1px] bg-outline-variant/60"></div><div class="flex items-center gap-space-sm pl-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgw8NYcUh3xzIwD8jjd2eWp7EEJsH-FMUbDQP1tLW5T7ZK1n1hRZONM2rks1o7SPQ_gmZiWlt7lk5sSemjBMZd7LWdPHQHNGuMRlBC1B8Aq-U578C9T--OSFpnCsufjA0vJIPAPV5uMcXQRBVoEJz44aRV7VaLzpYO7sLw7paYDSfaJOVEKlpVSYAlHaly9oTDs1LQ_lHnUPu6JjREbdj3E7zeJbr_PvJEViIdQ_HMV_1Uya4xESBq"/><div class="flex flex-col text-left"><span class="font-title-sm text-title-sm text-on-surface leading-tight">Ramesh Kumar</span><span class="font-label-sm text-label-sm text-secondary leading-none font-bold">Applicant / आवेदक</span></div></div></div></div></header><main class="w-full pt-20 bg-background min-h-[calc(100vh-48px)] px-gutter-lg py-space-lg"><div class="flex flex-col w-full gap-space-lg">
+<div class="flex flex-col gap-space-sm bg-surface-container-lowest p-gutter-md rounded-xl shadow-sm">
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<div>
+<div class="inline-flex items-center gap-2 text-secondary font-label-md text-label-md uppercase tracking-wider">
+<span class="material-symbols-outlined text-base">location_on</span>
+<span>आधिकारिक चैनल पार्टनर खोजक / Official Channel Partner Locator</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">चैनल पार्टनर खोजें (Find Verified Partners)</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Connect directly with accredited Government Channelising Agencies, Public Sector Banks, and Regional Rural Banks handling loan disbursement and subsidy processing.
+        </p>
+</div>
+<div class="flex items-center gap-space-sm bg-surface-container px-space-md py-space-xs rounded-full">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-tertiary uppercase font-bold tracking-wide">14 Verified Desks Active in Your District</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-space-md pt-space-xs">
+<div class="flex-1 min-w-[280px] relative">
+<div class="flex items-stretch bg-surface-container-low rounded-lg overflow-hidden focus-within:bg-surface-container">
+<span class="inline-flex items-center justify-center px-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-xl">search</span>
+</span>
+<input class="w-full bg-transparent py-2.5 font-body-md text-body-md text-on-surface outline-none placeholder:text-on-surface-variant" id="geoSearchInput" placeholder="Search by District, City, or 6-digit PIN..." type="text" value="Lucknow, Uttar Pradesh (PIN: 226001)"/>
+<button class="flex items-center gap-1.5 px-3.5 my-1 mr-1 text-primary font-label-md text-label-md rounded bg-surface-container-highest hover:bg-primary-fixed transition-colors" id="detectLocationBtn" title="Auto-detect via GPS" type="button">
+<span class="material-symbols-outlined text-sm">my_location</span>
+<span>GPS Auto-Detect</span>
+</button>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<label class="relative inline-flex items-center cursor-pointer select-none">
+<input checked="" class="sr-only peer" id="activeCapacityToggle" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+<span class="ml-2 font-label-sm text-label-sm text-on-surface">Show only active counters (सक्रिय काउंटर)</span>
+</label>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 pt-1" id="filterChips">
+<button class="filter-chip px-3 py-1.5 rounded-full font-label-md text-label-md bg-primary text-on-primary transition-all" data-filter="all" type="button">
+        All Partners (14)
+      </button>
+<button class="filter-chip px-3 py-1.5 rounded-full font-label-md text-label-md bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest transition-all" data-filter="sca" type="button">
+        State Channelising Agency (SCA - 2)
+      </button>
+<button class="filter-chip px-3 py-1.5 rounded-full font-label-md text-label-md bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest transition-all" data-filter="psb" type="button">
+        Public Sector Banks (PSB - 8)
+      </button>
+<button class="filter-chip px-3 py-1.5 rounded-full font-label-md text-label-md bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest transition-all" data-filter="rrb" type="button">
+        Regional Rural Banks (RRB - 4)
+      </button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<div class="lg:col-span-5 flex flex-col gap-space-md max-h-[820px] overflow-y-auto pr-1">
+<div class="flex items-center justify-between text-on-surface-variant px-1">
+<span class="font-label-md text-label-md uppercase tracking-wider">Nearby Verified Branches (निकटतम शाखाएँ)</span>
+<span class="font-label-sm text-label-sm">Sorted by Proximity</span>
+</div>
+<div class="partner-card active-card flex flex-col bg-surface-container-lowest p-space-md rounded-xl shadow-md transition-all cursor-pointer" data-category="sca" data-id="partner-1" data-lat="26.8550" data-lng="80.9320">
+<div class="flex items-start justify-between gap-space-sm mb-2">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed uppercase font-bold tracking-wide">
+            SCA (State Agency)
+          </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-tertiary-fixed text-on-tertiary-fixed font-bold">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+            Currently accepting applications (नए आवेदन स्वीकार)
+          </span>
+</div>
+<h2 class="font-title-md text-title-md text-primary font-bold leading-snug">
+          UP Scheduled Castes Finance &amp; Dev Corp (UPSCFDC)
+        </h2>
+<span class="font-label-md text-label-md text-on-surface-variant">District Office Lucknow • Kaiserbagh</span>
+<div class="flex items-center gap-1.5 text-secondary font-label-sm text-label-sm mt-1 mb-3">
+<span class="material-symbols-outlined text-sm">near_me</span>
+<span>2.4 km away • Kaiserbagh Bus Stand Circle, Lucknow</span>
+</div>
+<div class="bg-surface-container-low p-2.5 rounded-lg mb-3 flex flex-col gap-1">
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Supported Central Schemes:</div>
+<div class="flex flex-wrap gap-1 font-body-sm text-body-sm text-primary font-medium">
+<span class="bg-surface-container-highest px-2 py-0.5 rounded">NSFDC Term Loans</span>
+<span class="bg-surface-container-highest px-2 py-0.5 rounded">Micro Finance</span>
+<span class="bg-surface-container-highest px-2 py-0.5 rounded">Swachhta Udyami</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1 mb-4 text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-primary">badge</span>
+<span>Desk: <strong>Mr. Anil Verma</strong> (Nodal Officer, Desk 4)</span>
+</div>
+<span class="text-tertiary font-bold">Tokens Open: 18</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-secondary-container text-on-secondary-fixed font-title-sm text-title-sm font-bold hover:bg-secondary transition-colors" type="button">
+<span class="material-symbols-outlined text-base">assignment_turned_in</span>
+<span>Start Application Here (यहाँ से आवेदन शुरू करें)</span>
+</button>
+<button class="px-3 py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-primary" title="Call Branch Helpline" type="button">
+<span class="material-symbols-outlined text-base">call</span>
+</button>
+</div>
+</div>
+<div class="partner-card flex flex-col bg-surface-container-lowest p-space-md rounded-xl shadow-sm hover:shadow-md transition-all cursor-pointer" data-category="psb" data-id="partner-2" data-lat="26.8480" data-lng="80.9460">
+<div class="flex items-start justify-between gap-space-sm mb-2">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container-highest text-primary font-bold uppercase tracking-wide">
+            PSB (Nationalised Bank)
+          </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-tertiary-fixed text-on-tertiary-fixed font-bold">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+            Currently accepting applications
+          </span>
+</div>
+<h2 class="font-title-md text-title-md text-primary font-bold leading-snug">
+          Bank of Baroda — Hazratganj Lead Bank Office
+        </h2>
+<span class="font-label-md text-label-md text-on-surface-variant">Central Financial Branch • MG Marg</span>
+<div class="flex items-center gap-1.5 text-secondary font-label-sm text-label-sm mt-1 mb-3">
+<span class="material-symbols-outlined text-sm">near_me</span>
+<span>3.8 km away • MG Marg, Hazratganj, Lucknow</span>
+</div>
+<div class="bg-surface-container-low p-2.5 rounded-lg mb-3 flex flex-col gap-1">
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Supported Central Schemes:</div>
+<div class="flex flex-wrap gap-1 font-body-sm text-body-sm text-primary font-medium">
+<span class="bg-surface-container-highest px-2 py-0.5 rounded">NBCFDC Microfinance</span>
+<span class="bg-surface-container-highest px-2 py-0.5 rounded">PM-DAKSH Credit Linkage</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1 mb-4 text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-primary">badge</span>
+<span>Desk: <strong>Smt. Sunita Rao</strong> (Lead Desk Manager)</span>
+</div>
+<span class="text-tertiary font-bold">Tokens Open: 09</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-primary text-on-primary font-title-sm text-title-sm font-bold hover:bg-primary-container transition-colors" type="button">
+<span class="material-symbols-outlined text-base">assignment_turned_in</span>
+<span>Start Application Here (यहाँ से आवेदन शुरू करें)</span>
+</button>
+<button class="px-3 py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-primary" title="Call Branch Helpline" type="button">
+<span class="material-symbols-outlined text-base">call</span>
+</button>
+</div>
+</div>
+<div class="partner-card flex flex-col bg-surface-container-lowest p-space-md rounded-xl shadow-sm hover:shadow-md transition-all cursor-pointer" data-category="rrb" data-id="partner-3" data-lat="26.6870" data-lng="80.9780">
+<div class="flex items-start justify-between gap-space-sm mb-2">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-secondary-fixed text-on-secondary-fixed font-bold uppercase tracking-wide">
+            RRB (ग्रामीण बैंक)
+          </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-secondary-fixed-dim text-on-secondary-container font-bold">
+<span class="material-symbols-outlined text-xs">warning</span>
+            Limited capacity this quarter (सीमित सीटें)
+          </span>
+</div>
+<h2 class="font-title-md text-title-md text-primary font-bold leading-snug">
+          Aryavart Bank (Regional Rural Bank) — Mohanlalganj
+        </h2>
+<span class="font-label-md text-label-md text-on-surface-variant">Rural Development Desk • Raebareli Highway Block</span>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-label-sm text-label-sm mt-1 mb-3">
+<span class="material-symbols-outlined text-sm">near_me</span>
+<span>11.2 km away • Block Head Office Compound</span>
+</div>
+<div class="bg-surface-container-low p-2.5 rounded-lg mb-3 flex flex-col gap-1">
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Priority Schemes Handled:</div>
+<div class="flex flex-wrap gap-1 font-body-sm text-body-sm text-primary font-medium">
+<span class="bg-surface-container-highest px-2 py-0.5 rounded">Rural Artisan Loan</span>
+<span class="bg-surface-container-highest px-2 py-0.5 rounded">Self-Help Group Credit</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1 mb-4 text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-primary">badge</span>
+<span>Desk: <strong>Mr. Rajesh Dixit</strong> (Branch Manager)</span>
+</div>
+<span class="text-secondary font-bold">Waitlist Est: 4 Days</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex-1 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-surface-container-high text-primary font-title-sm text-title-sm font-bold hover:bg-surface-container-highest transition-colors" type="button">
+<span class="material-symbols-outlined text-base">hourglass_top</span>
+<span>Enquire Waitlist (प्रतीक्षा सूची जानकारी)</span>
+</button>
+<button class="px-3 py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-primary" title="Call Branch Helpline" type="button">
+<span class="material-symbols-outlined text-base">call</span>
+</button>
+</div>
+</div>
+<div class="partner-card flex flex-col bg-surface-container-lowest p-space-md rounded-xl shadow-sm hover:shadow-md transition-all cursor-pointer" data-category="psb" data-id="partner-4" data-lat="26.8620" data-lng="80.9950">
+<div class="flex items-start justify-between gap-space-sm mb-2">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container-highest text-primary font-bold uppercase tracking-wide">
+            PSB (Nationalised Bank)
+          </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-tertiary-fixed text-on-tertiary-fixed font-bold">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+            Currently accepting applications
+          </span>
+</div>
+<h2 class="font-title-md text-title-md text-primary font-bold leading-snug">
+          Punjab National Bank — Gomti Nagar Specialized MSME
+        </h2>
+<span class="font-label-md text-label-md text-on-surface-variant">Vibhuti Khand Enterprise Centre</span>
+<div class="flex items-center gap-1.5 text-secondary font-label-sm text-label-sm mt-1 mb-3">
+<span class="material-symbols-outlined text-sm">near_me</span>
+<span>7.1 km away • Vibhuti Khand, Lucknow</span>
+</div>
+<div class="flex items-center justify-between pt-1 mb-3 text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-primary">badge</span>
+<span>Desk: <strong>Ms. Priyanka Taneja</strong> (Credit Lead)</span>
+</div>
+<span class="text-tertiary font-bold">Tokens Open: 14</span>
+</div>
+<button class="w-full flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-primary text-on-primary font-title-sm text-title-sm font-bold hover:bg-primary-container transition-colors" type="button">
+<span class="material-symbols-outlined text-base">assignment_turned_in</span>
+<span>Start Application Here (यहाँ से आवेदन शुरू करें)</span>
+</button>
+</div>
+</div>
+<div class="lg:col-span-7 flex flex-col gap-space-sm sticky top-24">
+<div class="relative w-full h-[620px] rounded-xl overflow-hidden shadow-lg bg-surface-container-high">
+<div class="w-full h-full bg-cover bg-center" data-location="Lucknow, Uttar Pradesh, India" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAeTQ4xgmmryvXMJs6JC_595nNQrm455dYIn9J_EQnFy49UhgrJ8eqliPaj_FpzDwzq2svt7bxYpIjet9-IX4QyvqfJcSnyRCJ8vLMTIIhEyMi6aTWPNtEtqpnN-PfJ4YVq5xBj0O-G4c1Lv6UJ6uPiqpaajYr6uwXo00THqx5WIs4naxrz9ba4mqnMl_awk45PyObal_LnP9CttfnvT64d8rOA8G9psE70qnAdlVSNzGq1mqLu41Ky')">
+<div class="absolute inset-0 bg-primary/10 backdrop-contrast-125"></div>
+</div>
+<div class="absolute top-4 left-4 z-20 flex flex-col gap-1.5 bg-surface-container-lowest/95 backdrop-blur-md p-3 rounded-xl shadow-md font-label-sm text-label-sm">
+<span class="font-bold text-primary uppercase tracking-wide">Marker Classification (संकेत चिह्न):</span>
+<div class="flex items-center gap-2">
+<span class="w-3.5 h-3.5 rounded-full bg-[#0b3c5d] flex items-center justify-center text-[10px] text-white font-bold">S</span>
+<span class="text-on-surface">State Channelising Agency (SCA)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3.5 h-3.5 rounded-full bg-[#005323] flex items-center justify-center text-[10px] text-white font-bold">P</span>
+<span class="text-on-surface">Public Sector Banks (PSB)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3.5 h-3.5 rounded-full bg-[#fe932c] flex items-center justify-center text-[10px] text-white font-bold">R</span>
+<span class="text-on-surface">Regional Rural Banks (RRB)</span>
+</div>
+</div>
+<div class="absolute top-4 right-4 z-20 flex flex-col gap-1 bg-surface-container-lowest/95 backdrop-blur-md rounded-lg p-1 shadow-md">
+<button class="w-8 h-8 flex items-center justify-center rounded hover:bg-surface-container text-primary font-bold" type="button">+</button>
+<div class="h-[1px] bg-outline-variant/40 mx-1"></div>
+<button class="w-8 h-8 flex items-center justify-center rounded hover:bg-surface-container text-primary font-bold" type="button">-</button>
+</div>
+<div class="absolute top-[38%] left-[44%] -translate-x-1/2 -translate-y-1/2 z-20 cursor-pointer group" id="pin-1">
+<div class="relative flex flex-col items-center">
+<div class="w-9 h-9 rounded-full bg-secondary-container shadow-xl flex items-center justify-center text-on-secondary-container font-bold border-2 border-white animate-bounce">
+<span class="material-symbols-outlined text-xl">star</span>
+</div>
+<div class="w-3 h-3 bg-secondary-container rotate-45 -mt-1 shadow-sm"></div>
+<span class="mt-1 px-2 py-0.5 rounded bg-primary text-white font-label-sm text-[11px] font-bold shadow whitespace-nowrap">UPSCFDC Lucknow</span>
+</div>
+</div>
+<div class="absolute top-[48%] left-[54%] -translate-x-1/2 -translate-y-1/2 z-10 cursor-pointer" id="pin-2">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-primary-container shadow-md flex items-center justify-center text-white font-bold border border-white">
+<span class="material-symbols-outlined text-sm">account_balance</span>
+</div>
+<div class="w-2.5 h-2.5 bg-primary-container rotate-45 -mt-1"></div>
+</div>
+</div>
+<div class="absolute top-[68%] left-[64%] -translate-x-1/2 -translate-y-1/2 z-10 cursor-pointer" id="pin-3">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-[#904d00] shadow-md flex items-center justify-center text-white font-bold border border-white">
+<span class="material-symbols-outlined text-sm">nature_people</span>
+</div>
+<div class="w-2.5 h-2.5 bg-[#904d00] rotate-45 -mt-1"></div>
+</div>
+</div>
+<div class="absolute top-[32%] left-[68%] -translate-x-1/2 -translate-y-1/2 z-10 cursor-pointer" id="pin-4">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-primary-container shadow-md flex items-center justify-center text-white font-bold border border-white">
+<span class="material-symbols-outlined text-sm">account_balance</span>
+</div>
+<div class="w-2.5 h-2.5 bg-primary-container rotate-45 -mt-1"></div>
+</div>
+</div>
+<div class="absolute bottom-4 left-4 right-4 z-20 bg-surface-container-lowest/98 backdrop-blur-md p-space-md rounded-xl shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+<div class="flex items-start gap-3">
+<div class="w-12 h-12 rounded-lg bg-primary-fixed flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-2xl">account_balance</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-title-sm text-title-sm text-primary font-bold">UPSCFDC District Office</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-bold">Accepting Now</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Civil Lines Complex, Kaiserbagh, Lucknow - 226001</p>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1 mt-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-secondary">schedule</span> Working Hours: 10:00 AM - 4:00 PM</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-secondary">call</span> Physical Helpline: 0522-2618991</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2 w-full md:w-auto">
+<button class="flex-1 md:flex-none px-4 py-2.5 rounded-lg bg-secondary-container text-on-secondary-fixed font-title-sm text-title-sm font-bold hover:bg-secondary transition-colors whitespace-nowrap" type="button">
+              Select Branch
+            </button>
+<button class="p-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary" title="Get Directions" type="button">
+<span class="material-symbols-outlined text-lg">directions</span>
+</button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm">
+<div class="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-2xl">assured_workload</span>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-primary">Direct Verification</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Paperless biometric checks</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-2xl">verified_user</span>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-primary">No Intermediaries</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Direct credit guarantee desk</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded-lg shadow-sm flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-2xl">contact_support</span>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-primary">Helpdesk Assist</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Dedicated Nodal Desk Officer</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    const chips = document.querySelectorAll('.filter-chip');
+    const partnerCards = document.querySelectorAll('.partner-card');
+    const activeToggle = document.getElementById('activeCapacityToggle');
+    const searchInput = document.getElementById('geoSearchInput');
+    const detectBtn = document.getElementById('detectLocationBtn');
+
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chips.forEach(c => {
+          c.classList.remove('bg-primary', 'text-on-primary');
+          c.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+        });
+        chip.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+        chip.classList.add('bg-primary', 'text-on-primary');
+
+        const filter = chip.getAttribute('data-filter');
+        partnerCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || filter === category) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    if (activeToggle) {
+      activeToggle.addEventListener('change', (e) => {
+        const onlyActive = e.target.checked;
+        partnerCards.forEach(card => {
+          const isLimited = card.querySelector('.bg-secondary-fixed-dim');
+          if (onlyActive && isLimited) {
+            card.style.display = 'none';
+          } else {
+            card.style.display = 'flex';
+          }
+        });
+      });
+    }
+
+    if (detectBtn) {
+      detectBtn.addEventListener('click', () => {
+        detectBtn.innerHTML = '<span class="material-symbols-outlined text-sm animate-spin">refresh</span><span>Locating...</span>';
+        setTimeout(() => {
+          if (searchInput) searchInput.value = 'Lucknow Urban Central (PIN: 226001)';
+          detectBtn.innerHTML = '<span class="material-symbols-outlined text-sm">check</span><span>Located</span>';
+          setTimeout(() => {
+            detectBtn.innerHTML = '<span class="material-symbols-outlined text-sm">my_location</span><span>GPS Auto-Detect</span>';
+          }, 1800);
+        }, 600);
+      });
+    }
+
+    partnerCards.forEach(card => {
+      card.addEventListener('click', () => {
+        partnerCards.forEach(c => c.classList.remove('shadow-md', 'bg-surface-container-lowest/90'));
+        card.classList.add('shadow-md');
+      });
+    });
+  })();
+</script></main><footer class="w-full bg-surface-container-lowest py-space-sm px-gutter-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-wrap items-center justify-between text-on-surface-variant text-label-sm font-label-sm gap-space-md"><div>Official portal of the Ministry of Social Justice &amp; Empowerment • Government of India</div><div class="flex items-center gap-space-md"><span class="inline-flex items-center gap-1 text-tertiary"><span class="material-symbols-outlined text-base">verified_user</span> Certified Data Privacy</span><span>Helpline: 1800-11-7788</span><span>Accessibility / Screen Reader Compliant</span></div></div></footer></div></body></html>

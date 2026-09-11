@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>YojanaSetu - National Scheme Matching Portal</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'surface-container-highest': '#dae2fd', 'secondary-container': '#fe932c', 'surface-tint': '#396285', 'on-error-container': '#93000a', 'on-primary-container': '#7fa7cd', 'on-tertiary-fixed-variant': '#005323', 'error-container': '#ffdad6', 'on-surface-variant': '#42474e', 'secondary-fixed-dim': '#ffb77d', 'surface-container-lowest': '#ffffff', 'on-secondary-fixed': '#2f1500', 'on-secondary': '#ffffff', 'secondary-fixed': '#ffdcc3', 'surface-container': '#eaedff', 'inverse-surface': '#283044', 'on-primary': '#ffffff', 'on-background': '#131b2e', 'tertiary-container': '#00431b', 'inverse-on-surface': '#eef0ff', 'on-error': '#ffffff', 'on-tertiary': '#ffffff', 'error': '#ba1a1a', 'surface-dim': '#d2d9f4', 'background': '#faf8ff', 'outline': '#72777e', 'primary': '#00263f', 'primary-container': '#0b3c5d', 'primary-fixed-dim': '#a3cbf2', 'inverse-primary': '#a3cbf2', 'on-secondary-container': '#663500', 'tertiary': '#002b0f', 'on-primary-fixed': '#001d32', 'on-primary-fixed-variant': '#1f4a6c', 'on-tertiary-container': '#55b66c', 'secondary': '#904d00', 'tertiary-fixed-dim': '#79db8d', 'on-surface': '#131b2e', 'primary-fixed': '#cee5ff', 'tertiary-fixed': '#95f8a7', 'on-tertiary-fixed': '#00210a', 'surface': '#faf8ff', 'outline-variant': '#c2c7ce', 'surface-container-high': '#e2e7ff', 'surface-variant': '#dae2fd', 'on-secondary-fixed-variant': '#6e3900', 'surface-bright': '#faf8ff', 'surface-container-low': '#f2f3ff' }, borderRadius: { 'DEFAULT': '0.125rem', 'lg': '0.25rem', 'xl': '0.5rem', 'full': '0.75rem' }, spacing: { 'space-lg': '1.5rem', 'gutter-md': '1.5rem', 'margin-lg': '3rem', 'space-xl': '2rem', 'margin-md': '2rem', 'gutter-lg': '2rem', 'margin': '1rem', 'space-xs': '0.25rem', 'gutter': '1rem', 'space-md': '1rem', 'space-sm': '0.5rem' }, fontFamily: { 'title-lg': ['Noto Sans'], 'display-lg-mobile': ['Noto Sans'], 'title-sm': ['Noto Sans'], 'body-sm': ['Noto Sans'], 'headline-lg-mobile': ['Noto Sans'], 'label-sm': ['Noto Sans'], 'headline-sm': ['Noto Sans'], 'body-md': ['Noto Sans'], 'label-md': ['Noto Sans'], 'display-lg': ['Noto Sans'], 'label-lg': ['Noto Sans'], 'title-md': ['Noto Sans'], 'body-lg': ['Noto Sans'], 'headline-lg': ['Noto Sans'], 'headline-md': ['Noto Sans'] }, fontSize: { 'title-lg': ['18px', { lineHeight: '26px', fontWeight: '700' }], 'display-lg-mobile': ['30px', { lineHeight: '40px', letterSpacing: '-0.01em', fontWeight: '700' }], 'title-sm': ['14px', { lineHeight: '22px', fontWeight: '600' }], 'body-sm': ['13px', { lineHeight: '20px', fontWeight: '400' }], 'headline-lg-mobile': ['24px', { lineHeight: '34px', fontWeight: '700' }], 'label-sm': ['11px', { lineHeight: '16px', letterSpacing: '0.03em', fontWeight: '600' }], 'headline-sm': ['18px', { lineHeight: '28px', fontWeight: '600' }], 'body-md': ['14px', { lineHeight: '24px', fontWeight: '400' }], 'label-md': ['12px', { lineHeight: '18px', letterSpacing: '0.02em', fontWeight: '600' }], 'display-lg': ['40px', { lineHeight: '52px', letterSpacing: '-0.02em', fontWeight: '700' }], 'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.01em', fontWeight: '600' }], 'title-md': ['16px', { lineHeight: '24px', fontWeight: '600' }], 'body-lg': ['16px', { lineHeight: '26px', fontWeight: '400' }], 'headline-lg': ['28px', { lineHeight: '38px', fontWeight: '700' }], 'headline-md': ['22px', { lineHeight: '32px', fontWeight: '600' }] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased min-h-screen"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-20 px-gutter-md flex items-center gap-space-sm bg-surface-container-lowest"><img alt="YojanaSetu Official Emblem" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XQ0chKXZN4x3iBM_v57_A4IDJ7GT_m12Tnlui_yZkw7-3ES_3A_C2MHw5PDm-OnBR3SyYwJnnb4Sv213XPHi-04B1K53W1wZ4hf5G4Nhx2o9b9lXVCxaePKFpOORpGz7pZoPcjVJw3kaWdmmJRSO6yRK1pk52a6ZAOJsShIW2uq5oCALIrpv9UENMmETFUiDryYr-ET5MV8Tagx0xv65pupAm76WjKnW2LIcGr0Wnir9wDTvpQR0PLY-M"/><div class="flex flex-col"><span class="font-title-sm text-title-sm text-primary leading-tight tracking-tight">योजनासेतु | YojanaSetu</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-none mt-1">Govt. of India | MoSJE</span></div></div><div class="px-gutter-md py-space-sm bg-primary-container text-on-primary-container flex items-center justify-between"><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-primary">Public Utility Portal</span><span class="inline-flex items-center px-space-xs py-0.5 rounded-lg bg-tertiary text-tertiary-fixed font-label-sm text-label-sm">Live Verified</span></div><nav class="flex flex-col gap-1 p-space-sm overflow-y-auto" data-active-classes="bg-primary-container text-on-primary font-bold shadow-sm"><span class="px-space-sm pt-space-xs pb-1 font-label-sm text-label-sm text-outline uppercase tracking-wider">Beneficiary Services / सेवाएँ</span><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-xl">dashboard</span><span class="font-body-md text-body-md">Dashboard (डैशबोर्ड)</span></a><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="scheme-recommender" href="#"><span class="material-symbols-outlined text-xl">smart_toy</span><span class="font-body-md text-body-md">Scheme Recommender (योजना सिफारिश)</span></a><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="emi-calculator" href="#"><span class="material-symbols-outlined text-xl">calculate</span><span class="font-body-md text-body-md">EMI Calculator (ईएमआई कैलकुलेटर)</span></a><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="partner-locator" href="#"><span class="material-symbols-outlined text-xl">storefront</span><span class="font-body-md text-body-md">Partner Locator (साझेदार खोजें)</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl transition-colors bg-primary-container text-on-primary font-bold shadow-sm" data-path="my-applications" href="#"><span class="material-symbols-outlined text-xl">folder_shared</span><span class="font-body-md text-body-md">My Applications (मेरे आवेदन)</span></a><div class="my-space-xs h-[1px] bg-outline-variant/50"></div><span class="px-space-sm pt-space-xs pb-1 font-label-sm text-label-sm text-outline uppercase tracking-wider">Administration / प्रशासन</span><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="admin-partners" href="#"><span class="material-symbols-outlined text-xl">corporate_fare</span><span class="font-body-md text-body-md">Admin: Partners (साझेदार प्रबंधन)</span></a><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="admin-scheme-master" href="#"><span class="material-symbols-outlined text-xl">tune</span><span class="font-body-md text-body-md">Admin: Scheme Master (योजना मास्टर)</span></a><div class="my-space-xs h-[1px] bg-outline-variant/50"></div><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="help-guidelines" href="#"><span class="material-symbols-outlined text-xl">help</span><span class="font-body-md text-body-md">Help &amp; Guidelines (सहायता)</span></a></nav></div><div class="p-space-sm bg-surface-container m-space-sm rounded-xl"><div class="flex items-center gap-2 text-secondary mb-1"><span class="material-symbols-outlined text-sm">support_agent</span><span class="font-label-sm text-label-sm uppercase font-bold">National Helpdesk</span></div><div class="font-title-sm text-title-sm text-primary">1800-11-7788</div><p class="font-label-sm text-label-sm text-on-surface-variant">Toll Free • 9:30 AM - 6:00 PM</p></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-20 bg-surface-container-lowest/95 backdrop-blur-xl z-40 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 w-full px-gutter-lg flex items-center justify-between"><div class="flex flex-col"><div class="font-title-md text-title-md text-primary tracking-tight font-bold">सामाजिक न्याय और अधिकारिता मंत्रालय</div><div class="font-label-sm text-label-sm text-on-surface-variant">Ministry of Social Justice and Empowerment, Government of India</div></div><div class="flex items-center gap-space-md"><div class="inline-flex items-center bg-surface-container rounded-full p-1 border border-outline-variant/40"><button class="px-3 py-1 text-label-sm font-label-sm rounded-full bg-primary text-on-primary shadow-sm" type="button">English</button><button class="px-3 py-1 text-label-sm font-label-sm rounded-full text-on-surface-variant hover:text-on-surface" type="button">हिंदी</button></div><button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-primary transition-colors" title="Voice Assist / वाक् सहायता" type="button"><span class="material-symbols-outlined text-lg">mic</span><span class="font-label-sm text-label-sm">Voice</span></button><div class="relative"><button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined">notifications</span></button><span class="absolute top-1 right-1 w-4 h-4 bg-error text-on-error rounded-full font-label-sm text-[10px] flex items-center justify-center font-bold">2</span></div><div class="h-8 w-[1px] bg-outline-variant/60"></div><div class="flex items-center gap-space-sm pl-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgw8NYcUh3xzIwD8jjd2eWp7EEJsH-FMUbDQP1tLW5T7ZK1n1hRZONM2rks1o7SPQ_gmZiWlt7lk5sSemjBMZd7LWdPHQHNGuMRlBC1B8Aq-U578C9T--OSFpnCsufjA0vJIPAPV5uMcXQRBVoEJz44aRV7VaLzpYO7sLw7paYDSfaJOVEKlpVSYAlHaly9oTDs1LQ_lHnUPu6JjREbdj3E7zeJbr_PvJEViIdQ_HMV_1Uya4xESBq"/><div class="flex flex-col text-left"><span class="font-title-sm text-title-sm text-on-surface leading-tight">Ramesh Kumar</span><span class="font-label-sm text-label-sm text-secondary leading-none font-bold">Applicant / आवेदक</span></div></div></div></div></header><main class="w-full pt-20 bg-background min-h-[calc(100vh-48px)] px-gutter-lg py-space-lg"><div class="flex flex-col w-full gap-space-lg">
+<!-- Notice Banner: Citizen Assurance -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-high p-space-md shadow-sm">
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-primary-container text-on-primary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-2xl">verified_user</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md text-primary">Direct Transparency Track • प्रत्यक्ष पारदर्शिता प्रणाली</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-secondary font-label-sm text-label-sm shadow-xs font-semibold">MoSJE SLA Guard</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+            Applications are time-bound by the Public Services Guarantee Act. Nodal officers are directly accountable for verification timelines.
+          </p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm self-stretch md:self-auto justify-end">
+<div class="px-space-sm py-1.5 rounded-lg bg-surface-container-lowest text-on-surface text-center shadow-xs">
+<span class="font-label-sm text-label-sm text-outline uppercase block">Average Processing</span>
+<span class="font-title-sm text-title-sm text-primary font-bold">11 Working Days</span>
+</div>
+<div class="px-space-sm py-1.5 rounded-lg bg-surface-container-lowest text-on-surface text-center shadow-xs">
+<span class="font-label-sm text-label-sm text-outline uppercase block">Direct DBT Guarantee</span>
+<span class="font-title-sm text-title-sm text-tertiary-container font-bold">Zero Intermediary</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Header & Filter Bar -->
+<div class="flex flex-col md:flex-row items-start md:items-end justify-between gap-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">Applicant Dashboard / नागरिक ट्रैकर</span>
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+<span class="font-label-sm text-label-sm text-outline">Aadhaar Linked: XXXXXXXX4910</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-primary tracking-tight mt-1">
+        My Scheme Applications <span class="font-headline-md text-headline-md text-on-surface-variant font-normal">/ मेरे प्रस्तुत आवेदन</span>
+</h1>
+</div>
+<!-- Active Filters -->
+<div class="flex items-center gap-1.5 p-1 rounded-xl bg-surface-container-high self-stretch md:self-auto overflow-x-auto shadow-xs" id="filter-container">
+<button class="filter-btn active px-4 py-2 rounded-lg font-label-md text-label-md transition-all flex items-center gap-1.5 bg-primary text-on-primary shadow-sm" data-filter="all" onclick="filterApplications('all')" type="button">
+<span>All Applications</span>
+<span class="px-1.5 py-0.5 rounded-full bg-on-primary/20 text-on-primary text-[10px] font-bold">2</span>
+</button>
+<button class="filter-btn px-4 py-2 rounded-lg font-label-md text-label-md transition-all flex items-center gap-1.5 text-on-surface-variant hover:bg-surface-container-highest" data-filter="in-progress" onclick="filterApplications('in-progress')" type="button">
+<span>In Progress (प्रगति पर)</span>
+<span class="px-1.5 py-0.5 rounded-full bg-secondary-container/20 text-secondary text-[10px] font-bold">1</span>
+</button>
+<button class="filter-btn px-4 py-2 rounded-lg font-label-md text-label-md transition-all flex items-center gap-1.5 text-on-surface-variant hover:bg-surface-container-highest" data-filter="completed" onclick="filterApplications('completed')" type="button">
+<span>Sanctioned / Completed (स्वीकृत)</span>
+<span class="px-1.5 py-0.5 rounded-full bg-tertiary/10 text-tertiary text-[10px] font-bold">1</span>
+</button>
+</div>
+</div>
+<!-- Primary Active Application Card -->
+<section class="app-card flex flex-col rounded-xl bg-surface-container-lowest shadow-md overflow-hidden" data-status="in-progress">
+<!-- Card Top Identity Bar -->
+<div class="p-space-lg bg-gradient-to-r from-surface-container-low via-surface-container-lowest to-surface-container-low flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md min-w-0">
+<div class="w-14 h-14 rounded-xl bg-primary-container text-on-primary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-3xl">store</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2.5 py-0.5 rounded bg-primary text-on-primary font-label-sm text-label-sm font-bold tracking-wide">
+              #YS-2025-SC-88219
+            </span>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-primary font-label-sm text-label-sm font-semibold">
+              NSFDC Central Scheme
+            </span>
+<span class="px-2 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">bolt</span> Fast Track Pipeline
+            </span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary mt-1.5 font-bold truncate">
+            NSFDC Term Loan Scheme - Micro Enterprise
+          </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            राष्ट्रीय अनुसूचित जाति वित्त एवं विकास निगम सावधि ऋण योजना (सूक्ष्म उद्यम विस्तार)
+          </p>
+</div>
+</div>
+<!-- Live Status Pill & Target -->
+<div class="flex flex-row lg:flex-col items-start lg:items-end justify-between gap-space-xs shrink-0 pt-2 lg:pt-0">
+<div class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-primary-container text-on-primary shadow-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-fixed-dim animate-pulse"></span>
+<span class="font-label-md text-label-md font-bold tracking-wide">Under Review / समीक्षा जारी है</span>
+</div>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-label-sm text-label-sm text-outline">Sanction Sought:</span>
+<span class="font-title-lg text-title-lg text-primary font-bold">₹1,35,000</span>
+</div>
+</div>
+</div>
+<!-- Metadata & Officer Accountability Block -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-surface-container">
+<!-- Submission Context -->
+<div class="bg-surface-container-lowest p-space-md flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">calendar_today</span> Submission Audit
+        </span>
+<div class="mt-2">
+<div class="font-title-sm text-title-sm text-on-surface font-semibold">12 February 2025</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Digital portal submission via CSC Kiosk #UP-LKO-401</div>
+</div>
+<div class="mt-3 inline-flex items-center gap-1 text-tertiary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm">check_circle</span> Aadhaar eKYC Verified
+        </div>
+</div>
+<!-- Channel Partner -->
+<div class="bg-surface-container-lowest p-space-md flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">corporate_fare</span> Designated Partner Agency
+        </span>
+<div class="mt-2">
+<div class="font-title-sm text-title-sm text-on-surface font-semibold">UP Scheduled Castes Finance &amp; Dev Corp</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Lucknow District Office • Vikas Bhawan, 2nd Floor</div>
+</div>
+<div class="mt-3 inline-flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm">tag</span> File No: LKO/SC-TL/2025/084
+        </div>
+</div>
+<!-- Accountable Nodal Officer -->
+<div class="bg-surface-container-lowest p-space-md flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">badge</span> Assigned Nodal Officer
+          </span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-primary font-label-sm text-label-sm font-semibold">Field Inspector</span>
+</div>
+<div class="mt-2 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary font-bold font-title-sm">
+            AV
+          </div>
+<div class="flex flex-col">
+<div class="font-title-sm text-title-sm text-on-surface font-semibold">Mr. Anil Verma</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">District Welfare Inspector</div>
+</div>
+</div>
+<div class="mt-3 flex items-center justify-between font-label-sm text-label-sm pt-2 bg-surface-container-low/50 px-2 rounded">
+<span class="text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">call</span> Official Line: 0522-261XXXX
+          </span>
+<span class="text-secondary font-semibold">MoSJE Audited</span>
+</div>
+</div>
+</div>
+<!-- Interactive Detailed Progress Timeline Track -->
+<div class="p-space-lg bg-surface-container-lowest flex flex-col gap-space-md">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">timeline</span>
+<span class="font-title-md text-title-md text-primary font-bold">Application Lifecycle Milestone Track</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Expected Committee Decision: <strong class="text-on-surface">24 Feb 2025</strong> (3 days remaining)</span>
+</div>
+</div>
+<!-- Desktop Horizontal Stepper Track -->
+<div class="relative py-space-sm hidden md:block">
+<!-- Connecting Line Background -->
+<div class="absolute top-8 left-10 right-10 h-1 bg-surface-container-high -translate-y-1/2 z-0"></div>
+<!-- Progress Active Line -->
+<div class="absolute top-8 left-10 w-[45%] h-1 bg-tertiary -translate-y-1/2 z-0 transition-all duration-700"></div>
+<div class="grid grid-cols-5 gap-2 relative z-10">
+<!-- Step 1: Completed -->
+<div class="flex flex-col items-center text-center">
+<div class="w-10 h-10 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-lg">check</span>
+</div>
+<span class="font-title-sm text-title-sm text-on-surface font-semibold mt-2.5">1. Submitted</span>
+<span class="font-label-sm text-label-sm text-tertiary font-medium">12 Feb 2025</span>
+<span class="font-body-sm text-[11px] leading-tight text-on-surface-variant mt-0.5">Portal Registration</span>
+</div>
+<!-- Step 2: Completed -->
+<div class="flex flex-col items-center text-center">
+<div class="w-10 h-10 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-lg">check</span>
+</div>
+<span class="font-title-sm text-title-sm text-on-surface font-semibold mt-2.5">2. Routed to Partner</span>
+<span class="font-label-sm text-label-sm text-tertiary font-medium">14 Feb 2025</span>
+<span class="font-body-sm text-[11px] leading-tight text-on-surface-variant mt-0.5">Assigned to UP SC F&amp;D</span>
+</div>
+<!-- Step 3: Active In-Progress -->
+<div class="flex flex-col items-center text-center">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary flex items-center justify-center shadow-md animate-bounce">
+<span class="material-symbols-outlined text-lg">fact_check</span>
+</div>
+<span class="font-title-sm text-title-sm text-secondary font-bold mt-2.5">3. Verification Check</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">Active • In Progress</span>
+<span class="font-body-sm text-[11px] leading-tight text-on-surface mt-0.5">Field Inspection Done</span>
+</div>
+<!-- Step 4: Pending Next -->
+<div class="flex flex-col items-center text-center opacity-70">
+<div class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center">
+<span class="font-title-sm text-title-sm font-bold">4</span>
+</div>
+<span class="font-title-sm text-title-sm text-on-surface-variant font-semibold mt-2.5">4. Credit Sanction</span>
+<span class="font-label-sm text-label-sm text-outline">Target: 24 Feb 2025</span>
+<span class="font-body-sm text-[11px] leading-tight text-on-surface-variant mt-0.5">State Committee Review</span>
+</div>
+<!-- Step 5: Final Pending -->
+<div class="flex flex-col items-center text-center opacity-70">
+<div class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">payments</span>
+</div>
+<span class="font-title-sm text-title-sm text-on-surface-variant font-semibold mt-2.5">5. DBT Disbursement</span>
+<span class="font-label-sm text-label-sm text-outline">Final Stage</span>
+<span class="font-body-sm text-[11px] leading-tight text-on-surface-variant mt-0.5">Direct to Bank A/c</span>
+</div>
+</div>
+</div>
+<!-- Mobile Vertical Stepper View -->
+<div class="flex flex-col gap-space-sm md:hidden py-space-xs">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<div>
+<div class="font-title-sm text-title-sm text-on-surface font-semibold">1. Submitted (12 Feb 2025)</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Validated via e-Sign and Aadhaar.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<div>
+<div class="font-title-sm text-title-sm text-on-surface font-semibold">2. Routed to Partner (14 Feb 2025)</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Transferred to Lucknow Field Bureau.</p>
+</div>
+</div>
+<div class="flex items-start gap-3 bg-secondary-container/10 p-2 rounded-lg">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-sm">fact_check</span>
+</div>
+<div>
+<div class="font-title-sm text-title-sm text-secondary font-bold">3. Verification &amp; Field Check (Active)</div>
+<p class="font-body-sm text-body-sm text-on-surface">Physical field visit accomplished. Record in transmission.</p>
+</div>
+</div>
+<div class="flex items-start gap-3 opacity-60">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center shrink-0 font-bold font-label-md">
+            4
+          </div>
+<div>
+<div class="font-title-sm text-title-sm text-on-surface-variant font-semibold">4. Credit Sanction Committee</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Expected by 24 Feb 2025.</p>
+</div>
+</div>
+<div class="flex items-start gap-3 opacity-60">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-sm">payments</span>
+</div>
+<div>
+<div class="font-title-sm text-title-sm text-on-surface-variant font-semibold">5. DBT Disbursement</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Direct credit to Bank of Baroda account.</p>
+</div>
+</div>
+</div>
+<!-- Verified Nodal Officer Note Callout -->
+<div class="rounded-lg bg-surface-container-high/60 p-space-md flex items-start gap-space-sm">
+<div class="p-2 rounded-lg bg-primary text-on-primary shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-base">sticky_note_2</span>
+</div>
+<div class="flex flex-col flex-1">
+<div class="flex items-center justify-between flex-wrap gap-1">
+<span class="font-label-sm text-label-sm font-bold text-primary uppercase tracking-wider">
+              Official Log Note / अधिकारी टिप्पणी
+            </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Recorded: 15 Feb 2025, 16:42 IST</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mt-1 leading-relaxed">
+            “Physical field verification completed at workshop premises on 15 Feb. Asset quotation and caste credentials verified intact. Recommendation forwarded favorably to State Credit Committee for ₹1,35,000 sanction.”
+          </p>
+<div class="flex items-center gap-2 mt-2">
+<span class="font-label-sm text-label-sm text-secondary font-bold">— Anil Verma, District Field Inspector</span>
+<span class="px-1.5 py-0.2 rounded bg-tertiary-fixed text-on-tertiary-fixed text-[10px] font-semibold">Digitally Signed</span>
+</div>
+</div>
+</div>
+<!-- Primary Action Buttons Rail -->
+<div class="flex flex-wrap items-center justify-between gap-space-md pt-space-sm">
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="px-4 py-2.5 rounded-lg bg-primary text-on-primary font-title-sm text-title-sm font-semibold flex items-center gap-2 hover:bg-primary-container transition-colors shadow-sm" onclick="openDocPreviewModal()" type="button">
+<span class="material-symbols-outlined text-lg">visibility</span>
+<span>View Submitted Form</span>
+</button>
+<button class="px-4 py-2.5 rounded-lg bg-surface-container-highest text-primary font-title-sm text-title-sm font-semibold flex items-center gap-2 hover:bg-surface-dim transition-colors" onclick="triggerUploadWorkflow()" type="button">
+<span class="material-symbols-outlined text-lg">upload_file</span>
+<span>Upload Additional Bill / Document</span>
+</button>
+</div>
+<button class="px-4 py-2.5 rounded-lg bg-surface-container text-on-surface-variant font-title-sm text-title-sm font-semibold flex items-center gap-2 hover:text-on-surface hover:bg-surface-container-high transition-colors" onclick="downloadReceipt()" type="button">
+<span class="material-symbols-outlined text-lg">download</span>
+<span>Download Acknowledgement Receipt (PDF)</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Section Splitter: Completed & Historical Applications -->
+<div class="flex items-center justify-between pt-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-xl">folder_check</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Sanctioned &amp; Settled Schemes / स्वीकृत योजनाएं</h3>
+</div>
+<span class="font-label-sm text-label-sm text-outline">1 Archive Entry Found</span>
+</div>
+<!-- Past / Archive Application Card -->
+<section class="app-card rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden" data-status="completed">
+<div class="p-space-lg flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md min-w-0">
+<div class="w-12 h-12 rounded-xl bg-tertiary-container text-on-tertiary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">school</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2.5 py-0.5 rounded bg-surface-container-high text-primary font-label-sm text-label-sm font-bold tracking-wide">
+              #YS-2024-SD-41029
+            </span>
+<span class="px-2.5 py-0.5 rounded bg-tertiary text-tertiary-fixed font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">verified</span> Approved &amp; Disbursed (स्वीकृत एवं वितरित)
+            </span>
+</div>
+<h4 class="font-title-lg text-title-lg text-primary mt-1.5 font-bold truncate">
+            PM-DAKSH Skill Upgradation Stipend
+          </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            प्रधानमंत्री दक्ष और कुशल संपन्न हितग्राही योजना (उन्नत सिलाई एवं परिधान निर्माण)
+          </p>
+</div>
+</div>
+<!-- Financial Disbursement Metric -->
+<div class="flex flex-row lg:flex-col items-start lg:items-end justify-between gap-1 shrink-0">
+<div class="flex items-baseline gap-1">
+<span class="font-label-sm text-label-sm text-outline">Disbursed DBT:</span>
+<span class="font-headline-sm text-headline-sm text-tertiary-container font-bold">₹15,000</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">
+          Transferred: <strong class="text-on-surface">18 Nov 2024</strong>
+</span>
+</div>
+</div>
+<!-- Archive Details Sub-grid -->
+<div class="px-space-lg py-space-md bg-surface-container-low flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+<div class="flex flex-wrap items-center gap-x-space-lg gap-y-2 text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-tertiary text-base">account_balance</span>
+<span>Beneficiary A/c: <strong>Bank of Baroda ••••3918</strong></span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base">credit_score</span>
+<span>UTR / Ref No: <strong>RBI202411180998341</strong></span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base">workspace_premium</span>
+<span>Training Credential: <strong>NSDC Level-4 Certified</strong></span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm shrink-0 w-full md:w-auto justify-end">
+<button class="px-4 py-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-primary font-title-sm text-title-sm font-semibold flex items-center gap-1.5 transition-colors shadow-xs" onclick="showDisbursementSlip()" type="button">
+<span class="material-symbols-outlined text-lg">receipt_long</span>
+<span>View Statement &amp; Certificate</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Interactive Modal / Slide-Over: View Submitted Form (Hidden by Default) -->
+<div class="fixed inset-0 z-50 hidden bg-inverse-surface/60 backdrop-blur-xs flex items-center justify-center p-space-md" id="docModal">
+<div class="w-full max-w-2xl max-h-[90vh] bg-surface-container-lowest rounded-xl shadow-xl flex flex-col overflow-hidden animate-in fade-in">
+<div class="p-space-md bg-primary text-on-primary flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined">description</span>
+<span class="font-title-md text-title-md font-bold">Application Record Preview (#YS-2025-SC-88219)</span>
+</div>
+<button class="w-8 h-8 rounded-lg hover:bg-on-primary/20 flex items-center justify-center text-on-primary" onclick="closeDocPreviewModal()" type="button">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="p-space-lg overflow-y-auto flex flex-col gap-space-md text-on-surface">
+<div class="p-3 rounded-lg bg-surface-container-low flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface-variant">Ministry Record Identifier</span>
+<span class="font-mono text-sm font-bold text-primary">MoSJE-UP-2025-NSFDC-88219</span>
+</div>
+<div class="grid grid-cols-2 gap-3 text-body-sm">
+<div class="p-2 rounded bg-surface-container-lowest shadow-xs">
+<span class="font-label-sm text-outline block">Applicant Full Name</span>
+<span class="font-semibold text-primary">Ramesh Kumar</span>
+</div>
+<div class="p-2 rounded bg-surface-container-lowest shadow-xs">
+<span class="font-label-sm text-outline block">Caste / Category</span>
+<span class="font-semibold text-primary">Scheduled Caste (Chamar/Jatav)</span>
+</div>
+<div class="p-2 rounded bg-surface-container-lowest shadow-xs">
+<span class="font-label-sm text-outline block">Annual Household Income</span>
+<span class="font-semibold text-primary">₹1,18,000 (Tahsildar Certified)</span>
+</div>
+<div class="p-2 rounded bg-surface-container-lowest shadow-xs">
+<span class="font-label-sm text-outline block">Proposed Activity</span>
+<span class="font-semibold text-primary">Custom Footwear &amp; Leather Repair Workshop</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-title-sm text-title-sm font-bold text-primary">Verified Attached Credentials</span>
+<div class="space-y-1.5">
+<div class="flex items-center justify-between p-2 rounded bg-surface-container-low text-body-sm">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-tertiary text-sm">check_circle</span> Aadhaar Card (Masked eKYC)</span>
+<span class="font-label-sm text-tertiary font-bold">UIDAI Validated</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded bg-surface-container-low text-body-sm">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-tertiary text-sm">check_circle</span> State Caste Certificate (EDistrict UP)</span>
+<span class="font-label-sm text-tertiary font-bold">UP-EDIST-991204</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded bg-surface-container-low text-body-sm">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-tertiary text-sm">check_circle</span> Equipment Machinery Quotation</span>
+<span class="font-label-sm text-outline font-medium">GST Registered Vendor</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-space-md bg-surface-container-low flex justify-end gap-space-sm">
+<button class="px-4 py-2 rounded-lg bg-surface-container-highest text-primary font-title-sm text-title-sm" onclick="closeDocPreviewModal()" type="button">Close Preview</button>
+<button class="px-4 py-2 rounded-lg bg-primary text-on-primary font-title-sm text-title-sm flex items-center gap-1.5 shadow-sm" onclick="downloadReceipt()" type="button">
+<span class="material-symbols-outlined text-sm">print</span> Print Application Record
+        </button>
+</div>
+</div>
+</div>
+<!-- Toast Notification Alert (Inline Hidden) -->
+<div class="fixed bottom-6 right-6 z-50 hidden max-w-md p-space-md rounded-xl bg-primary text-on-primary shadow-xl flex items-center gap-3" id="toastNotification">
+<span class="material-symbols-outlined text-tertiary-fixed text-2xl">check_circle</span>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm font-bold" id="toastTitle">Action Triggered</span>
+<span class="font-body-sm text-body-sm text-primary-fixed-dim" id="toastMsg">The file has been queued for institutional download.</span>
+</div>
+</div>
+</div>
+<script>
+  function filterApplications(type) {
+    const buttons = document.querySelectorAll('#filter-container .filter-btn');
+    buttons.forEach(btn => {
+      if (btn.getAttribute('data-filter') === type) {
+        btn.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+        btn.classList.remove('text-on-surface-variant', 'hover:bg-surface-container-highest');
+      } else {
+        btn.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+        btn.classList.add('text-on-surface-variant', 'hover:bg-surface-container-highest');
+      }
+    });
+
+    const cards = document.querySelectorAll('.app-card');
+    cards.forEach(card => {
+      const status = card.getAttribute('data-status');
+      if (type === 'all' || status === type) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  function openDocPreviewModal() {
+    const modal = document.getElementById('docModal');
+    if (modal) modal.classList.remove('hidden');
+  }
+
+  function closeDocPreviewModal() {
+    const modal = document.getElementById('docModal');
+    if (modal) modal.classList.add('hidden');
+  }
+
+  function triggerUploadWorkflow() {
+    showToast('Supplementary Upload Portal Active', 'Please choose the invoice or bank passbook scan (PDF/JPEG up to 5MB).');
+  }
+
+  function downloadReceipt() {
+    showToast('Receipt Generated', 'Application Acknowledgement Slip #YS-2025-SC-88219 downloaded successfully.');
+  }
+
+  function showDisbursementSlip() {
+    showToast('PM-DAKSH Statement Ready', 'Disbursement Reference & Certificate verified by National Skill Development Corp.');
+  }
+
+  function showToast(title, msg) {
+    const toast = document.getElementById('toastNotification');
+    const titleEl = document.getElementById('toastTitle');
+    const msgEl = document.getElementById('toastMsg');
+    if (!toast) return;
+
+    titleEl.textContent = title;
+    msgEl.textContent = msg;
+    toast.classList.remove('hidden');
+
+    setTimeout(() => {
+      toast.classList.add('hidden');
+    }, 4200);
+  }
+</script></main><footer class="w-full bg-surface-container-lowest py-space-sm px-gutter-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-wrap items-center justify-between text-on-surface-variant text-label-sm font-label-sm gap-space-md"><div>Official portal of the Ministry of Social Justice &amp; Empowerment • Government of India</div><div class="flex items-center gap-space-md"><span class="inline-flex items-center gap-1 text-tertiary"><span class="material-symbols-outlined text-base">verified_user</span> Certified Data Privacy</span><span>Helpline: 1800-11-7788</span><span>Accessibility / Screen Reader Compliant</span></div></div></footer></div></body></html>

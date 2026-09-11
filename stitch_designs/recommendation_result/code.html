@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>YojanaSetu - National Scheme Matching Portal</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'surface-container-highest': '#dae2fd', 'secondary-container': '#fe932c', 'surface-tint': '#396285', 'on-error-container': '#93000a', 'on-primary-container': '#7fa7cd', 'on-tertiary-fixed-variant': '#005323', 'error-container': '#ffdad6', 'on-surface-variant': '#42474e', 'secondary-fixed-dim': '#ffb77d', 'surface-container-lowest': '#ffffff', 'on-secondary-fixed': '#2f1500', 'on-secondary': '#ffffff', 'secondary-fixed': '#ffdcc3', 'surface-container': '#eaedff', 'inverse-surface': '#283044', 'on-primary': '#ffffff', 'on-background': '#131b2e', 'tertiary-container': '#00431b', 'inverse-on-surface': '#eef0ff', 'on-error': '#ffffff', 'on-tertiary': '#ffffff', 'error': '#ba1a1a', 'surface-dim': '#d2d9f4', 'background': '#faf8ff', 'outline': '#72777e', 'primary': '#00263f', 'primary-container': '#0b3c5d', 'primary-fixed-dim': '#a3cbf2', 'inverse-primary': '#a3cbf2', 'on-secondary-container': '#663500', 'tertiary': '#002b0f', 'on-primary-fixed': '#001d32', 'on-primary-fixed-variant': '#1f4a6c', 'on-tertiary-container': '#55b66c', 'secondary': '#904d00', 'tertiary-fixed-dim': '#79db8d', 'on-surface': '#131b2e', 'primary-fixed': '#cee5ff', 'tertiary-fixed': '#95f8a7', 'on-tertiary-fixed': '#00210a', 'surface': '#faf8ff', 'outline-variant': '#c2c7ce', 'surface-container-high': '#e2e7ff', 'surface-variant': '#dae2fd', 'on-secondary-fixed-variant': '#6e3900', 'surface-bright': '#faf8ff', 'surface-container-low': '#f2f3ff' }, borderRadius: { 'DEFAULT': '0.125rem', 'lg': '0.25rem', 'xl': '0.5rem', 'full': '0.75rem' }, spacing: { 'space-lg': '1.5rem', 'gutter-md': '1.5rem', 'margin-lg': '3rem', 'space-xl': '2rem', 'margin-md': '2rem', 'gutter-lg': '2rem', 'margin': '1rem', 'space-xs': '0.25rem', 'gutter': '1rem', 'space-md': '1rem', 'space-sm': '0.5rem' }, fontFamily: { 'title-lg': ['Noto Sans'], 'display-lg-mobile': ['Noto Sans'], 'title-sm': ['Noto Sans'], 'body-sm': ['Noto Sans'], 'headline-lg-mobile': ['Noto Sans'], 'label-sm': ['Noto Sans'], 'headline-sm': ['Noto Sans'], 'body-md': ['Noto Sans'], 'label-md': ['Noto Sans'], 'display-lg': ['Noto Sans'], 'label-lg': ['Noto Sans'], 'title-md': ['Noto Sans'], 'body-lg': ['Noto Sans'], 'headline-lg': ['Noto Sans'], 'headline-md': ['Noto Sans'] }, fontSize: { 'title-lg': ['18px', { lineHeight: '26px', fontWeight: '700' }], 'display-lg-mobile': ['30px', { lineHeight: '40px', letterSpacing: '-0.01em', fontWeight: '700' }], 'title-sm': ['14px', { lineHeight: '22px', fontWeight: '600' }], 'body-sm': ['13px', { lineHeight: '20px', fontWeight: '400' }], 'headline-lg-mobile': ['24px', { lineHeight: '34px', fontWeight: '700' }], 'label-sm': ['11px', { lineHeight: '16px', letterSpacing: '0.03em', fontWeight: '600' }], 'headline-sm': ['18px', { lineHeight: '28px', fontWeight: '600' }], 'body-md': ['14px', { lineHeight: '24px', fontWeight: '400' }], 'label-md': ['12px', { lineHeight: '18px', letterSpacing: '0.02em', fontWeight: '600' }], 'display-lg': ['40px', { lineHeight: '52px', letterSpacing: '-0.02em', fontWeight: '700' }], 'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.01em', fontWeight: '600' }], 'title-md': ['16px', { lineHeight: '24px', fontWeight: '600' }], 'body-lg': ['16px', { lineHeight: '26px', fontWeight: '400' }], 'headline-lg': ['28px', { lineHeight: '38px', fontWeight: '700' }], 'headline-md': ['22px', { lineHeight: '32px', fontWeight: '600' }] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased min-h-screen"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-20 px-gutter-md flex items-center gap-space-sm bg-surface-container-lowest"><img alt="YojanaSetu Official Emblem" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XQ0chKXZN4x3iBM_v57_A4IDJ7GT_m12Tnlui_yZkw7-3ES_3A_C2MHw5PDm-OnBR3SyYwJnnb4Sv213XPHi-04B1K53W1wZ4hf5G4Nhx2o9b9lXVCxaePKFpOORpGz7pZoPcjVJw3kaWdmmJRSO6yRK1pk52a6ZAOJsShIW2uq5oCALIrpv9UENMmETFUiDryYr-ET5MV8Tagx0xv65pupAm76WjKnW2LIcGr0Wnir9wDTvpQR0PLY-M"/><div class="flex flex-col"><span class="font-title-sm text-title-sm text-primary leading-tight tracking-tight">योजनासेतु | YojanaSetu</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-none mt-1">Govt. of India | MoSJE</span></div></div><div class="px-gutter-md py-space-sm bg-primary-container text-on-primary-container flex items-center justify-between"><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-primary">Public Utility Portal</span><span class="inline-flex items-center px-space-xs py-0.5 rounded-lg bg-tertiary text-tertiary-fixed font-label-sm text-label-sm">Live Verified</span></div><nav class="flex flex-col gap-1 p-space-sm overflow-y-auto" data-active-classes="bg-primary-container text-on-primary font-bold shadow-sm"><span class="px-space-sm pt-space-xs pb-1 font-label-sm text-label-sm text-outline uppercase tracking-wider">Beneficiary Services / सेवाएँ</span><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-xl">dashboard</span><span class="font-body-md text-body-md">Dashboard (डैशबोर्ड)</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl transition-colors bg-primary-container text-on-primary font-bold shadow-sm" data-path="scheme-recommender" href="#"><span class="material-symbols-outlined text-xl">smart_toy</span><span class="font-body-md text-body-md">Scheme Recommender (योजना सिफारिश)</span></a><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="emi-calculator" href="#"><span class="material-symbols-outlined text-xl">calculate</span><span class="font-body-md text-body-md">EMI Calculator (ईएमआई कैलकुलेटर)</span></a><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="partner-locator" href="#"><span class="material-symbols-outlined text-xl">storefront</span><span class="font-body-md text-body-md">Partner Locator (साझेदार खोजें)</span></a><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="my-applications" href="#"><span class="material-symbols-outlined text-xl">folder_shared</span><span class="font-body-md text-body-md">My Applications (मेरे आवेदन)</span></a><div class="my-space-xs h-[1px] bg-outline-variant/50"></div><span class="px-space-sm pt-space-xs pb-1 font-label-sm text-label-sm text-outline uppercase tracking-wider">Administration / प्रशासन</span><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="admin-partners" href="#"><span class="material-symbols-outlined text-xl">corporate_fare</span><span class="font-body-md text-body-md">Admin: Partners (साझेदार प्रबंधन)</span></a><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="admin-scheme-master" href="#"><span class="material-symbols-outlined text-xl">tune</span><span class="font-body-md text-body-md">Admin: Scheme Master (योजना मास्टर)</span></a><div class="my-space-xs h-[1px] bg-outline-variant/50"></div><a class="flex items-center gap-space-sm px-space-sm py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="help-guidelines" href="#"><span class="material-symbols-outlined text-xl">help</span><span class="font-body-md text-body-md">Help &amp; Guidelines (सहायता)</span></a></nav></div><div class="p-space-sm bg-surface-container m-space-sm rounded-xl"><div class="flex items-center gap-2 text-secondary mb-1"><span class="material-symbols-outlined text-sm">support_agent</span><span class="font-label-sm text-label-sm uppercase font-bold">National Helpdesk</span></div><div class="font-title-sm text-title-sm text-primary">1800-11-7788</div><p class="font-label-sm text-label-sm text-on-surface-variant">Toll Free • 9:30 AM - 6:00 PM</p></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-20 bg-surface-container-lowest/95 backdrop-blur-xl z-40 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 w-full px-gutter-lg flex items-center justify-between"><div class="flex flex-col"><div class="font-title-md text-title-md text-primary tracking-tight font-bold">सामाजिक न्याय और अधिकारिता मंत्रालय</div><div class="font-label-sm text-label-sm text-on-surface-variant">Ministry of Social Justice and Empowerment, Government of India</div></div><div class="flex items-center gap-space-md"><div class="inline-flex items-center bg-surface-container rounded-full p-1 border border-outline-variant/40"><button class="px-3 py-1 text-label-sm font-label-sm rounded-full bg-primary text-on-primary shadow-sm" type="button">English</button><button class="px-3 py-1 text-label-sm font-label-sm rounded-full text-on-surface-variant hover:text-on-surface" type="button">हिंदी</button></div><button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-primary transition-colors" title="Voice Assist / वाक् सहायता" type="button"><span class="material-symbols-outlined text-lg">mic</span><span class="font-label-sm text-label-sm">Voice</span></button><div class="relative"><button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined">notifications</span></button><span class="absolute top-1 right-1 w-4 h-4 bg-error text-on-error rounded-full font-label-sm text-[10px] flex items-center justify-center font-bold">2</span></div><div class="h-8 w-[1px] bg-outline-variant/60"></div><div class="flex items-center gap-space-sm pl-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgw8NYcUh3xzIwD8jjd2eWp7EEJsH-FMUbDQP1tLW5T7ZK1n1hRZONM2rks1o7SPQ_gmZiWlt7lk5sSemjBMZd7LWdPHQHNGuMRlBC1B8Aq-U578C9T--OSFpnCsufjA0vJIPAPV5uMcXQRBVoEJz44aRV7VaLzpYO7sLw7paYDSfaJOVEKlpVSYAlHaly9oTDs1LQ_lHnUPu6JjREbdj3E7zeJbr_PvJEViIdQ_HMV_1Uya4xESBq"/><div class="flex flex-col text-left"><span class="font-title-sm text-title-sm text-on-surface leading-tight">Ramesh Kumar</span><span class="font-label-sm text-label-sm text-secondary leading-none font-bold">Applicant / आवेदक</span></div></div></div></div></header><main class="w-full pt-20 bg-background min-h-[calc(100vh-48px)] px-gutter-lg py-space-lg"><div class="flex flex-col w-full max-w-7xl mx-auto pb-12 space-y-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div class="space-y-1">
+<div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-label-md text-label-md">
+<span class="material-symbols-outlined text-base">verified</span>
+<span>Verified Analysis • संदर्भ ID: REC-2025-UP-9841</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">
+        Your Scheme Match Results <span class="font-normal text-on-surface-variant text-title-lg">/ आपकी पात्रता के अनुसार चयनित योजना</span>
+</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+        Transparent, rule-based algorithmic verification according to Ministry of Social Justice and Empowerment (MoSJE) operational guidelines.
+      </p>
+</div>
+<div class="flex items-center gap-2 self-start md:self-auto">
+<button class="flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md shadow-sm transition-colors" onclick="window.print()" type="button">
+<span class="material-symbols-outlined text-lg">print</span>
+<span>Print Report (प्रिंट)</span>
+</button>
+<button class="flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md shadow-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-lg">download</span>
+<span>PDF Summary</span>
+</button>
+</div>
+</div>
+<div class="relative overflow-hidden rounded-xl bg-primary text-on-primary p-6 shadow-md">
+<div class="absolute -right-10 -bottom-10 w-64 h-64 rounded-full bg-primary-container opacity-40 blur-2xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-xl bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl text-on-primary">recommend</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-wider">Evaluation Complete • मूल्यांकन संपन्न</span>
+<p class="font-title-md text-title-md text-on-primary mt-0.5">
+            Based on your project (<span class="text-secondary-fixed">Kirana &amp; Retail Store, ₹1,50,000</span>) and profile parameters, you have <strong class="underline decoration-secondary">1 Top Match</strong> and 2 Alternative Schemes.
+          </p>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0 bg-primary-container/80 px-4 py-2.5 rounded-lg backdrop-blur-sm self-start md:self-auto">
+<span class="material-symbols-outlined text-tertiary-fixed text-xl">account_balance</span>
+<div class="text-left">
+<div class="font-label-sm text-label-sm text-primary-fixed-dim">Eligible Credit Line</div>
+<div class="font-title-sm text-title-sm text-on-primary">₹1,35,000 Sanctionable</div>
+</div>
+</div>
+</div>
+</div>
+<div class="relative rounded-xl bg-surface-container-lowest shadow-md overflow-hidden">
+<div class="h-2 w-full bg-secondary-container"></div>
+<div class="p-6 md:p-8 space-y-6">
+<div class="flex flex-col lg:flex-row lg:items-start justify-between gap-6">
+<div class="space-y-2 flex-1">
+<div class="flex flex-wrap items-center gap-2.5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary text-tertiary-fixed font-label-md text-label-md">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              100% Eligibility Match (पूर्णतः पात्र)
+            </span>
+<span class="px-2.5 py-0.5 rounded-lg bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold">
+              MoSJE / NSFDC Official Scheme
+            </span>
+<span class="px-2.5 py-0.5 rounded-lg bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+              Code: NSFDC-TL-ME
+            </span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary">
+            NSFDC Term Loan Scheme for Micro Enterprises
+            <span class="block font-title-md text-title-md text-on-surface-variant font-normal mt-0.5">
+              लघु उद्यम मियादी ऋण योजना (सूक्ष्म उद्यम श्रेणी)
+            </span>
+</h2>
+<p class="font-label-md text-label-md text-secondary font-semibold">
+            Sponsoring Agency: National Scheduled Castes Finance &amp; Development Corporation (MoSJE, Govt. of India)
+          </p>
+</div>
+<div class="w-full lg:w-72 p-4 rounded-xl bg-surface-container-low shrink-0 flex flex-col justify-between space-y-3">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Cost Allocation Ratio</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">90% : 10%</span>
+</div>
+<div class="w-full bg-surface-container-highest h-3 rounded-full overflow-hidden flex">
+<div class="bg-primary h-full" style="width: 90%" title="Govt/SCA Loan Contribution: 90%"></div>
+<div class="bg-secondary-container h-full" style="width: 10%" title="Promoter Contribution: 10%"></div>
+</div>
+<div class="flex justify-between text-left font-label-sm text-label-sm pt-1">
+<div>
+<span class="block text-primary font-bold">₹1,35,000 (90%)</span>
+<span class="text-on-surface-variant">Concessional Loan</span>
+</div>
+<div class="text-right">
+<span class="block text-secondary font-bold">₹15,000 (10%)</span>
+<span class="text-on-surface-variant">Self Contribution</span>
+</div>
+</div>
+</div>
+</div>
+<div class="rounded-xl bg-surface-container-low p-5 shadow-sm space-y-3">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-xl">psychology_alt</span>
+<h3 class="font-title-sm text-title-sm uppercase tracking-wide">Why this matched your profile / चयन का आधार एवं स्पष्टीकरण</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+          Your estimated project cost of <strong>₹1,50,000</strong> fits directly within this scheme's ₹1.4 Lakh to ₹5 Lakh slab. As an SC entrepreneur registered in <strong>Uttar Pradesh</strong>, you are eligible for <strong>90% project financing (₹1,35,000)</strong> at concessional interest, with your promoter contribution being only <strong>10% (₹15,000)</strong>. This avoids high-interest informal borrowings and provides substantial working capital support.
+        </p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 font-label-md text-label-md text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-base">task_alt</span>
+<span>Target demographic benchmark met</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-base">task_alt</span>
+<span>Kirana &amp; trade category fully notified</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-base">task_alt</span>
+<span>State SCA channel active in UP</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+<div class="p-4 rounded-xl bg-surface-container flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Concessional Interest</span>
+<div class="mt-2">
+<div class="font-headline-sm text-headline-sm text-primary">4.0% - 6.0%</div>
+<span class="font-label-sm text-label-sm text-secondary font-medium">vs Bank 12-14%</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-2 pt-2 bg-surface-container-high/40 rounded px-1.5 py-0.5">Subsidy embedded</span>
+</div>
+<div class="p-4 rounded-xl bg-surface-container flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sanction Amount</span>
+<div class="mt-2">
+<div class="font-headline-sm text-headline-sm text-primary">₹1,35,000</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Max up to ₹5.0L</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-2 pt-2 bg-surface-container-high/40 rounded px-1.5 py-0.5">Direct to Bank/Vendor</span>
+</div>
+<div class="p-4 rounded-xl bg-surface-container flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Moratorium Period</span>
+<div class="mt-2">
+<div class="font-headline-sm text-headline-sm text-primary">6 Months</div>
+<span class="font-label-sm text-label-sm text-tertiary font-medium">6 माह की ईएमआई छूट</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-2 pt-2 bg-surface-container-high/40 rounded px-1.5 py-0.5">Setup grace window</span>
+</div>
+<div class="p-4 rounded-xl bg-surface-container flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Repayment Tenure</span>
+<div class="mt-2">
+<div class="font-headline-sm text-headline-sm text-primary">Up to 5 Years</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">60 Monthly Installments</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-2 pt-2 bg-surface-container-high/40 rounded px-1.5 py-0.5">Flexible prepayment</span>
+</div>
+<div class="p-4 rounded-xl bg-surface-container flex flex-col justify-between sm:col-span-2 lg:col-span-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Security &amp; Guarantee</span>
+<div class="mt-2">
+<div class="font-title-md text-title-md text-primary font-bold">Zero Collateral</div>
+<span class="font-label-sm text-label-sm text-tertiary font-medium">कोई बंधक नहीं</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-2 pt-2 bg-surface-container-high/40 rounded px-1.5 py-0.5">Assets hypothecated</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+<div class="p-4 rounded-xl bg-surface-container-low flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-2xl shrink-0 mt-0.5">info</span>
+<div class="text-on-surface space-y-1">
+<h4 class="font-title-sm text-title-sm text-primary">Project Profile Registered</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Target Entity: <strong>Kirana, Provisions &amp; Household Retail Supply</strong>. Includes refrigeration, display rack fixtures, inventory procurement, and POS digital payment counter.
+            </p>
+</div>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-2xl shrink-0 mt-0.5">assignment_turned_in</span>
+<div class="text-on-surface space-y-1">
+<h4 class="font-title-sm text-title-sm text-primary">Required Baseline Documents</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Aadhaar Card, UP Caste Certificate (जाति प्रमाण पत्र), Domicile Proof, Bank Passbook (active 6 months), and Shop Rent/Ownership Agreement.
+            </p>
+</div>
+</div>
+</div>
+<div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-3">
+<a class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-title-sm text-title-sm transition-colors shadow-sm" data-path="partner-locator" href="#">
+<span class="material-symbols-outlined text-xl">near_me</span>
+<span>Find a Partner Branch Near Me (नजदीकी बैंक / SCA खोजें)</span>
+</a>
+<a class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-secondary text-on-secondary hover:opacity-95 font-title-sm text-title-sm transition-all shadow-md" data-path="emi-calculator" href="#">
+<span>Calculate My Monthly EMI (ईएमआई कैलकुलेट करें)</span>
+<span class="material-symbols-outlined text-xl">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<div class="space-y-0.5">
+<h3 class="font-title-lg text-title-lg text-primary">Alternative &amp; Complementary Schemes</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Explore other government credit linkages tailored for marginalized artisans and backward class entrepreneurs</p>
+</div>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">2 Options Available</span>
+</div>
+<div class="rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden transition-all duration-200" id="altSchemeContainer1">
+<div class="p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer select-none" onclick="toggleSchemeDetails('altDetails1', 'altIcon1')">
+<div class="flex items-start gap-3.5">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high text-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-xl">precision_manufacturing</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-title-sm text-title-sm text-primary font-bold">PM-DAKSH Credit Linkage Scheme</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Up to ₹1 Lakh</span>
+<span class="px-2 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-semibold">35% Subsidy</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Provides composite capital subsidy up to ₹35,000 for certified micro-vendors, artisans, and skill-trained youth under MoSJE.
+            </p>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0 self-end md:self-auto">
+<span class="font-label-md text-label-md text-primary font-bold">View Eligibility &amp; Details</span>
+<span class="material-symbols-outlined text-on-surface-variant transition-transform duration-200" id="altIcon1">expand_more</span>
+</div>
+</div>
+<div class="hidden px-5 pb-5 pt-2 bg-surface-container-low space-y-4" id="altDetails1">
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-on-surface">
+<div class="p-3 rounded-lg bg-surface-container-lowest">
+<div class="font-label-sm text-label-sm text-on-surface-variant">Maximum Financial Outlay</div>
+<div class="font-title-sm text-title-sm text-primary font-bold">₹1,00,000</div>
+<div class="font-label-sm text-label-sm text-tertiary">35% non-refundable grant</div>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-lowest">
+<div class="font-label-sm text-label-sm text-on-surface-variant">Target Eligibility</div>
+<div class="font-title-sm text-title-sm text-primary font-bold">PM-DAKSH Certified</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Prior skill certificate required</div>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-lowest">
+<div class="font-label-sm text-label-sm text-on-surface-variant">Lending Channels</div>
+<div class="font-title-sm text-title-sm text-primary font-bold">Public Sector Banks / RRBs</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Direct Beneficiary Transfer</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+            Best if: You have completed certified retail or micro-entrepreneurship training under Skill India / PM-DAKSH.
+          </span>
+<button class="px-4 py-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md shadow-sm hover:bg-primary-container transition-colors" type="button">
+            Switch Application to PM-DAKSH
+          </button>
+</div>
+</div>
+</div>
+<div class="rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden transition-all duration-200" id="altSchemeContainer2">
+<div class="p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer select-none" onclick="toggleSchemeDetails('altDetails2', 'altIcon2')">
+<div class="flex items-start gap-3.5">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high text-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-xl">groups_2</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-title-sm text-title-sm text-primary font-bold">NBCFDC Micro Finance Scheme (Direct Lending via SCA)</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Up to ₹60,000 / member</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-primary font-label-sm text-label-sm font-semibold">5.0% Simple p.a.</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Targeted for self-help groups, backward classes, and micro retail setups requiring quick liquidity with weekly or monthly amortisation.
+            </p>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0 self-end md:self-auto">
+<span class="font-label-md text-label-md text-primary font-bold">View Eligibility &amp; Details</span>
+<span class="material-symbols-outlined text-on-surface-variant transition-transform duration-200" id="altIcon2">expand_more</span>
+</div>
+</div>
+<div class="hidden px-5 pb-5 pt-2 bg-surface-container-low space-y-4" id="altDetails2">
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-on-surface">
+<div class="p-3 rounded-lg bg-surface-container-lowest">
+<div class="font-label-sm text-label-sm text-on-surface-variant">Max Loan Quantum</div>
+<div class="font-title-sm text-title-sm text-primary font-bold">₹60,000</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Per SHG / Individual Beneficiary</div>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-lowest">
+<div class="font-label-sm text-label-sm text-on-surface-variant">Rate to Beneficiary</div>
+<div class="font-title-sm text-title-sm text-primary font-bold">5.0% per annum</div>
+<div class="font-label-sm text-label-sm text-tertiary">Simple interest calculation</div>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-lowest">
+<div class="font-label-sm text-label-sm text-on-surface-variant">Repayment Window</div>
+<div class="font-title-sm text-title-sm text-primary font-bold">36 Months</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Quarterly moratorium of 3 mos.</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+            Best if: Seeking immediate smaller credit capital without detailed formal balance sheet filings.
+          </span>
+<button class="px-4 py-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md shadow-sm hover:bg-primary-container transition-colors" type="button">
+            Switch Application to NBCFDC
+          </button>
+</div>
+</div>
+</div>
+</div>
+<div class="rounded-xl bg-surface-container-low p-6 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">support_agent</span>
+</div>
+<div>
+<h4 class="font-title-sm text-title-sm text-primary">Need assistance verifying eligibility documents?</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Connect directly with your district Social Welfare Facilitator (जिला समाज कल्याण सहायक) for free on-ground document verification.
+        </p>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<button class="px-4 py-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md transition-colors shadow-sm" type="button">
+        Find Local Facilitator
+      </button>
+<a class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md shadow-sm hover:bg-primary-container transition-colors" href="tel:1800117788">
+<span class="material-symbols-outlined text-lg">call</span>
+<span>Call 1800-11-7788</span>
+</a>
+</div>
+</div>
+</div>
+<script>
+  function toggleSchemeDetails(detailsId, iconId) {
+    const details = document.getElementById(detailsId);
+    const icon = document.getElementById(iconId);
+    if (!details || !icon) return;
+
+    if (details.classList.contains('hidden')) {
+      details.classList.remove('hidden');
+      icon.classList.add('rotate-180');
+    } else {
+      details.classList.add('hidden');
+      icon.classList.remove('rotate-180');
+    }
+  }
+</script></main><footer class="w-full bg-surface-container-lowest py-space-sm px-gutter-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-wrap items-center justify-between text-on-surface-variant text-label-sm font-label-sm gap-space-md"><div>Official portal of the Ministry of Social Justice &amp; Empowerment • Government of India</div><div class="flex items-center gap-space-md"><span class="inline-flex items-center gap-1 text-tertiary"><span class="material-symbols-outlined text-base">verified_user</span> Certified Data Privacy</span><span>Helpline: 1800-11-7788</span><span>Accessibility / Screen Reader Compliant</span></div></div></footer></div></body></html>

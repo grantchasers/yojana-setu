@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Authentication - YojanaSetu</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'surface-container-highest': '#dae2fd', 'secondary-container': '#fe932c', 'surface-tint': '#396285', 'on-error-container': '#93000a', 'on-primary-container': '#7fa7cd', 'on-tertiary-fixed-variant': '#005323', 'error-container': '#ffdad6', 'on-surface-variant': '#42474e', 'secondary-fixed-dim': '#ffb77d', 'surface-container-lowest': '#ffffff', 'on-secondary-fixed': '#2f1500', 'on-secondary': '#ffffff', 'secondary-fixed': '#ffdcc3', 'surface-container': '#eaedff', 'inverse-surface': '#283044', 'on-primary': '#ffffff', 'on-background': '#131b2e', 'tertiary-container': '#00431b', 'inverse-on-surface': '#eef0ff', 'on-error': '#ffffff', 'on-tertiary': '#ffffff', 'error': '#ba1a1a', 'surface-dim': '#d2d9f4', 'background': '#faf8ff', 'outline': '#72777e', 'primary': '#00263f', 'primary-container': '#0b3c5d', 'primary-fixed-dim': '#a3cbf2', 'inverse-primary': '#a3cbf2', 'on-secondary-container': '#663500', 'tertiary': '#002b0f', 'on-primary-fixed': '#001d32', 'on-primary-fixed-variant': '#1f4a6c', 'on-tertiary-container': '#55b66c', 'secondary': '#904d00', 'tertiary-fixed-dim': '#79db8d', 'on-surface': '#131b2e', 'primary-fixed': '#cee5ff', 'tertiary-fixed': '#95f8a7', 'on-tertiary-fixed': '#00210a', 'surface': '#faf8ff', 'outline-variant': '#c2c7ce', 'surface-container-high': '#e2e7ff', 'surface-variant': '#dae2fd', 'on-secondary-fixed-variant': '#6e3900', 'surface-bright': '#faf8ff', 'surface-container-low': '#f2f3ff' }, borderRadius: { 'DEFAULT': '0.125rem', 'lg': '0.25rem', 'xl': '0.5rem', 'full': '0.75rem' }, spacing: { 'space-lg': '1.5rem', 'gutter-md': '1.5rem', 'margin-lg': '3rem', 'space-xl': '2rem', 'margin-md': '2rem', 'gutter-lg': '2rem', 'margin': '1rem', 'space-xs': '0.25rem', 'gutter': '1rem', 'space-md': '1rem', 'space-sm': '0.5rem' }, fontFamily: { 'title-lg': ['Noto Sans'], 'display-lg-mobile': ['Noto Sans'], 'title-sm': ['Noto Sans'], 'body-sm': ['Noto Sans'], 'headline-lg-mobile': ['Noto Sans'], 'label-sm': ['Noto Sans'], 'headline-sm': ['Noto Sans'], 'body-md': ['Noto Sans'], 'label-md': ['Noto Sans'], 'display-lg': ['Noto Sans'], 'label-lg': ['Noto Sans'], 'title-md': ['Noto Sans'], 'body-lg': ['Noto Sans'], 'headline-lg': ['Noto Sans'], 'headline-md': ['Noto Sans'] }, fontSize: { 'title-lg': ['18px', { lineHeight: '26px', fontWeight: '700' }], 'display-lg-mobile': ['30px', { lineHeight: '40px', letterSpacing: '-0.01em', fontWeight: '700' }], 'title-sm': ['14px', { lineHeight: '22px', fontWeight: '600' }], 'body-sm': ['13px', { lineHeight: '20px', fontWeight: '400' }], 'headline-lg-mobile': ['24px', { lineHeight: '34px', fontWeight: '700' }], 'label-sm': ['11px', { lineHeight: '16px', letterSpacing: '0.03em', fontWeight: '600' }], 'headline-sm': ['18px', { lineHeight: '28px', fontWeight: '600' }], 'body-md': ['14px', { lineHeight: '24px', fontWeight: '400' }], 'label-md': ['12px', { lineHeight: '18px', letterSpacing: '0.02em', fontWeight: '600' }], 'display-lg': ['40px', { lineHeight: '52px', letterSpacing: '-0.02em', fontWeight: '700' }], 'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.01em', fontWeight: '600' }], 'title-md': ['16px', { lineHeight: '24px', fontWeight: '600' }], 'body-lg': ['16px', { lineHeight: '26px', fontWeight: '400' }], 'headline-lg': ['28px', { lineHeight: '38px', fontWeight: '700' }], 'headline-md': ['22px', { lineHeight: '32px', fontWeight: '600' }] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased min-h-screen flex items-center justify-center p-gutter-md"><main class="w-full max-w-md bg-surface-container-lowest rounded-xl p-margin-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col w-full">
+<!-- Official Bureaucratic Header Indicator -->
+<div class="flex flex-col items-center text-center mb-space-lg">
+<!-- Emblem & Security Badging -->
+<div class="inline-flex items-center gap-space-xs px-space-md py-space-xs bg-surface-container rounded-full mb-space-sm">
+<svg class="w-3.5 h-3.5 text-tertiary-container" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"></path>
+</svg>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Govt. of India Secure Gateway • भारत सरकार सुरक्षित पोर्टल</span>
+</div>
+<!-- National Emblem Graphic Placeholder / Icon Anchor -->
+<div class="w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center mb-space-xs shadow-sm">
+<svg class="w-7 h-7" fill="currentColor" viewbox="0 0 24 24">
+<circle cx="12" cy="12" fill="none" r="9" stroke="currentColor" stroke-width="1.5"></circle>
+<circle cx="12" cy="12" fill="currentColor" r="2.5"></circle>
+<path d="M12 3v3m0 12v3M3 12h3m12 0h3M5.6 5.6l2.1 2.1m8.6 8.6l2.1 2.1M5.6 18.4l2.1-2.1m8.6-8.6l2.1-2.1" stroke="currentColor" stroke-linecap="round" stroke-width="1.2"></path>
+</svg>
+</div>
+<h1 class="font-title-lg text-title-lg text-primary tracking-tight">YojanaSetu • योजनासेतु</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">National Welfare &amp; Credit Empowerment Portal</p>
+<div class="inline-block mt-space-xs bg-surface-container-high text-primary px-space-sm py-0.5 rounded text-label-sm font-label-sm">
+      Role: Applicant / आवेदक
+    </div>
+</div>
+<!-- Mode Segmented Switch -->
+<div class="grid grid-cols-2 p-1 bg-surface-container rounded-lg mb-space-lg text-center select-none" id="authModeSwitch">
+<button class="py-2 rounded font-title-sm text-title-sm transition-all duration-150 bg-surface-container-lowest text-primary shadow-sm" id="tabLogin" onclick="switchMode('login')" type="button">
+      Login / लॉगिन
+    </button>
+<button class="py-2 rounded font-title-sm text-title-sm transition-all duration-150 text-on-surface-variant hover:text-on-surface" id="tabRegister" onclick="switchMode('register')" type="button">
+      Register / नया पंजीकरण
+    </button>
+</div>
+<!-- Main Interaction Form -->
+<form class="flex flex-col gap-space-md" id="authForm" onsubmit="event.preventDefault(); proceedAuth();">
+<!-- Context Banner -->
+<div class="bg-surface-container-low p-space-sm rounded-lg flex items-start gap-space-sm" id="modeHelperBox">
+<svg class="w-4 h-4 text-primary-container mt-0.5 shrink-0" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"></path>
+</svg>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-primary font-bold" id="helperHeading">Applicant Direct Sign-In</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant" id="helperSubtext">Enter your 10-digit registered mobile number to receive a safe SMS OTP.</span>
+</div>
+</div>
+<!-- Phone Input Block -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex justify-between items-baseline">
+<label class="font-title-sm text-title-sm text-on-surface" for="mobileInput">
+          Mobile Number <span class="text-on-surface-variant font-normal">/ मोबाइल नंबर</span>
+</label>
+<span class="font-label-sm text-label-sm text-tertiary-container font-semibold">DPDP Protected</span>
+</div>
+<!-- Country Code & Numeric Input Field -->
+<div class="flex items-center bg-surface-container-lowest rounded-lg shadow-sm overflow-hidden bg-surface-container-high focus-within:bg-surface-container-highest transition-colors">
+<!-- Integrated Prefix with Indian Tricolor Accent -->
+<div class="flex items-center gap-space-xs px-space-md py-3 bg-surface-container text-on-surface select-none shrink-0">
+<span class="inline-flex flex-col w-4 h-3 justify-between shadow-xs overflow-hidden rounded-[1px]">
+<span class="h-1 bg-[#FF9933] w-full block"></span>
+<span class="h-1 bg-[#FFFFFF] w-full block relative flex items-center justify-center">
+<span class="w-1 h-1 rounded-full bg-[#000088] block"></span>
+</span>
+<span class="h-1 bg-[#138808] w-full block"></span>
+</span>
+<span class="font-title-sm text-title-sm font-semibold tracking-wide">+91</span>
+</div>
+<input class="w-full h-12 px-space-md bg-transparent text-primary font-title-md text-title-md tracking-wider placeholder:text-outline focus:outline-none" id="mobileInput" inputmode="numeric" maxlength="10" placeholder="98765 43210" required="" type="tel"/>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Used for direct scheme credit updates and e-KYC status tracking.</p>
+</div>
+<!-- Quick Alternate Identity Strip -->
+<div class="bg-surface-container-low p-space-sm rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<svg class="w-4 h-4 text-tertiary-container" fill="currentColor" viewbox="0 0 24 24">
+<path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM8 7h8v2H8zm0 4h8v2H8zm0 4h5v2H8z"></path>
+</svg>
+<span class="font-label-sm text-label-sm text-on-surface">Aadhaar / MeriPehchaan linked?</span>
+</div>
+<button class="font-label-md text-label-md text-primary font-bold underline hover:opacity-80" onclick="activateMeriPehchaan()" type="button">
+        Direct e-Pehchaan
+      </button>
+</div>
+<!-- OTP Section (Initially visible as interactive step or toggled) -->
+<div class="flex flex-col gap-space-xs pt-space-xs" id="otpContainer">
+<div class="flex justify-between items-center">
+<label class="font-title-sm text-title-sm text-on-surface">
+          One-Time Password (OTP) <span class="text-on-surface-variant font-normal">/ ओटीपी</span>
+</label>
+<span class="font-label-sm text-label-sm text-secondary font-semibold" id="countdownTimer">Resend in 28s</span>
+</div>
+<!-- 6-digit Discrete Boxes -->
+<div class="grid grid-cols-6 gap-space-xs w-full" id="otpBoxGroup">
+<input class="w-full h-12 text-center text-title-lg font-title-lg text-primary bg-surface-container rounded-lg focus:bg-surface-container-lowest focus:outline-none shadow-xs" inputmode="numeric" maxlength="1" type="text"/>
+<input class="w-full h-12 text-center text-title-lg font-title-lg text-primary bg-surface-container rounded-lg focus:bg-surface-container-lowest focus:outline-none shadow-xs" inputmode="numeric" maxlength="1" type="text"/>
+<input class="w-full h-12 text-center text-title-lg font-title-lg text-primary bg-surface-container rounded-lg focus:bg-surface-container-lowest focus:outline-none shadow-xs" inputmode="numeric" maxlength="1" type="text"/>
+<input class="w-full h-12 text-center text-title-lg font-title-lg text-primary bg-surface-container rounded-lg focus:bg-surface-container-lowest focus:outline-none shadow-xs" inputmode="numeric" maxlength="1" type="text"/>
+<input class="w-full h-12 text-center text-title-lg font-title-lg text-primary bg-surface-container rounded-lg focus:bg-surface-container-lowest focus:outline-none shadow-xs" inputmode="numeric" maxlength="1" type="text"/>
+<input class="w-full h-12 text-center text-title-lg font-title-lg text-primary bg-surface-container rounded-lg focus:bg-surface-container-lowest focus:outline-none shadow-xs" inputmode="numeric" maxlength="1" type="text"/>
+</div>
+<div class="flex justify-between items-center mt-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Auto-detecting SMS verification token...</span>
+<button class="font-label-sm text-label-sm text-primary font-bold opacity-50 cursor-not-allowed" disabled="" id="resendBtn" type="button">
+          पुनः भेजें
+        </button>
+</div>
+</div>
+<!-- DPDP Statutory Consent Box -->
+<div class="p-space-sm bg-surface-container-low rounded-lg flex items-start gap-space-sm mt-space-xs">
+<div class="min-w-[48px] min-h-[48px] flex items-center justify-center -ml-2 -mt-2">
+<input checked="" class="w-5 h-5 rounded bg-surface text-primary-container focus:ring-0 cursor-pointer" id="dpdpConsent" required="" type="checkbox"/>
+</div>
+<label class="font-body-sm text-body-sm text-on-surface select-none cursor-pointer leading-tight pt-1" for="dpdpConsent">
+        I agree to verify my mobile number for MoSJE scheme assistance. My data is protected under the <strong>Digital Personal Data Protection (DPDP) Act</strong>.
+      </label>
+</div>
+<!-- Primary Action CTA (Saffron Restrained Civic Accent) -->
+<button class="w-full min-h-[48px] bg-secondary-container hover:bg-secondary text-on-primary font-label-lg text-label-lg rounded-lg shadow-md flex items-center justify-center gap-space-xs transition-colors" id="submitButton" type="submit">
+<svg class="w-5 h-5 text-on-primary" fill="currentColor" viewbox="0 0 24 24">
+<path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"></path>
+</svg>
+<span id="btnText">Get Secure OTP / सुरक्षित ओटीपी प्राप्त करें</span>
+</button>
+</form>
+<!-- Civic Assistance & Facilitation Section -->
+<div class="mt-space-lg pt-space-md bg-surface-container-low p-space-md rounded-lg flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs text-primary">
+<svg class="w-4 h-4 text-primary" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"></path>
+</svg>
+<span class="font-title-sm text-title-sm font-bold">Need Help / सहायता चाहिए?</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+      Having trouble? You can also authenticate using <strong>Jan Samarth / MeriPehchaan</strong> or visit your nearest Gram Panchayat <strong>Common Service Centre (CSC)</strong> for assisted biometrics.
+    </p>
+<!-- Assisted Service Hub Locations Badge -->
+<div class="flex items-center justify-between pt-space-xs text-primary">
+<span class="font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<svg class="w-3.5 h-3.5 text-secondary" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path>
+</svg>
+        3.8 Lakh+ CSCs Active
+      </span>
+<a class="font-label-md text-label-md underline hover:opacity-80" href="#cscLocator">Locate Nearest CSC →</a>
+</div>
+</div>
+<!-- Trust Badges Strip -->
+<div class="mt-space-md grid grid-cols-3 gap-space-xs text-center">
+<div class="p-space-xs bg-surface-container rounded flex flex-col items-center">
+<span class="font-label-sm text-label-sm text-on-surface font-bold">Zero Spam</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant scale-90">Govt. Updates Only</span>
+</div>
+<div class="p-space-xs bg-surface-container rounded flex flex-col items-center">
+<span class="font-label-sm text-label-sm text-tertiary-container font-bold">256-bit SSL</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant scale-90">NIC Certified</span>
+</div>
+<div class="p-space-xs bg-surface-container rounded flex flex-col items-center">
+<span class="font-label-sm text-label-sm text-on-surface font-bold">DPDP Ready</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant scale-90">Strict Data Privacy</span>
+</div>
+</div>
+<!-- Secondary Role Switch Link (Subtle, non-distracting) -->
+<div class="mt-space-lg text-center pt-space-xs">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Channel Partner, Inspector, or Bank Officer?</span>
+<div class="mt-0.5">
+<a class="font-label-md text-label-md text-primary font-bold underline hover:opacity-80" href="#staff-portal">
+        Click here for Staff &amp; Official Portal Login
+      </a>
+</div>
+</div>
+<script>
+    function switchMode(mode) {
+      const loginBtn = document.getElementById('tabLogin');
+      const regBtn = document.getElementById('tabRegister');
+      const heading = document.getElementById('helperHeading');
+      const subtext = document.getElementById('helperSubtext');
+      const btnText = document.getElementById('btnText');
+
+      if (mode === 'register') {
+        regBtn.className = 'py-2 rounded font-title-sm text-title-sm transition-all duration-150 bg-surface-container-lowest text-primary shadow-sm';
+        loginBtn.className = 'py-2 rounded font-title-sm text-title-sm transition-all duration-150 text-on-surface-variant hover:text-on-surface';
+        heading.innerText = 'New Beneficiary Registration / नया पंजीकरण';
+        subtext.innerText = 'Register your mobile number to check eligibility across 45+ Central & State micro-credit schemes.';
+        btnText.innerText = 'Create Account & Verify OTP / पंजीकरण करें';
+      } else {
+        loginBtn.className = 'py-2 rounded font-title-sm text-title-sm transition-all duration-150 bg-surface-container-lowest text-primary shadow-sm';
+        regBtn.className = 'py-2 rounded font-title-sm text-title-sm transition-all duration-150 text-on-surface-variant hover:text-on-surface';
+        heading.innerText = 'Applicant Direct Sign-In';
+        subtext.innerText = 'Enter your 10-digit registered mobile number to receive a safe SMS OTP.';
+        btnText.innerText = 'Get Secure OTP / सुरक्षित ओटीपी प्राप्त करें';
+      }
+    }
+
+    function activateMeriPehchaan() {
+      alert('Redirecting to MeriPehchaan National Single Sign-On (SSO) gateway...');
+    }
+
+    function proceedAuth() {
+      const num = document.getElementById('mobileInput').value;
+      if (!num || num.length < 10) {
+        alert('Please enter a valid 10-digit mobile number.');
+        return;
+      }
+      alert('Secure OTP sent to +91 ' + num + '. Please verify the 6-digit code.');
+    }
+
+    // Discrete OTP input auto-advance logic
+    const otpInputs = document.querySelectorAll('#otpBoxGroup input');
+    otpInputs.forEach((input, index) => {
+      input.addEventListener('input', (e) => {
+        if (e.target.value.length === 1 && index < otpInputs.length - 1) {
+          otpInputs[index + 1].focus();
+        }
+      });
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace' && !e.target.value && index > 0) {
+          otpInputs[index - 1].focus();
+        }
+      });
+    });
+
+    // 28-second Resend countdown simulation
+    let secondsLeft = 28;
+    const timerElem = document.getElementById('countdownTimer');
+    const resendBtn = document.getElementById('resendBtn');
+    const countdown = setInterval(() => {
+      secondsLeft--;
+      if (secondsLeft > 0) {
+        timerElem.innerText = `Resend in ${secondsLeft}s / ${secondsLeft} सेकंड में`;
+      } else {
+        clearInterval(countdown);
+        timerElem.innerText = 'OTP Expired / समय समाप्त';
+        resendBtn.disabled = false;
+        resendBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+        resendBtn.classList.add('underline');
+      }
+    }, 1000);
+  </script>
+</div></main></body></html>
