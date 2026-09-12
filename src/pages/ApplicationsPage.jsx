@@ -203,7 +203,11 @@ function normalizeApplication(app) {
 
 export default function ApplicationsPage() {
   const { user, profile } = useAuth();
-  const { applications: rawApplications, loading } = useApplications(user?.id);
+  const {
+    applications: rawApplications,
+    loading,
+    error,
+  } = useApplications(user?.id);
 
   const [filter, setFilter] = useState("all"); // 'all' | 'in-progress' | 'completed'
   const [selectedAppModal, setSelectedAppModal] = useState(null);
@@ -237,6 +241,14 @@ export default function ApplicationsPage() {
         cornerScrews
         className="relative overflow-hidden"
       >
+        {error && (
+          <div
+            className="mb-4 rounded-lg border border-red-500/30 bg-red-500/10 px-3 py-2 font-mono text-xs text-red-700"
+            role="alert"
+          >
+            Unable to load applications: {error}
+          </div>
+        )}
         {applications.some((app) => app.isDemo) && (
           <div className="mb-4 rounded-lg border border-amber-500/30 bg-amber-500/10 px-3 py-2 font-mono text-[11px] text-amber-800">
             OFFLINE DEMO RECORD: status values below are sample data, not live

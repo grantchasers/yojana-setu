@@ -11,6 +11,27 @@ export function useApplications(userId) {
   const [applications, setApplications] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const localStorageKey = `yojana_applications_${userId || "anonymous"}`;
+
+  const readLocalApplications = useCallback(() => {
+    try {
+      const stored = JSON.parse(localStorage.getItem(localStorageKey) || "[]");
+      return Array.isArray(stored) ? stored : [];
+    } catch {
+      return [];
+    }
+  }, [localStorageKey]);
+
+  const writeLocalApplications = useCallback(
+    (rows) => {
+      try {
+        localStorage.setItem(localStorageKey, JSON.stringify(rows));
+      } catch {
+        // Local persistence is best-effort in offline mode.
+      }
+    },
+    [localStorageKey],
+  );
 
   const attachStatusHistory = useCallback(async (rows) => {
     const applicationIds = (rows || []).map((app) => app.id).filter(Boolean);
@@ -188,17 +209,7 @@ export function useApplications(userId) {
       }
 
       if (userId === "demo-user") {
-        setApplications([
-          {
-            id: "YS-DEMO-9841",
-            is_demo: true,
-            status: "routed",
-            status_history: [],
-            created_at: new Date().toISOString(),
-            scheme_name: "NSFDC Term Loan Scheme for Micro Enterprises",
-            partner_name: "UP Scheduled Castes Finance Development Corporation",
-          },
-        ]);
+        setApplications(readLocalApplications());
         setLoading(false);
         return;
       }
@@ -245,7 +256,7 @@ export function useApplications(userId) {
     return () => {
       isMounted = false;
     };
-  }, [userId, fetchApplications]);
+  }, [userId, fetchApplications, readLocalApplications]);
 
   /**
    * Creates a new application.
@@ -288,8 +299,21 @@ export function useApplications(userId) {
           id: `YS-${Date.now()}`,
           status: partnerId ? "routed" : "submitted",
           created_at: new Date().toISOString(),
+          is_demo: true,
+          status_history: [
+            {
+              status: partnerId ? "routed" : "submitted",
+              created_at: new Date().toISOString(),
+              description: partnerId
+                ? "Application routed to the selected partner."
+                : "Application submitted from the portal.",
+              source: "offline_application_record",
+            },
+          ],
         };
-        setApplications((prev) => [mock, ...prev]);
+        const nextApplications = [mock, ...readLocalApplications()];
+        writeLocalApplications(nextApplications);
+        setApplications(nextApplications);
         return { ...mock, data: mock, error: null };
       }
 
@@ -344,7 +368,7 @@ export function useApplications(userId) {
         };
       }
     },
-    [userId, fetchApplications],
+    [userId, fetchApplications, readLocalApplications, writeLocalApplications],
   );
 
   return {
