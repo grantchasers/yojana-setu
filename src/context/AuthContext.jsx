@@ -53,21 +53,21 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(() => !initialIsDemo);
   const [isDemo, setIsDemo] = useState(initialIsDemo);
 
-  const applyDemo = useCallback((role = "applicant") => {
+  const applyDemo = useCallback(() => {
     setUser(DEMO_USER);
-    setProfile({ ...DEMO_PROFILE, role });
+    setProfile(DEMO_PROFILE);
     setIsDemo(true);
     setLoading(false);
   }, []);
 
   const enterDemoMode = useCallback(
-    (role = "applicant") => {
+    () => {
       try {
         localStorage.setItem(DEMO_STORAGE_KEY, "1");
       } catch {
         /* ignore */
       }
-      applyDemo(role);
+      applyDemo();
     },
     [applyDemo],
   );

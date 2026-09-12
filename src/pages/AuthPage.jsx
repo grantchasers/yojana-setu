@@ -24,11 +24,10 @@ import LedIndicator from "../components/ui/LedIndicator";
 export default function AuthPage() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
-  const { user, profile, enterDemoMode } = useAuth();
+  const { user, enterDemoMode } = useAuth();
 
   // Two modes: 'signIn' or 'signUp'
   const [mode, setMode] = useState("signIn");
-  const [role, setRole] = useState("applicant");
 
   // Form fields
   const [name, setName] = useState("");
@@ -104,9 +103,9 @@ export default function AuthPage() {
   // Redirect if already authenticated
   useEffect(() => {
     if (user) {
-      navigate(roleLanding[profile?.role || role] || "/", { replace: true });
+      navigate("/", { replace: true });
     }
-  }, [user, profile, role, navigate]);
+  }, [user, navigate]);
 
   // Map Supabase error messages to friendly strings
   const mapSupabaseError = (err) => {
@@ -179,12 +178,6 @@ export default function AuthPage() {
     setHasAttemptedSubmit(false);
   };
 
-  const roleLanding = {
-    applicant: "/",
-    partner: "/partner",
-    admin: "/admin",
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setHasAttemptedSubmit(true);
@@ -214,16 +207,9 @@ export default function AuthPage() {
         if (signInError) {
           setError(mapSupabaseError(signInError));
         } else {
-          navigate(roleLanding[role], { replace: true });
+          navigate("/", { replace: true });
         }
       } else {
-        if (role !== "applicant") {
-          setError(
-            "Partner and Admin accounts must be provisioned by an administrator; public registration is for applicants only.",
-          );
-          setLoading(false);
-          return;
-        }
         // Sign Up Mode
         if (!name.trim()) {
           setError(
@@ -367,23 +353,6 @@ export default function AuthPage() {
           {/* Form Panel */}
           <div className="auth-form-panel bg-industrial-panel p-5 sm:p-6 space-y-5">
             {/* Mode Segmented Switch / Rocker Panel */}
-            <div className="grid grid-cols-3 gap-1.5 p-1.5 bg-industrial-recessed border border-industrial-border shadow-recessed rounded-xl">
-              {[
-                ["applicant", "Applicant / आवेदक"],
-                ["partner", "Partner / साझेदार"],
-                ["admin", "Admin / व्यवस्थापक"],
-              ].map(([value, label]) => (
-                <button
-                  key={value}
-                  type="button"
-                  onClick={() => setRole(value)}
-                  className={`py-2 rounded-lg font-mono text-[10px] font-bold transition-all ${role === value ? "bg-industrial-panel text-industrial-ink shadow-card border border-industrial-border" : "text-industrial-ink-muted hover:text-industrial-ink"}`}
-                >
-                  {label}
-                </button>
-              ))}
-            </div>
-
             <div className="grid grid-cols-2 gap-1.5 p-1.5 bg-industrial-recessed border border-industrial-border shadow-recessed rounded-xl">
               <button
                 type="button"
@@ -751,13 +720,13 @@ export default function AuthPage() {
               <button
                 type="button"
                 onClick={() => {
-                  enterDemoMode?.(role);
-                  navigate(roleLanding[role], { replace: true });
+                  enterDemoMode?.();
+                  navigate("/", { replace: true });
                 }}
                 className="w-full min-h-[44px] font-mono text-xs font-bold rounded-xl flex items-center justify-center gap-2 bg-industrial-chassis text-industrial-ink border border-white/60 shadow-card hover:shadow-floating hover:text-industrial-accent active:shadow-pressed active:translate-y-[2px] transition-all uppercase tracking-wider"
               >
                 <Cpu className="w-4 h-4" />
-                Preview access only (no cloud login)
+                Evaluator demo access (no cloud login)
               </button>
 
               {/* Missing fields helper */}
