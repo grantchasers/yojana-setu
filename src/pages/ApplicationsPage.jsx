@@ -1,168 +1,168 @@
-import { useState, useMemo } from 'react'
-import { NavLink } from 'react-router-dom'
-import { formatCurrency } from '../lib/formatCurrency'
-import { useAuth } from '../context/AuthContext'
-import { useApplications } from '../hooks/useApplications'
+import { useState, useMemo } from "react";
+import { NavLink } from "react-router-dom";
+import {
+  FileText,
+  CheckCircle2,
+  Building2,
+  ShieldCheck,
+  UserCheck,
+  Download,
+  UploadCloud,
+  Eye,
+  Printer,
+  X,
+  Activity,
+  Sparkles,
+  Phone,
+  Cpu,
+  FileCode,
+  Check,
+  Calendar,
+  BadgeCheck,
+  FolderOpen,
+  FilterX,
+} from "lucide-react";
+import { formatCurrency } from "../lib/formatCurrency";
+import { useAuth } from "../context/AuthContext";
+import { useApplications } from "../hooks/useApplications";
+import IndustrialCard from "../components/ui/IndustrialCard";
+import TactileButton from "../components/ui/TactileButton";
+import LedIndicator from "../components/ui/LedIndicator";
 
 // Helper to normalize applications from database into UI presentation model
 function normalizeApplication(app) {
-  const rawStatus = (app.status || 'submitted').toLowerCase()
-  const isCompleted = ['approved', 'sanctioned', 'disbursed', 'completed'].includes(rawStatus)
-  const isDisbursed = rawStatus === 'disbursed'
-  const isApproved = rawStatus === 'approved' || rawStatus === 'sanctioned'
-  const isRouted = rawStatus === 'routed'
+  const rawStatus = (app.status || "submitted").toLowerCase();
+  const statusHistory = Array.isArray(app.status_history)
+    ? app.status_history
+    : [];
+  const isCompleted = [
+    "approved",
+    "sanctioned",
+    "disbursed",
+    "completed",
+  ].includes(rawStatus);
+  const isDisbursed = rawStatus === "disbursed";
+  const isApproved = rawStatus === "approved" || rawStatus === "sanctioned";
+  const isRouted = rawStatus === "routed";
 
   const idFormatted = app.id
-    ? String(app.id).startsWith('YS-')
+    ? String(app.id).startsWith("YS-")
       ? app.id
       : `YS-${String(app.id).slice(0, 8).toUpperCase()}`
-    : 'YS-2025-APP'
+    : "YS-2025-APP";
 
   const title =
     app.scheme_name ||
     app.schemes?.name ||
     app.schemes?.title ||
-    'NSFDC Term Loan Scheme - Micro Enterprise'
+    "NSFDC Term Loan Scheme - Micro Enterprise";
 
   const titleHi =
     app.schemes?.title_hi ||
     app.schemes?.titleHi ||
-    'राष्ट्रीय अनुसूचित जाति वित्त एवं विकास निगम सावधि ऋण योजना'
+    "राष्ट्रीय अनुसूचित जाति वित्त एवं विकास निगम सावधि ऋण योजना";
 
   const schemeBadge =
-    app.schemes?.agency ||
-    app.schemes?.code ||
-    'MoSJE Central Scheme'
+    app.schemes?.agency || app.schemes?.code || "MoSJE Central Scheme";
 
-  const category = isCompleted ? 'completed' : 'in-progress'
+  const category = isCompleted ? "completed" : "in-progress";
 
   const statusText = isDisbursed
-    ? 'Disbursed'
+    ? "Disbursed"
     : isApproved
-    ? 'Approved'
-    : isRouted
-    ? 'Routed'
-    : 'Submitted'
+      ? "Approved"
+      : isRouted
+        ? "Routed"
+        : "Submitted";
 
   const statusBadgeText = isDisbursed
-    ? 'Approved & Disbursed (स्वीकृत एवं वितरित)'
+    ? "Approved & Disbursed (स्वीकृत एवं वितरित)"
     : isApproved
-    ? 'Approved / Sanctioned (स्वीकृत)'
-    : isRouted
-    ? 'Under Review / Routed to Partner'
-    : 'Submitted / Portal Registration'
+      ? "Approved / Sanctioned (स्वीकृत)"
+      : isRouted
+        ? "Under Review / Routed to Partner"
+        : "Submitted / Portal Registration";
 
   const statusBadgeHi = isDisbursed
-    ? 'पूर्ण एवं वितरित'
+    ? "पूर्ण एवं वितरित"
     : isApproved
-    ? 'स्वीकृत'
-    : isRouted
-    ? 'समीक्षा जारी है / अग्रेषित'
-    : 'प्रस्तुत / प्रारंभिक सत्यापन'
+      ? "स्वीकृत"
+      : isRouted
+        ? "समीक्षा जारी है / अग्रेषित"
+        : "प्रस्तुत / प्रारंभिक सत्यापन";
 
-  const amountVal = app.requested_amount || app.project_cost || 135000
-  const formattedAmount = formatCurrency(amountVal)
+  const amountVal = app.requested_amount || app.project_cost;
+  const formattedAmount = amountVal
+    ? formatCurrency(amountVal)
+    : "Not recorded";
 
   const submissionDate = app.created_at
-    ? new Date(app.created_at).toLocaleDateString('en-IN', {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric',
+    ? new Date(app.created_at).toLocaleDateString("en-IN", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
       })
-    : '12 February 2025'
-
-  const submissionDateShort = app.created_at
-    ? new Date(app.created_at).toLocaleDateString('en-IN', {
-        day: 'numeric',
-        month: 'short',
-      })
-    : 'Recent'
+    : "Not recorded";
 
   const partnerName =
-    app.partner_name ||
-    app.channel_partners?.name ||
-    'UP Scheduled Castes Finance & Dev Corp (UPSCFDC)'
+    app.partner_name || app.channel_partners?.name || "Not assigned";
 
   const partnerOffice =
     app.channel_partners?.location ||
     app.channel_partners?.address ||
-    'Lucknow District Office • Vikas Bhawan'
+    "Not recorded";
 
-  const fileNo = app.file_no || `LKO/YS/2025/${String(app.id || '084').slice(0, 4).toUpperCase()}`
-  const nodalOfficer = app.nodal_officer || 'Mr. Anil Verma'
-  const officerRole = app.officer_role || 'District Welfare Inspector'
-  const officerInitials = app.officer_initials || 'AV'
-  const officerLine = app.officer_line || '0522-2618991'
+  const fileNo = app.file_no || "Not recorded";
+  const nodalOfficer = app.nodal_officer || "Not assigned";
+  const officerRole = app.officer_role || "Not recorded";
+  const officerInitials = app.officer_initials || "--";
+  const officerLine = app.officer_line || "Not recorded";
 
-  const officerNote =
-    app.officer_note ||
-    (isDisbursed
-      ? 'Direct Benefit Transfer processed via PFMS Gateway to registered beneficiary account.'
-      : isApproved
-      ? 'Credit committee appraisal completed successfully. Sanction order issued.'
-      : isRouted
-      ? 'Physical field verification completed at workshop premises. Asset quotation and caste credentials verified intact. Recommendation forwarded favorably to State Credit Committee.'
-      : 'Application successfully accepted into the central system with DigiLocker verified identity. File queued for dispatch to designated nodal desk for pre-sanction screening.')
+  const officerNote = app.officer_note || null;
 
   const officerNoteDate = app.created_at
-    ? new Date(app.created_at).toLocaleDateString('en-IN', {
-        day: 'numeric',
-        month: 'short',
-        year: 'numeric',
+    ? new Date(app.created_at).toLocaleDateString("en-IN", {
+        day: "numeric",
+        month: "short",
+        year: "numeric",
       })
-    : 'Recent'
+    : null;
 
-  const currentStepIndex = isDisbursed ? 5 : isApproved ? 4 : isRouted ? 3 : 1
-  const progressLineWidth = isDisbursed
-    ? '100%'
-    : isApproved
-    ? '75%'
-    : isRouted
-    ? '45%'
-    : '10%'
-
-  const milestones = [
-    {
-      step: 1,
-      title: '1. Submitted',
-      date: submissionDateShort,
-      sub: 'Portal Registration',
-      status: 'completed',
-      desc: 'Validated via DigiLocker eKYC & MoSJE Portal.',
-    },
-    {
-      step: 2,
-      title: '2. Routed to Partner',
-      date: isRouted || isApproved || isDisbursed ? 'Completed' : 'Queued for Dispatch',
-      sub: partnerName,
-      status: isRouted || isApproved || isDisbursed ? 'completed' : 'pending',
-      desc: isRouted || isApproved || isDisbursed ? 'Transferred to district channel desk.' : 'Awaiting nodal routing confirmation.',
-    },
-    {
-      step: 3,
-      title: '3. Verification Check',
-      date: isRouted ? 'Active • In Progress' : isApproved || isDisbursed ? 'Completed' : 'Upcoming',
-      sub: 'Field & Document Review',
-      status: isRouted ? 'active' : isApproved || isDisbursed ? 'completed' : 'pending',
-      desc: 'Physical field visit & quotation appraisal.',
-    },
-    {
-      step: 4,
-      title: '4. Credit Sanction',
-      date: isApproved ? 'Active • Sanctioned' : isDisbursed ? 'Completed' : 'Target Stage',
-      sub: 'Credit Committee Review',
-      status: isApproved ? 'active' : isDisbursed ? 'completed' : 'pending',
-      desc: 'State Credit Committee evaluation.',
-    },
-    {
-      step: 5,
-      title: '5. DBT Disbursement',
-      date: isDisbursed ? 'Completed' : 'Final Stage',
-      sub: 'Direct to Bank A/c',
-      status: isDisbursed ? 'completed' : 'pending',
-      desc: 'Direct DBT credit to bank account.',
-    },
-  ]
+  const recordedEvents =
+    statusHistory.length > 0
+      ? statusHistory
+      : [
+          {
+            status: rawStatus,
+            created_at: app.created_at,
+            description: "Current status from application record.",
+          },
+        ];
+  const milestones = recordedEvents.map((event, index) => {
+    const eventStatus = String(
+      event.status || event.to_status || rawStatus,
+    ).toLowerCase();
+    const isCurrent = index === recordedEvents.length - 1;
+    return {
+      step: index + 1,
+      title: `${index + 1}. ${event.title || event.label || eventStatus.replace(/_/g, " ")}`,
+      date: event.created_at
+        ? new Date(event.created_at).toLocaleDateString("en-IN", {
+            day: "numeric",
+            month: "short",
+            year: "numeric",
+          })
+        : "Not recorded",
+      sub: event.actor_role || event.source || "Application record",
+      status: isCurrent ? "active" : "completed",
+      desc:
+        event.description ||
+        event.note ||
+        `Recorded status: ${eventStatus.replace(/_/g, " ")}.`,
+    };
+  });
+  const currentStepIndex = milestones.length;
+  const progressLineWidth = milestones.length > 1 ? "100%" : "18%";
 
   return {
     ...app,
@@ -178,8 +178,8 @@ function normalizeApplication(app) {
     sanctionSought: formattedAmount,
     disbursedAmount: formattedAmount,
     submissionDate,
-    submissionMode: 'Digital portal submission via MoSJE-SSO',
-    ekycVerified: true,
+    submissionMode: app.submission_mode || "Not recorded",
+    ekycVerified: Boolean(app.ekyc_verified),
     partnerName,
     partnerOffice,
     fileNo,
@@ -189,718 +189,866 @@ function normalizeApplication(app) {
     officerLine,
     officerNote,
     officerNoteDate,
-    expectedDecisionDate: isCompleted ? null : 'Within 7 working days',
-    daysRemaining: isCompleted ? null : 'Standard SLA',
+    expectedDecisionDate: app.expected_decision_date || null,
+    daysRemaining: app.days_remaining || null,
     currentStepIndex,
     progressLineWidth,
     milestones,
-    bankAccount: 'Bank of Baroda ••••3918',
-    utrNumber: `PFMS${String(app.id || '2025').slice(0, 8).toUpperCase()}`,
-    credential: 'MoSJE DBT Certified Beneficiary',
-  }
+    bankAccount: app.bank_account_masked || null,
+    utrNumber: app.utr_number || null,
+    credential: app.credential || null,
+    isDemo: Boolean(app.is_demo),
+  };
 }
 
 export default function ApplicationsPage() {
-  const { user, profile } = useAuth()
-  const { applications: rawApplications, loading } = useApplications(user?.id)
+  const { user, profile } = useAuth();
+  const { applications: rawApplications, loading } = useApplications(user?.id);
 
-  const [filter, setFilter] = useState('all') // 'all' | 'in-progress' | 'completed'
-  const [selectedAppModal, setSelectedAppModal] = useState(null)
-  const [toastMessage, setToastMessage] = useState(null)
+  const [filter, setFilter] = useState("all"); // 'all' | 'in-progress' | 'completed'
+  const [selectedAppModal, setSelectedAppModal] = useState(null);
+  const [toastMessage, setToastMessage] = useState(null);
 
   const showToast = (title, msg) => {
-    setToastMessage({ title, msg })
+    setToastMessage({ title, msg });
     setTimeout(() => {
-      setToastMessage(null)
-    }, 4000)
-  }
+      setToastMessage(null);
+    }, 4000);
+  };
 
   const applications = useMemo(() => {
-    return (rawApplications || []).map(normalizeApplication)
-  }, [rawApplications])
+    return (rawApplications || []).map(normalizeApplication);
+  }, [rawApplications]);
 
   const filteredApplications = useMemo(() => {
     return applications.filter((app) => {
-      if (filter === 'all') return true
-      if (filter === 'in-progress') return app.category === 'in-progress'
-      if (filter === 'completed') return app.category === 'completed'
-      return true
-    })
-  }, [applications, filter])
+      if (filter === "all") return true;
+      if (filter === "in-progress") return app.category === "in-progress";
+      if (filter === "completed") return app.category === "completed";
+      return true;
+    });
+  }, [applications, filter]);
 
   return (
-    <div className="w-full px-gutter-lg py-space-lg flex flex-col gap-space-lg">
-      {/* Notice Banner: Citizen Assurance */}
-      <div className="relative overflow-hidden rounded-xl bg-surface-container-high p-space-md shadow-xs border border-outline-variant/30">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
-          <div className="flex items-center gap-space-md">
-            <div className="w-12 h-12 rounded-xl bg-primary-container text-on-primary flex items-center justify-center shrink-0 shadow-xs">
-              <span className="material-symbols-outlined text-2xl">verified_user</span>
+    <div className="w-full max-w-7xl mx-auto space-y-6">
+      {/* Citizen Assurance Telemetry Strip */}
+      <IndustrialCard
+        variant="panel"
+        cornerScrews
+        className="relative overflow-hidden"
+      >
+        {applications.some((app) => app.isDemo) && (
+          <div className="mb-4 rounded-lg border border-amber-500/30 bg-amber-500/10 px-3 py-2 font-mono text-[11px] text-amber-800">
+            OFFLINE DEMO RECORD: status values below are sample data, not live
+            application updates.
+          </div>
+        )}
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div className="flex items-center gap-3.5">
+            <div className="w-12 h-12 rounded-lg bg-industrial-recessed shadow-recessed border border-industrial-border flex items-center justify-center shrink-0">
+              <ShieldCheck className="w-6 h-6 text-emerald-600" />
             </div>
-            <div className="flex flex-col">
-              <div className="flex items-center gap-2 flex-wrap">
-                <span className="font-title-md text-title-md text-primary font-bold">
-                  Direct Transparency Track • प्रत्यक्ष पारदर्शिता प्रणाली
+            <div>
+              <div className="flex items-center gap-2.5 flex-wrap">
+                <span className="font-mono text-sm font-bold tracking-wider text-industrial-ink uppercase">
+                  DIRECT TRANSPARENCY TRACK • प्रत्यक्ष पारदर्शिता प्रणाली
                 </span>
-                <span className="px-2 py-0.5 rounded-full bg-surface-container-lowest text-secondary font-label-sm text-label-sm shadow-xs font-semibold">
-                  MoSJE SLA Guard
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-industrial-chassis border border-industrial-border shadow-xs text-[11px] font-mono font-semibold text-industrial-ink-light">
+                  <LedIndicator color="emerald" state="blinking" size="sm" />
+                  SLA GUARD 100%
                 </span>
               </div>
-              <p className="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
-                Applications are time-bound by the Public Services Guarantee Act. Nodal officers are directly accountable for verification timelines.
+              <p className="font-sans text-xs text-industrial-ink-light mt-0.5">
+                Applications protected by the Public Services Guarantee Act.
+                Nodal desk audit times logged to central server.
               </p>
             </div>
           </div>
-          <div className="flex items-center gap-space-sm self-stretch md:self-auto justify-end">
-            <div className="px-space-sm py-1.5 rounded-lg bg-surface-container-lowest text-on-surface text-center shadow-xs">
-              <span className="font-label-sm text-label-sm text-outline uppercase block">Average Processing</span>
-              <span className="font-title-sm text-title-sm text-primary font-bold">11 Working Days</span>
+
+          <div className="flex items-center gap-2.5 self-stretch md:self-auto justify-end">
+            <div className="px-3 py-1.5 rounded-lg bg-industrial-recessed border border-industrial-border shadow-recessed text-center">
+              <span className="font-mono text-[10px] text-industrial-ink-muted uppercase block tracking-wider">
+                Avg Processing
+              </span>
+              <span className="font-mono text-xs font-bold text-industrial-ink">
+                11 WORK DAYS
+              </span>
             </div>
-            <div className="px-space-sm py-1.5 rounded-lg bg-surface-container-lowest text-on-surface text-center shadow-xs">
-              <span className="font-label-sm text-label-sm text-outline uppercase block">Direct DBT Guarantee</span>
-              <span className="font-title-sm text-title-sm text-tertiary-container font-bold">Zero Intermediary</span>
+            <div className="px-3 py-1.5 rounded-lg bg-industrial-recessed border border-industrial-border shadow-recessed text-center">
+              <span className="font-mono text-[10px] text-industrial-ink-muted uppercase block tracking-wider">
+                Disbursement
+              </span>
+              <span className="font-mono text-xs font-bold text-emerald-600">
+                ZERO MIDDLEMAN
+              </span>
             </div>
           </div>
         </div>
-      </div>
+      </IndustrialCard>
 
-      {/* Header & Filter Bar */}
-      <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-space-md">
-        <div className="flex flex-col">
+      {/* Control Console Header & Filter Switch */}
+      <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-4">
+        <div>
           <div className="flex items-center gap-2">
-            <span className="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">
-              Applicant Dashboard / नागरिक ट्रैकर
+            <span className="font-mono text-xs uppercase tracking-widest text-industrial-ink-muted font-bold flex items-center gap-1.5">
+              <Activity className="w-3.5 h-3.5 text-industrial-accent" />
+              APPLICANT TELEMETRY STATION
             </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
-            <span className="font-label-sm text-label-sm text-outline">Aadhaar Linked: XXXXXXXX4910</span>
+            <span className="text-industrial-border font-mono">•</span>
+            <span className="font-mono text-xs text-industrial-ink-light">
+              UID: XXXXXXXX4910
+            </span>
           </div>
-          <h1 className="font-display-lg text-display-lg text-primary tracking-tight mt-1">
-            My Scheme Applications <span className="font-headline-md text-headline-md text-on-surface-variant font-normal">/ मेरे प्रस्तुत आवेदन</span>
+          <h1 className="text-2xl sm:text-3xl font-bold font-mono tracking-tight text-industrial-ink mt-1">
+            My Scheme Applications{" "}
+            <span className="text-base sm:text-lg font-sans text-industrial-ink-muted font-normal">
+              / प्रस्तुत आवेदन
+            </span>
           </h1>
         </div>
 
-        {/* Active Filters */}
-        <div className="flex items-center gap-1.5 p-1 rounded-xl bg-surface-container-high self-stretch md:self-auto overflow-x-auto shadow-xs">
+        {/* Tactical Rocker / Segmented Filter Switch */}
+        <div className="inline-flex items-center gap-1.5 p-1.5 rounded-xl bg-industrial-recessed border border-industrial-border/80 shadow-recessed self-stretch md:self-auto overflow-x-auto">
           <button
-            className={`px-4 py-2 rounded-lg font-label-md text-label-md transition-all duration-200 flex items-center gap-1.5 cursor-pointer ${
-              filter === 'all'
-                ? 'bg-primary text-on-primary shadow-xs font-bold'
-                : 'text-on-surface-variant hover:bg-surface-container-highest'
+            className={`px-3.5 py-1.5 rounded-lg font-mono text-xs font-bold transition-all duration-150 flex items-center gap-2 cursor-pointer ${
+              filter === "all"
+                ? "bg-industrial-chassis text-industrial-ink shadow-pressed border border-industrial-border/60 translate-y-[1px]"
+                : "text-industrial-ink-muted hover:text-industrial-ink hover:bg-industrial-panel/50"
             }`}
-            onClick={() => setFilter('all')}
+            onClick={() => setFilter("all")}
             type="button"
           >
-            <span>All Applications</span>
-            <span className={`px-1.5 py-0.5 rounded-full text-[10px] font-bold ${
-              filter === 'all' ? 'bg-on-primary/20 text-on-primary' : 'bg-primary/10 text-primary'
-            }`}>
+            <span>ALL APPS</span>
+            <span
+              className={`px-1.5 py-0.5 rounded text-[10px] font-mono ${
+                filter === "all"
+                  ? "bg-industrial-accent text-white"
+                  : "bg-industrial-border/40 text-industrial-ink"
+              }`}
+            >
               {applications.length}
             </span>
           </button>
           <button
-            className={`px-4 py-2 rounded-lg font-label-md text-label-md transition-all duration-200 flex items-center gap-1.5 cursor-pointer ${
-              filter === 'in-progress'
-                ? 'bg-primary text-on-primary shadow-xs font-bold'
-                : 'text-on-surface-variant hover:bg-surface-container-highest'
+            className={`px-3.5 py-1.5 rounded-lg font-mono text-xs font-bold transition-all duration-150 flex items-center gap-2 cursor-pointer ${
+              filter === "in-progress"
+                ? "bg-industrial-chassis text-industrial-ink shadow-pressed border border-industrial-border/60 translate-y-[1px]"
+                : "text-industrial-ink-muted hover:text-industrial-ink hover:bg-industrial-panel/50"
             }`}
-            onClick={() => setFilter('in-progress')}
+            onClick={() => setFilter("in-progress")}
             type="button"
           >
-            <span>In Progress (प्रगति पर)</span>
-            <span className={`px-1.5 py-0.5 rounded-full text-[10px] font-bold ${
-              filter === 'in-progress' ? 'bg-on-primary/20 text-on-primary' : 'bg-secondary-container/20 text-secondary'
-            }`}>
-              {applications.filter((a) => a.category === 'in-progress').length}
+            <span>IN PROGRESS (प्रगति)</span>
+            <span
+              className={`px-1.5 py-0.5 rounded text-[10px] font-mono ${
+                filter === "in-progress"
+                  ? "bg-amber-500 text-white"
+                  : "bg-industrial-border/40 text-industrial-ink"
+              }`}
+            >
+              {applications.filter((a) => a.category === "in-progress").length}
             </span>
           </button>
           <button
-            className={`px-4 py-2 rounded-lg font-label-md text-label-md transition-all duration-200 flex items-center gap-1.5 cursor-pointer ${
-              filter === 'completed'
-                ? 'bg-primary text-on-primary shadow-xs font-bold'
-                : 'text-on-surface-variant hover:bg-surface-container-highest'
+            className={`px-3.5 py-1.5 rounded-lg font-mono text-xs font-bold transition-all duration-150 flex items-center gap-2 cursor-pointer ${
+              filter === "completed"
+                ? "bg-industrial-chassis text-industrial-ink shadow-pressed border border-industrial-border/60 translate-y-[1px]"
+                : "text-industrial-ink-muted hover:text-industrial-ink hover:bg-industrial-panel/50"
             }`}
-            onClick={() => setFilter('completed')}
+            onClick={() => setFilter("completed")}
             type="button"
           >
-            <span>Sanctioned / Completed (स्वीकृत)</span>
-            <span className={`px-1.5 py-0.5 rounded-full text-[10px] font-bold ${
-              filter === 'completed' ? 'bg-on-primary/20 text-on-primary' : 'bg-tertiary/10 text-tertiary'
-            }`}>
-              {applications.filter((a) => a.category === 'completed').length}
+            <span>SANCTIONED (स्वीकृत)</span>
+            <span
+              className={`px-1.5 py-0.5 rounded text-[10px] font-mono ${
+                filter === "completed"
+                  ? "bg-emerald-600 text-white"
+                  : "bg-industrial-border/40 text-industrial-ink"
+              }`}
+            >
+              {applications.filter((a) => a.category === "completed").length}
             </span>
           </button>
         </div>
       </div>
 
-      {/* Applications List, 3-Row Skeleton Loader, or Friendly Empty State */}
+      {/* Applications List, Skeleton Loader, or Empty State */}
       {loading ? (
-        <div className="flex flex-col gap-space-lg">
+        <div className="space-y-4">
           {[1, 2, 3].map((row) => (
-            <div
+            <IndustrialCard
               key={row}
-              className="flex flex-col rounded-xl bg-surface-container-lowest shadow-sm border border-outline-variant/30 overflow-hidden animate-pulse p-space-lg gap-space-md"
+              variant="panel"
+              className="animate-pulse p-6 space-y-4"
             >
-              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
-                <div className="flex items-start gap-space-md">
-                  <div className="w-14 h-14 rounded-xl bg-surface-container-high shrink-0" />
-                  <div className="flex flex-col gap-2">
-                    <div className="flex items-center gap-2">
-                      <div className="w-24 h-4 bg-surface-container-high rounded" />
-                      <div className="w-36 h-4 bg-surface-container-high rounded" />
-                      <div className="w-28 h-4 bg-surface-container-high rounded" />
-                    </div>
-                    <div className="w-64 sm:w-96 h-6 bg-surface-container-high rounded" />
-                    <div className="w-48 h-3 bg-surface-container-high rounded" />
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-lg bg-industrial-recessed" />
+                  <div className="space-y-2">
+                    <div className="w-32 h-4 bg-industrial-recessed rounded" />
+                    <div className="w-64 h-5 bg-industrial-recessed rounded" />
                   </div>
                 </div>
-                <div className="flex flex-col gap-2 items-start lg:items-end">
-                  <div className="w-48 h-8 rounded-full bg-surface-container-high" />
-                  <div className="w-32 h-4 bg-surface-container-high rounded" />
-                </div>
+                <div className="w-28 h-8 bg-industrial-recessed rounded" />
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-surface-container border-y border-outline-variant/20">
-                <div className="bg-surface-container-lowest p-space-md h-24" />
-                <div className="bg-surface-container-lowest p-space-md h-24" />
-                <div className="bg-surface-container-lowest p-space-md h-24" />
-              </div>
-
-              <div className="h-16 bg-surface-container-low rounded-lg" />
-
-              <div className="flex items-center justify-between pt-space-xs">
-                <div className="w-36 h-10 bg-surface-container-high rounded-lg" />
-                <div className="w-56 h-10 bg-surface-container-high rounded-lg" />
-              </div>
-            </div>
+              <div className="h-16 bg-industrial-recessed/60 rounded-lg" />
+              <div className="h-10 bg-industrial-recessed/40 rounded-lg" />
+            </IndustrialCard>
           ))}
         </div>
       ) : applications.length === 0 ? (
-        <div className="flex flex-col items-center justify-center text-center py-16 px-space-lg rounded-2xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm">
-          <div className="w-20 h-20 rounded-2xl bg-primary-fixed text-primary flex items-center justify-center mb-space-md shadow-xs">
-            <span className="material-symbols-outlined text-4xl">folder_open</span>
+        <IndustrialCard
+          variant="panel"
+          cornerScrews
+          className="text-center py-16 px-6"
+        >
+          <div className="w-16 h-16 rounded-xl bg-industrial-recessed border border-industrial-border shadow-recessed text-industrial-ink-muted flex items-center justify-center mx-auto mb-4">
+            <FolderOpen className="w-8 h-8" />
           </div>
-          <h2 className="font-headline-md text-headline-md text-primary font-bold mb-2">
-            No Scheme Applications Yet / अभी तक कोई आवेदन नहीं
+          <h2 className="text-xl font-bold font-mono text-industrial-ink mb-1">
+            No Applications Found // कोई आवेदन नहीं मिला
           </h2>
-          <p className="font-body-md text-body-md text-on-surface-variant max-w-lg mb-space-lg">
-            You haven't submitted any applications for concessional credit or welfare subsidies yet. Discover tailored central schemes and apply in under 2 minutes with our Scheme Recommender.
+          <p className="font-sans text-sm text-industrial-ink-light max-w-md mx-auto mb-6">
+            You haven't submitted any scheme applications yet. Run our automated
+            scheme recommender to find optimal subsidies.
           </p>
-          <NavLink
-            to="/recommender"
-            className="inline-flex items-center gap-2 px-space-xl py-3.5 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg shadow-sm hover:bg-primary-container transition-all duration-200"
-          >
-            <span className="material-symbols-outlined text-xl">smart_toy</span>
-            <span>Start Scheme Recommender (योजना सिफारिश शुरू करें)</span>
-            <span className="material-symbols-outlined text-base">arrow_forward</span>
-          </NavLink>
-        </div>
-      ) : filteredApplications.length === 0 ? (
-        <div className="flex flex-col items-center justify-center text-center py-12 px-space-lg rounded-2xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm">
-          <div className="w-16 h-16 rounded-xl bg-surface-container-high text-on-surface-variant flex items-center justify-center mb-space-md">
-            <span className="material-symbols-outlined text-3xl">filter_list_off</span>
-          </div>
-          <h3 className="font-title-lg text-title-lg text-primary font-bold mb-1">
-            No Applications in "{filter}" Category
-          </h3>
-          <p className="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
-            There are no applications matching the selected status filter.
-          </p>
-          <button
-            onClick={() => setFilter('all')}
-            className="px-space-md py-2 rounded-lg bg-surface-container-highest text-primary font-label-md text-label-md cursor-pointer hover:bg-surface-dim transition-all duration-200"
-            type="button"
-          >
-            View All Applications ({applications.length})
-          </button>
-        </div>
-      ) : (
-        <div className="flex flex-col gap-space-lg">
-          {filteredApplications.map((app) => {
-          const isCompleted = app.category === 'completed'
-
-          return (
-            <section
-              key={app.id}
-              className="flex flex-col rounded-xl bg-surface-container-lowest shadow-sm border border-outline-variant/30 overflow-hidden"
+          <NavLink to="/recommender">
+            <TactileButton
+              variant="primary"
+              size="md"
+              icon={<Sparkles className="w-4 h-4" />}
             >
-              {/* Card Top Identity Bar */}
-              <div className="p-space-lg bg-gradient-to-r from-surface-container-low via-surface-container-lowest to-surface-container-low flex flex-col lg:flex-row lg:items-center justify-between gap-space-md border-b border-outline-variant/20">
-                <div className="flex items-start gap-space-md min-w-0">
-                  <div
-                    className={`w-14 h-14 rounded-xl flex items-center justify-center shrink-0 shadow-xs ${
-                      isCompleted ? 'bg-tertiary-container text-on-tertiary' : 'bg-primary-container text-on-primary'
-                    }`}
-                  >
-                    <span className="material-symbols-outlined text-3xl">
-                      {isCompleted ? 'school' : app.status === 'Submitted' ? 'hourglass_top' : 'store'}
-                    </span>
-                  </div>
-                  <div className="flex flex-col min-w-0">
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span className="px-2.5 py-0.5 rounded bg-primary text-on-primary font-label-sm text-label-sm font-bold tracking-wide">
-                        #{app.id}
-                      </span>
-                      <span className="px-2 py-0.5 rounded bg-surface-container-highest text-primary font-label-sm text-label-sm font-semibold">
-                        {app.schemeBadge}
-                      </span>
-                      <span
-                        className={`px-2 py-0.5 rounded font-label-sm text-label-sm font-semibold flex items-center gap-1 ${
-                          isCompleted
-                            ? 'bg-tertiary text-tertiary-fixed'
-                            : 'bg-tertiary-fixed text-on-tertiary-fixed'
-                        }`}
-                      >
-                        <span className="material-symbols-outlined text-xs">
-                          {isCompleted ? 'verified' : 'bolt'}
-                        </span>
-                        {isCompleted ? 'Sanctioned & Disbursed' : 'Fast Track Pipeline'}
-                      </span>
-                    </div>
-                    <h2 className="font-headline-md text-headline-md text-primary mt-1.5 font-bold truncate">
-                      {app.title}
-                    </h2>
-                    <p className="font-body-sm text-body-sm text-on-surface-variant">
-                      {app.titleHi}
-                    </p>
-                  </div>
-                </div>
+              Launch Scheme Recommender
+            </TactileButton>
+          </NavLink>
+        </IndustrialCard>
+      ) : filteredApplications.length === 0 ? (
+        <IndustrialCard
+          variant="panel"
+          cornerScrews
+          className="text-center py-12 px-6"
+        >
+          <div className="w-14 h-14 rounded-xl bg-industrial-recessed border border-industrial-border shadow-recessed text-industrial-ink-muted flex items-center justify-center mx-auto mb-3">
+            <FilterX className="w-6 h-6" />
+          </div>
+          <h3 className="text-lg font-bold font-mono text-industrial-ink mb-1">
+            NO RECORDS IN "{filter.toUpperCase()}" FILTER
+          </h3>
+          <p className="font-sans text-xs text-industrial-ink-light mb-4">
+            There are no applications matching the active filtering parameter.
+          </p>
+          <TactileButton
+            variant="secondary"
+            size="sm"
+            onClick={() => setFilter("all")}
+          >
+            Reset to All Applications ({applications.length})
+          </TactileButton>
+        </IndustrialCard>
+      ) : (
+        <div className="space-y-6">
+          {filteredApplications.map((app) => {
+            const isCompleted = app.category === "completed";
 
-                {/* Live Status Pill & Target */}
-                <div className="flex flex-row lg:flex-col items-start lg:items-end justify-between gap-space-xs shrink-0 pt-2 lg:pt-0">
-                  <div
-                    className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full shadow-xs ${
-                      isCompleted
-                        ? 'bg-tertiary-container text-tertiary-fixed'
-                        : app.status === 'Submitted'
-                        ? 'bg-surface-container-highest text-primary'
-                        : 'bg-primary-container text-on-primary'
-                    }`}
-                  >
-                    <span
-                      className={`w-2.5 h-2.5 rounded-full ${
+            return (
+              <IndustrialCard
+                key={app.id}
+                variant="panel"
+                cornerScrews
+                className="overflow-hidden p-0 border-industrial-border shadow-card"
+              >
+                {/* Top Chassis Header & Gauge */}
+                <div className="p-4 sm:p-5 bg-industrial-chassis/60 border-b border-industrial-border flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                  <div className="flex items-start gap-3.5 min-w-0">
+                    <div
+                      className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 border border-industrial-border shadow-card ${
                         isCompleted
-                          ? 'bg-tertiary-fixed'
-                          : app.status === 'Submitted'
-                          ? 'bg-primary animate-pulse'
-                          : 'bg-secondary-fixed-dim animate-pulse'
-                      }`}
-                    />
-                    <span className="font-label-md text-label-md font-bold tracking-wide">
-                      {app.statusBadgeText}
-                    </span>
-                  </div>
-                  <div className="flex items-baseline gap-1 mt-1">
-                    <span className="font-label-sm text-label-sm text-outline">
-                      {isCompleted ? 'Disbursed DBT:' : 'Sanction Sought:'}
-                    </span>
-                    <span
-                      className={`font-title-lg text-title-lg font-bold ${
-                        isCompleted ? 'text-tertiary-container' : 'text-primary'
+                          ? "bg-emerald-500/10 text-emerald-600"
+                          : app.status === "Submitted"
+                            ? "bg-blue-500/10 text-blue-600"
+                            : "bg-amber-500/10 text-amber-600"
                       }`}
                     >
-                      {isCompleted ? app.disbursedAmount : app.sanctionSought}
-                    </span>
-                  </div>
-                </div>
-              </div>
+                      <FileText className="w-6 h-6" />
+                    </div>
 
-              {/* Metadata & Officer Accountability Block */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-surface-container border-b border-outline-variant/20">
-                {/* Submission Context */}
-                <div className="bg-surface-container-lowest p-space-md flex flex-col justify-between">
-                  <span className="font-label-sm text-label-sm text-outline uppercase tracking-wider flex items-center gap-1">
-                    <span className="material-symbols-outlined text-sm">calendar_today</span> Submission Audit
-                  </span>
-                  <div className="mt-2">
-                    <div className="font-title-sm text-title-sm text-on-surface font-semibold">
-                      {app.submissionDate || (isCompleted ? `Disbursed: ${app.disbursedDate}` : 'Recent')}
-                    </div>
-                    <div className="font-body-sm text-body-sm text-on-surface-variant">
-                      {app.submissionMode || 'Certified e-Sign submission'}
-                    </div>
-                  </div>
-                  <div className="mt-3 inline-flex items-center gap-1 text-tertiary font-label-sm text-label-sm">
-                    <span className="material-symbols-outlined text-sm">check_circle</span> Aadhaar eKYC Verified
-                  </div>
-                </div>
+                    <div className="flex flex-col min-w-0">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="px-2 py-0.5 rounded bg-industrial-recessed border border-industrial-border shadow-recessed font-mono text-xs font-bold text-industrial-ink">
+                          {app.id}
+                        </span>
+                        <span className="px-2 py-0.5 rounded bg-industrial-panel border border-industrial-border font-mono text-[11px] font-semibold text-industrial-ink-light">
+                          {app.schemeBadge}
+                        </span>
+                        <span
+                          className={`px-2 py-0.5 rounded font-mono text-[11px] font-bold flex items-center gap-1.5 border ${
+                            isCompleted
+                              ? "bg-emerald-500/15 text-emerald-700 border-emerald-500/30"
+                              : "bg-amber-500/15 text-amber-700 border-amber-500/30"
+                          }`}
+                        >
+                          <LedIndicator
+                            color={isCompleted ? "emerald" : "amber"}
+                            state={isCompleted ? "on" : "blinking"}
+                            size="sm"
+                          />
+                          {isCompleted
+                            ? "SANCTIONED & DISBURSED"
+                            : "FAST TRACK CONDUIT"}
+                        </span>
+                      </div>
 
-                {/* Channel Partner */}
-                <div className="bg-surface-container-lowest p-space-md flex flex-col justify-between">
-                  <span className="font-label-sm text-label-sm text-outline uppercase tracking-wider flex items-center gap-1">
-                    <span className="material-symbols-outlined text-sm">corporate_fare</span> Designated Partner Agency
-                  </span>
-                  <div className="mt-2">
-                    <div className="font-title-sm text-title-sm text-on-surface font-semibold">
-                      {app.partnerName}
-                    </div>
-                    <div className="font-body-sm text-body-sm text-on-surface-variant">
-                      {app.partnerOffice}
+                      <h2 className="text-base sm:text-lg font-bold font-mono text-industrial-ink mt-1.5 truncate">
+                        {app.title}
+                      </h2>
+                      <p className="font-sans text-xs text-industrial-ink-light">
+                        {app.titleHi}
+                      </p>
                     </div>
                   </div>
-                  <div className="mt-3 inline-flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
-                    <span className="material-symbols-outlined text-sm">tag</span> File No: {app.fileNo}
-                  </div>
-                </div>
 
-                {/* Accountable Nodal Officer */}
-                <div className="bg-surface-container-lowest p-space-md flex flex-col justify-between">
-                  <div className="flex items-center justify-between">
-                    <span className="font-label-sm text-label-sm text-outline uppercase tracking-wider flex items-center gap-1">
-                      <span className="material-symbols-outlined text-sm">badge</span> Assigned Nodal Officer
-                    </span>
-                    <span className="px-2 py-0.5 rounded bg-surface-container text-primary font-label-sm text-label-sm font-semibold">
-                      {app.officerRole}
-                    </span>
-                  </div>
-                  <div className="mt-2 flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary font-bold font-title-sm">
-                      {app.officerInitials}
-                    </div>
-                    <div className="flex flex-col">
-                      <div className="font-title-sm text-title-sm text-on-surface font-semibold">{app.nodalOfficer}</div>
-                      <div className="font-body-sm text-body-sm text-on-surface-variant">{app.officerRole}</div>
-                    </div>
-                  </div>
-                  <div className="mt-3 flex items-center justify-between font-label-sm text-label-sm pt-2 bg-surface-container-low/50 px-2 rounded">
-                    <span className="text-on-surface-variant flex items-center gap-1">
-                      <span className="material-symbols-outlined text-sm">call</span> Official Line: {app.officerLine}
-                    </span>
-                    <span className="text-secondary font-semibold">MoSJE Audited</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Status Timeline Track */}
-              <div className="p-space-lg bg-surface-container-lowest flex flex-col gap-space-md">
-                <div className="flex items-center justify-between flex-wrap gap-2">
-                  <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-primary text-xl">timeline</span>
-                    <span className="font-title-md text-title-md text-primary font-bold">
-                      Application Lifecycle Milestone Track
-                    </span>
-                  </div>
-                  {app.expectedDecisionDate && (
-                    <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-secondary"></span>
-                      <span className="font-label-sm text-label-sm text-on-surface-variant">
-                        Expected Committee Decision: <strong className="text-on-surface">{app.expectedDecisionDate}</strong> ({app.daysRemaining})
+                  {/* Right Telemetry Readout & Status Gauge */}
+                  <div className="flex flex-row lg:flex-col items-start lg:items-end justify-between gap-2 shrink-0 pt-2 lg:pt-0">
+                    <div className="px-3 py-1 rounded-md bg-industrial-recessed border border-industrial-border shadow-recessed flex items-center gap-2">
+                      <LedIndicator
+                        color={
+                          isCompleted
+                            ? "emerald"
+                            : app.status === "Submitted"
+                              ? "blue"
+                              : "amber"
+                        }
+                        state={isCompleted ? "on" : "blinking"}
+                        size="sm"
+                      />
+                      <span className="font-mono text-xs font-bold text-industrial-ink">
+                        {app.statusBadgeText}
                       </span>
                     </div>
-                  )}
-                  {isCompleted && (
-                    <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-tertiary"></span>
-                      <span className="font-label-sm text-label-sm text-on-surface-variant">
-                        Disbursed via PFMS: <strong className="text-on-surface">{app.disbursedDate}</strong>
+
+                    <div className="flex items-baseline gap-1.5 mt-1 font-mono">
+                      <span className="text-[11px] text-industrial-ink-muted uppercase">
+                        {isCompleted ? "Disbursed DBT:" : "Sanction Sought:"}
+                      </span>
+                      <span
+                        className={`text-base sm:text-lg font-bold ${
+                          isCompleted
+                            ? "text-emerald-600"
+                            : "text-industrial-ink"
+                        }`}
+                      >
+                        {isCompleted ? app.disbursedAmount : app.sanctionSought}
                       </span>
                     </div>
-                  )}
+                  </div>
                 </div>
 
-                {/* Desktop Horizontal Stepper Track */}
-                <div className="relative py-space-sm hidden md:block">
-                  {/* Connecting Line Background */}
-                  <div className="absolute top-8 left-10 right-10 h-1 bg-surface-container-high -translate-y-1/2 z-0"></div>
-                  {/* Progress Active Line */}
-                  <div
-                    className="absolute top-8 left-10 h-1 bg-tertiary -translate-y-1/2 z-0 transition-all duration-700"
-                    style={{ width: app.progressLineWidth || '45%' }}
-                  ></div>
+                {/* 3-Column Technical Modular Chassis */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-industrial-border border-b border-industrial-border">
+                  {/* Col 1: Submission Audit */}
+                  <div className="bg-industrial-panel p-4 flex flex-col justify-between">
+                    <div>
+                      <span className="font-mono text-[10px] text-industrial-ink-muted uppercase tracking-wider flex items-center gap-1.5">
+                        <Calendar className="w-3.5 h-3.5 text-industrial-accent" />
+                        SUBMISSION AUDIT
+                      </span>
+                      <div className="mt-2">
+                        <div className="font-mono text-xs font-bold text-industrial-ink">
+                          {app.submissionDate}
+                        </div>
+                        <div className="font-sans text-xs text-industrial-ink-light mt-0.5">
+                          {app.submissionMode}
+                        </div>
+                      </div>
+                    </div>
+                    {app.ekycVerified && (
+                      <div className="mt-3 flex items-center gap-1.5 text-emerald-600 font-mono text-[11px] font-semibold">
+                        <BadgeCheck className="w-4 h-4" />
+                        Aadhaar eKYC Verified
+                      </div>
+                    )}
+                  </div>
 
-                  <div className="grid grid-cols-5 gap-2 relative z-10">
+                  {/* Col 2: Channel Partner */}
+                  <div className="bg-industrial-panel p-4 flex flex-col justify-between">
+                    <div>
+                      <span className="font-mono text-[10px] text-industrial-ink-muted uppercase tracking-wider flex items-center gap-1.5">
+                        <Building2 className="w-3.5 h-3.5 text-industrial-accent" />
+                        DESIGNATED PARTNER AGENCY
+                      </span>
+                      <div className="mt-2">
+                        <div className="font-mono text-xs font-bold text-industrial-ink">
+                          {app.partnerName}
+                        </div>
+                        <div className="font-sans text-xs text-industrial-ink-light mt-0.5">
+                          {app.partnerOffice}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="mt-3 font-mono text-[11px] text-industrial-ink-light">
+                      FILE:{" "}
+                      <span className="font-bold text-industrial-ink">
+                        {app.fileNo}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Col 3: Accountable Nodal Officer */}
+                  <div className="bg-industrial-panel p-4 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between">
+                        <span className="font-mono text-[10px] text-industrial-ink-muted uppercase tracking-wider flex items-center gap-1.5">
+                          <UserCheck className="w-3.5 h-3.5 text-industrial-accent" />
+                          NODAL OFFICER DESK
+                        </span>
+                        <span className="px-1.5 py-0.5 rounded bg-industrial-recessed border border-industrial-border font-mono text-[10px] text-industrial-ink font-semibold">
+                          {app.officerRole}
+                        </span>
+                      </div>
+                      <div className="mt-2 flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-full bg-industrial-recessed border border-industrial-border shadow-recessed flex items-center justify-center font-mono font-bold text-xs text-industrial-ink">
+                          {app.officerInitials}
+                        </div>
+                        <div>
+                          <div className="font-mono text-xs font-bold text-industrial-ink">
+                            {app.nodalOfficer}
+                          </div>
+                          <div className="font-sans text-xs text-industrial-ink-light">
+                            {app.officerRole}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="mt-3 flex items-center justify-between font-mono text-[11px] pt-2 border-t border-industrial-border/40">
+                      <span className="text-industrial-ink-light flex items-center gap-1">
+                        <Phone className="w-3 h-3 text-industrial-ink-muted" />
+                        {app.officerLine}
+                      </span>
+                      {app.officerRole !== "Not recorded" && (
+                        <span className="text-emerald-600 font-semibold">
+                          Recorded in application data
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Status Timeline Conduit Track */}
+                <div className="p-4 sm:p-5 bg-industrial-chassis/40 space-y-4">
+                  <div className="flex items-center justify-between flex-wrap gap-2">
+                    <div className="flex items-center gap-2">
+                      <Cpu className="w-4 h-4 text-industrial-accent" />
+                      <span className="font-mono text-xs font-bold uppercase tracking-wider text-industrial-ink">
+                        Application Lifecycle Milestone Conduit
+                      </span>
+                    </div>
+                    {app.expectedDecisionDate && (
+                      <div className="flex items-center gap-1.5 font-mono text-xs text-industrial-ink-light">
+                        <LedIndicator
+                          color="amber"
+                          state="blinking"
+                          size="sm"
+                        />
+                        <span>
+                          Expected Decision:{" "}
+                          <strong className="text-industrial-ink">
+                            {app.expectedDecisionDate}
+                          </strong>{" "}
+                          ({app.daysRemaining})
+                        </span>
+                      </div>
+                    )}
+                    {isCompleted && app.bankAccount && app.utrNumber && (
+                      <div className="flex items-center gap-1.5 font-mono text-xs text-emerald-600">
+                        <LedIndicator color="emerald" state="on" size="sm" />
+                        <span>Disbursed via PFMS Gateway</span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Desktop Horizontal Conduit Pipe */}
+                  <div className="relative py-4 hidden md:block">
+                    {/* Conduit Channel */}
+                    <div className="absolute top-8 left-8 right-8 h-2 bg-industrial-recessed rounded-full shadow-recessed border border-industrial-border/80 -translate-y-1/2 z-0" />
+                    {/* Active Fluid Flow */}
+                    <div
+                      className="absolute top-8 left-8 h-2 bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full shadow-[0_0_8px_rgba(16,185,129,0.5)] -translate-y-1/2 z-0 transition-all duration-700"
+                      style={{ width: app.progressLineWidth || "45%" }}
+                    />
+
+                    <div className="grid grid-cols-5 gap-2 relative z-10">
+                      {app.milestones.map((m) => {
+                        const isMilestoneCompleted = m.status === "completed";
+                        const isMilestoneActive = m.status === "active";
+
+                        return (
+                          <div
+                            key={m.step}
+                            className={`flex flex-col items-center text-center ${
+                              m.status === "pending" ? "opacity-60" : ""
+                            }`}
+                          >
+                            <div
+                              className={`w-9 h-9 rounded-full flex items-center justify-center font-mono text-xs font-bold transition-all duration-200 ${
+                                isMilestoneCompleted
+                                  ? "bg-emerald-600 text-white shadow-card border border-emerald-700"
+                                  : isMilestoneActive
+                                    ? "bg-amber-500 text-white shadow-card border border-amber-600 ring-2 ring-amber-300 ring-offset-2 ring-offset-industrial-panel animate-pulse"
+                                    : "bg-industrial-chassis text-industrial-ink-muted border border-industrial-border shadow-xs"
+                              }`}
+                            >
+                              {isMilestoneCompleted ? (
+                                <Check className="w-4 h-4" />
+                              ) : isMilestoneActive ? (
+                                <Activity className="w-4 h-4" />
+                              ) : (
+                                <span>{m.step}</span>
+                              )}
+                            </div>
+                            <span
+                              className={`font-mono text-xs font-semibold mt-2 ${
+                                isMilestoneActive
+                                  ? "text-amber-700 font-bold"
+                                  : isMilestoneCompleted
+                                    ? "text-industrial-ink font-bold"
+                                    : "text-industrial-ink-muted"
+                              }`}
+                            >
+                              {m.title}
+                            </span>
+                            <span
+                              className={`font-mono text-[10px] ${
+                                isMilestoneActive
+                                  ? "text-amber-600 font-bold"
+                                  : isMilestoneCompleted
+                                    ? "text-emerald-600"
+                                    : "text-industrial-ink-muted"
+                              }`}
+                            >
+                              {m.date}
+                            </span>
+                            <span className="font-sans text-[11px] text-industrial-ink-light mt-0.5 leading-tight line-clamp-1">
+                              {m.sub}
+                            </span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Mobile Vertical Stepper View */}
+                  <div className="flex flex-col gap-2.5 md:hidden">
                     {app.milestones.map((m) => {
-                      const isMilestoneCompleted = m.status === 'completed'
-                      const isMilestoneActive = m.status === 'active'
+                      const isMilestoneCompleted = m.status === "completed";
+                      const isMilestoneActive = m.status === "active";
 
                       return (
-                        <div key={m.step} className={`flex flex-col items-center text-center ${m.status === 'pending' ? 'opacity-70' : ''}`}>
+                        <div
+                          key={m.step}
+                          className={`flex items-start gap-3 p-2.5 rounded-lg border border-industrial-border ${
+                            isMilestoneActive
+                              ? "bg-amber-500/10 border-amber-500/30"
+                              : m.status === "pending"
+                                ? "bg-industrial-panel/50 opacity-60"
+                                : "bg-industrial-panel"
+                          }`}
+                        >
                           <div
-                            className={`w-10 h-10 rounded-full flex items-center justify-center shadow-xs ${
+                            className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 font-mono text-xs font-bold ${
                               isMilestoneCompleted
-                                ? 'bg-tertiary text-on-tertiary'
+                                ? "bg-emerald-600 text-white"
                                 : isMilestoneActive
-                                ? 'bg-secondary-container text-on-secondary shadow-md animate-bounce'
-                                : 'bg-surface-container-high text-on-surface-variant'
+                                  ? "bg-amber-500 text-white animate-pulse"
+                                  : "bg-industrial-recessed text-industrial-ink-muted"
                             }`}
                           >
                             {isMilestoneCompleted ? (
-                              <span className="material-symbols-outlined text-lg">check</span>
-                            ) : isMilestoneActive ? (
-                              <span className="material-symbols-outlined text-lg">fact_check</span>
+                              <Check className="w-3.5 h-3.5" />
                             ) : (
-                              <span className="font-title-sm text-title-sm font-bold">{m.step}</span>
+                              <span>{m.step}</span>
                             )}
                           </div>
-                          <span
-                            className={`font-title-sm text-title-sm font-semibold mt-2.5 ${
-                              isMilestoneActive ? 'text-secondary font-bold' : isMilestoneCompleted ? 'text-on-surface' : 'text-on-surface-variant'
-                            }`}
-                          >
-                            {m.title}
-                          </span>
-                          <span
-                            className={`font-label-sm text-label-sm ${
-                              isMilestoneActive ? 'text-secondary font-bold' : isMilestoneCompleted ? 'text-tertiary font-medium' : 'text-outline'
-                            }`}
-                          >
-                            {m.date}
-                          </span>
-                          <span className="font-body-sm text-[11px] leading-tight text-on-surface-variant mt-0.5">
-                            {m.sub}
-                          </span>
+                          <div>
+                            <div
+                              className={`font-mono text-xs font-semibold ${
+                                isMilestoneActive
+                                  ? "text-amber-700 font-bold"
+                                  : "text-industrial-ink"
+                              }`}
+                            >
+                              {m.title} ({m.date})
+                            </div>
+                            <p className="font-sans text-xs text-industrial-ink-light">
+                              {m.desc}
+                            </p>
+                          </div>
                         </div>
-                      )
+                      );
                     })}
                   </div>
-                </div>
 
-                {/* Mobile Vertical Stepper View */}
-                <div className="flex flex-col gap-space-sm md:hidden py-space-xs">
-                  {app.milestones.map((m) => {
-                    const isMilestoneCompleted = m.status === 'completed'
-                    const isMilestoneActive = m.status === 'active'
+                  {/* Nodal Officer Teletype Note */}
+                  {app.officerNote && (
+                    <div className="rounded-lg bg-industrial-recessed/80 border border-industrial-border/80 shadow-recessed p-3.5 flex items-start gap-3">
+                      <div className="p-1.5 rounded bg-industrial-panel border border-industrial-border shadow-xs text-industrial-ink shrink-0 mt-0.5">
+                        <FileCode className="w-4 h-4 text-industrial-accent" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between flex-wrap gap-1 font-mono text-[11px]">
+                          <span className="font-bold text-industrial-ink uppercase tracking-wider flex items-center gap-1.5">
+                            <LedIndicator
+                              color="emerald"
+                              state="on"
+                              size="sm"
+                            />
+                            OFFICIAL LOG NOTE // अधिकारी टिप्पणी
+                          </span>
+                          <span className="text-industrial-ink-muted">
+                            TIMESTAMP: {app.officerNoteDate}
+                          </span>
+                        </div>
+                        <p className="font-sans text-xs text-industrial-ink mt-1.5 leading-relaxed">
+                          {app.officerNote}
+                        </p>
+                        <div className="flex items-center gap-2 mt-2 font-mono text-[11px]">
+                          <span className="text-industrial-ink-light font-bold">
+                            — {app.nodalOfficer} ({app.officerRole})
+                          </span>
+                          <span className="px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-700 font-semibold border border-emerald-500/30 text-[10px]">
+                            DIGITALLY SIGNED
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
 
-                    return (
-                      <div
-                        key={m.step}
-                        className={`flex items-start gap-3 p-2 rounded-lg ${
-                          isMilestoneActive ? 'bg-secondary-container/10' : m.status === 'pending' ? 'opacity-60' : ''
-                        }`}
+                  {/* Disbursed Bank Terminal (if completed) */}
+                  {isCompleted && (
+                    <div className="px-3.5 py-2.5 bg-emerald-500/5 rounded-lg border border-emerald-500/20 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-xs text-emerald-800">
+                      <div className="flex items-center gap-1.5">
+                        <Building2 className="w-3.5 h-3.5 text-emerald-600" />
+                        <span>
+                          A/c: <strong>{app.bankAccount}</strong>
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                        <span>
+                          UTR / PFMS Ref: <strong>{app.utrNumber}</strong>
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                        <span>
+                          Credential: <strong>{app.credential}</strong>
+                        </span>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Primary Machine Action Rail */}
+                  <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-industrial-border/60">
+                    <div className="flex flex-wrap items-center gap-2.5">
+                      <TactileButton
+                        variant="primary"
+                        size="sm"
+                        icon={<Eye className="w-4 h-4" />}
+                        onClick={() => setSelectedAppModal(app)}
                       >
-                        <div
-                          className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${
-                            isMilestoneCompleted
-                              ? 'bg-tertiary text-on-tertiary'
-                              : isMilestoneActive
-                              ? 'bg-secondary-container text-on-secondary'
-                              : 'bg-surface-container-high text-on-surface-variant font-bold font-label-md'
-                          }`}
+                        View Submitted Form
+                      </TactileButton>
+
+                      {!isCompleted && (
+                        <TactileButton
+                          variant="secondary"
+                          size="sm"
+                          icon={<UploadCloud className="w-4 h-4" />}
+                          onClick={() =>
+                            showToast(
+                              "Supplementary Upload Portal Active",
+                              "Please choose the invoice or bank passbook scan (PDF/JPEG up to 5MB).",
+                            )
+                          }
                         >
-                          {isMilestoneCompleted ? (
-                            <span className="material-symbols-outlined text-sm">check</span>
-                          ) : isMilestoneActive ? (
-                            <span className="material-symbols-outlined text-sm">fact_check</span>
-                          ) : (
-                            <span>{m.step}</span>
-                          )}
-                        </div>
-                        <div>
-                          <div
-                            className={`font-title-sm text-title-sm font-semibold ${
-                              isMilestoneActive ? 'text-secondary font-bold' : 'text-on-surface'
-                            }`}
-                          >
-                            {m.title} ({m.date})
-                          </div>
-                          <p className="font-body-sm text-body-sm text-on-surface-variant">{m.desc}</p>
-                        </div>
-                      </div>
-                    )
-                  })}
-                </div>
+                          Upload Additional Bill
+                        </TactileButton>
+                      )}
+                    </div>
 
-                {/* Nodal Officer Note Callout */}
-                {app.officerNote && (
-                  <div className="rounded-lg bg-surface-container-high/60 p-space-md flex items-start gap-space-sm border border-outline-variant/20">
-                    <div className="p-2 rounded-lg bg-primary text-on-primary shrink-0 mt-0.5">
-                      <span className="material-symbols-outlined text-base">sticky_note_2</span>
-                    </div>
-                    <div className="flex flex-col flex-1">
-                      <div className="flex items-center justify-between flex-wrap gap-1">
-                        <span className="font-label-sm text-label-sm font-bold text-primary uppercase tracking-wider">
-                          Official Log Note / अधिकारी टिप्पणी
-                        </span>
-                        <span className="font-label-sm text-label-sm text-on-surface-variant">
-                          Recorded: {app.officerNoteDate}
-                        </span>
-                      </div>
-                      <p className="font-body-md text-body-md text-on-surface mt-1 leading-relaxed">
-                        {app.officerNote}
-                      </p>
-                      <div className="flex items-center gap-2 mt-2">
-                        <span className="font-label-sm text-label-sm text-secondary font-bold">
-                          — {app.nodalOfficer}, {app.officerRole}
-                        </span>
-                        <span className="px-1.5 py-0.2 rounded bg-tertiary-fixed text-on-tertiary-fixed text-[10px] font-semibold">
-                          Digitally Signed
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {/* Disbursed Account Footnote for Completed Applications */}
-                {isCompleted && (
-                  <div className="px-space-md py-space-sm bg-surface-container-low rounded-lg flex flex-wrap items-center gap-x-space-lg gap-y-2 text-on-surface-variant font-body-sm text-body-sm border border-outline-variant/20">
-                    <div className="flex items-center gap-1.5">
-                      <span className="material-symbols-outlined text-tertiary text-base">account_balance</span>
-                      <span>Beneficiary A/c: <strong>{app.bankAccount}</strong></span>
-                    </div>
-                    <div className="flex items-center gap-1.5">
-                      <span className="material-symbols-outlined text-base">credit_score</span>
-                      <span>UTR / Ref No: <strong>{app.utrNumber}</strong></span>
-                    </div>
-                    <div className="flex items-center gap-1.5">
-                      <span className="material-symbols-outlined text-base">workspace_premium</span>
-                      <span>Training Credential: <strong>{app.credential}</strong></span>
-                    </div>
-                  </div>
-                )}
-
-                {/* Primary Action Buttons Rail */}
-                <div className="flex flex-wrap items-center justify-between gap-space-md pt-space-sm border-t border-outline-variant/20">
-                  <div className="flex flex-wrap items-center gap-space-sm">
-                    <button
-                      className="px-4 py-2.5 rounded-lg bg-primary text-on-primary font-title-sm text-title-sm font-semibold flex items-center gap-2 hover:bg-primary-container transition-all duration-200 shadow-xs cursor-pointer"
-                      onClick={() => setSelectedAppModal(app)}
-                      type="button"
+                    <TactileButton
+                      variant="ghost"
+                      size="sm"
+                      icon={<Download className="w-4 h-4" />}
+                      onClick={() =>
+                        showToast(
+                          "Acknowledgement Slip Downloaded",
+                          `Official Acknowledgement Slip #${app.id} saved in institutional record.`,
+                        )
+                      }
                     >
-                      <span className="material-symbols-outlined text-lg">visibility</span>
-                      <span>View Submitted Form</span>
-                    </button>
-                    {!isCompleted && (
-                      <button
-                        className="px-4 py-2.5 rounded-lg bg-surface-container-highest text-primary font-title-sm text-title-sm font-semibold flex items-center gap-2 hover:bg-surface-dim transition-all duration-200 cursor-pointer"
-                        onClick={() =>
-                          showToast(
-                            'Supplementary Upload Portal Active',
-                            'Please choose the invoice or bank passbook scan (PDF/JPEG up to 5MB).'
-                          )
-                        }
-                        type="button"
-                      >
-                        <span className="material-symbols-outlined text-lg">upload_file</span>
-                        <span>Upload Additional Bill / Document</span>
-                      </button>
-                    )}
+                      Download Receipt (PDF)
+                    </TactileButton>
                   </div>
-                  <button
-                    className="px-4 py-2.5 rounded-lg bg-surface-container text-on-surface-variant font-title-sm text-title-sm font-semibold flex items-center gap-2 hover:text-on-surface hover:bg-surface-container-high transition-all duration-200 cursor-pointer"
-                    onClick={() =>
-                      showToast(
-                        'Acknowledgement Slip Downloaded',
-                        `Official Acknowledgement Slip #${app.id} saved in institutional record.`
-                      )
-                    }
-                    type="button"
-                  >
-                    <span className="material-symbols-outlined text-lg">download</span>
-                    <span>Download Acknowledgement Receipt (PDF)</span>
-                  </button>
                 </div>
-              </div>
-            </section>
-          )
-        })}
+              </IndustrialCard>
+            );
+          })}
         </div>
       )}
 
-      {/* Interactive Modal: View Submitted Form */}
+      {/* Interactive Record Preview Modal */}
       {selectedAppModal && (
-        <div className="fixed inset-0 z-50 bg-inverse-surface/60 backdrop-blur-xs flex items-center justify-center p-space-md">
-          <div className="w-full max-w-2xl max-h-[90vh] bg-surface-container-lowest rounded-xl shadow-xl flex flex-col overflow-hidden animate-in fade-in">
-            <div className="p-space-md bg-primary text-on-primary flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined">description</span>
-                <span className="font-title-md text-title-md font-bold">
-                  Application Record Preview (#{selectedAppModal.id})
+        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="w-full max-w-2xl max-h-[90vh] bg-industrial-panel rounded-xl shadow-card border border-industrial-border flex flex-col overflow-hidden animate-in fade-in">
+            {/* Modal Header Bezel */}
+            <div className="p-4 bg-industrial-chassis border-b border-industrial-border flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <div className="w-7 h-7 rounded bg-industrial-recessed border border-industrial-border flex items-center justify-center text-industrial-ink">
+                  <FileText className="w-4 h-4" />
+                </div>
+                <span className="font-mono text-sm font-bold text-industrial-ink">
+                  APPLICATION RECORD PREVIEW // #{selectedAppModal.id}
                 </span>
               </div>
               <button
-                className="w-8 h-8 rounded-lg hover:bg-on-primary/20 flex items-center justify-center text-on-primary cursor-pointer transition-all duration-200"
+                className="w-8 h-8 rounded-lg bg-industrial-panel border border-industrial-border shadow-xs hover:bg-industrial-recessed flex items-center justify-center text-industrial-ink-light hover:text-industrial-ink cursor-pointer transition-all duration-150"
                 onClick={() => setSelectedAppModal(null)}
                 type="button"
               >
-                <span className="material-symbols-outlined">close</span>
+                <X className="w-4 h-4" />
               </button>
             </div>
-            <div className="p-space-lg overflow-y-auto flex flex-col gap-space-md text-on-surface">
-              <div className="p-3 rounded-lg bg-surface-container-low flex justify-between items-center">
-                <span className="font-label-md text-label-md text-on-surface-variant">Ministry Record Identifier</span>
-                <span className="font-mono text-sm font-bold text-primary">MoSJE-UP-2025-{selectedAppModal.id}</span>
+
+            {/* Modal Body */}
+            <div className="p-6 overflow-y-auto space-y-4 text-industrial-ink">
+              <div className="p-3 rounded-lg bg-industrial-recessed border border-industrial-border shadow-recessed flex justify-between items-center font-mono text-xs">
+                <span className="text-industrial-ink-muted">
+                  MINISTRY IDENTIFIER
+                </span>
+                <span className="font-bold text-industrial-accent">
+                  MoSJE-UP-2025-{selectedAppModal.id}
+                </span>
               </div>
-              <div className="grid grid-cols-2 gap-3 text-body-sm">
-                <div className="p-2 rounded bg-surface-container-lowest shadow-xs border border-outline-variant/30">
-                  <span className="font-label-sm text-outline block">Applicant Full Name</span>
-                  <span className="font-semibold text-primary">{profile?.name || 'Applicant (Verified Citizen)'}</span>
+
+              <div className="grid grid-cols-2 gap-3 font-sans text-xs">
+                <div className="p-3 rounded-lg bg-industrial-panel border border-industrial-border shadow-xs">
+                  <span className="font-mono text-[10px] text-industrial-ink-muted uppercase block">
+                    Applicant Full Name
+                  </span>
+                  <span className="font-bold text-industrial-ink mt-0.5 block">
+                    {profile?.name || "Applicant (Verified Citizen)"}
+                  </span>
                 </div>
-                <div className="p-2 rounded bg-surface-container-lowest shadow-xs border border-outline-variant/30">
-                  <span className="font-label-sm text-outline block">Caste / Category</span>
-                  <span className="font-semibold text-primary">{profile?.caste_category || profile?.category || 'Scheduled Caste (SC)'}</span>
+                <div className="p-3 rounded-lg bg-industrial-panel border border-industrial-border shadow-xs">
+                  <span className="font-mono text-[10px] text-industrial-ink-muted uppercase block">
+                    Caste / Category
+                  </span>
+                  <span className="font-bold text-industrial-ink mt-0.5 block">
+                    {profile?.caste_category ||
+                      profile?.category ||
+                      "Scheduled Caste (SC)"}
+                  </span>
                 </div>
-                <div className="p-2 rounded bg-surface-container-lowest shadow-xs border border-outline-variant/30">
-                  <span className="font-label-sm text-outline block">Annual Household Income</span>
-                  <span className="font-semibold text-primary">
+                <div className="p-3 rounded-lg bg-industrial-panel border border-industrial-border shadow-xs">
+                  <span className="font-mono text-[10px] text-industrial-ink-muted uppercase block">
+                    Annual Household Income
+                  </span>
+                  <span className="font-bold text-industrial-ink mt-0.5 block">
                     {selectedAppModal.monthly_family_income
                       ? `${formatCurrency(Number(selectedAppModal.monthly_family_income) * 12)} (Certified)`
                       : `${formatCurrency(118000)} (Tahsildar Certified)`}
                   </span>
                 </div>
-                <div className="p-2 rounded bg-surface-container-lowest shadow-xs border border-outline-variant/30">
-                  <span className="font-label-sm text-outline block">Proposed Activity</span>
-                  <span className="font-semibold text-primary">{selectedAppModal.title}</span>
+                <div className="p-3 rounded-lg bg-industrial-panel border border-industrial-border shadow-xs">
+                  <span className="font-mono text-[10px] text-industrial-ink-muted uppercase block">
+                    Proposed Activity
+                  </span>
+                  <span className="font-bold text-industrial-ink mt-0.5 block">
+                    {selectedAppModal.title}
+                  </span>
                 </div>
               </div>
-              <div className="flex flex-col gap-2">
-                <span className="font-title-sm text-title-sm font-bold text-primary">Verified Attached Credentials</span>
-                <div className="space-y-1.5">
-                  <div className="flex items-center justify-between p-2 rounded bg-surface-container-low text-body-sm">
-                    <span className="flex items-center gap-2">
-                      <span className="material-symbols-outlined text-tertiary text-sm">check_circle</span>
+
+              <div className="space-y-2">
+                <span className="font-mono text-xs font-bold uppercase tracking-wider text-industrial-ink">
+                  Verified Attached Credentials
+                </span>
+                <div className="space-y-1.5 font-mono text-xs">
+                  <div className="flex items-center justify-between p-2.5 rounded-lg bg-industrial-recessed/60 border border-industrial-border">
+                    <span className="flex items-center gap-2 text-industrial-ink">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                       Aadhaar Card (Masked eKYC)
                     </span>
-                    <span className="font-label-sm text-tertiary font-bold">UIDAI Validated</span>
+                    <span className="text-emerald-600 font-bold text-[11px]">
+                      UIDAI Validated
+                    </span>
                   </div>
-                  <div className="flex items-center justify-between p-2 rounded bg-surface-container-low text-body-sm">
-                    <span className="flex items-center gap-2">
-                      <span className="material-symbols-outlined text-tertiary text-sm">check_circle</span>
+                  <div className="flex items-center justify-between p-2.5 rounded-lg bg-industrial-recessed/60 border border-industrial-border">
+                    <span className="flex items-center gap-2 text-industrial-ink">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                       State Caste Certificate (EDistrict UP)
                     </span>
-                    <span className="font-label-sm text-tertiary font-bold">UP-EDIST-991204</span>
+                    <span className="text-emerald-600 font-bold text-[11px]">
+                      UP-EDIST-991204
+                    </span>
                   </div>
-                  <div className="flex items-center justify-between p-2 rounded bg-surface-container-low text-body-sm">
-                    <span className="flex items-center gap-2">
-                      <span className="material-symbols-outlined text-tertiary text-sm">check_circle</span>
+                  <div className="flex items-center justify-between p-2.5 rounded-lg bg-industrial-recessed/60 border border-industrial-border">
+                    <span className="flex items-center gap-2 text-industrial-ink">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                       Equipment Machinery Quotation / Income Slip
                     </span>
-                    <span className="font-label-sm text-outline font-medium">GST Registered Vendor</span>
+                    <span className="text-industrial-ink-muted text-[11px]">
+                      GST Registered
+                    </span>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="p-space-md bg-surface-container-low flex justify-end gap-space-sm border-t border-outline-variant/20">
-              <button
-                className="px-4 py-2 rounded-lg bg-surface-container-highest text-primary font-title-sm text-title-sm cursor-pointer hover:bg-surface-dim transition-all duration-200"
+
+            {/* Modal Footer */}
+            <div className="p-4 bg-industrial-chassis border-t border-industrial-border flex justify-end gap-2.5">
+              <TactileButton
+                variant="secondary"
+                size="sm"
                 onClick={() => setSelectedAppModal(null)}
-                type="button"
               >
                 Close Preview
-              </button>
-              <button
-                className="px-4 py-2 rounded-lg bg-primary text-on-primary font-title-sm text-title-sm flex items-center gap-1.5 shadow-xs cursor-pointer hover:bg-primary-container transition-all duration-200"
+              </TactileButton>
+              <TactileButton
+                variant="primary"
+                size="sm"
+                icon={<Printer className="w-4 h-4" />}
                 onClick={() => {
-                  setSelectedAppModal(null)
-                  showToast('Record Downloaded', `Application Record #${selectedAppModal.id} ready for print.`)
+                  setSelectedAppModal(null);
+                  showToast(
+                    "Record Downloaded",
+                    `Application Record #${selectedAppModal.id} ready for print.`,
+                  );
                 }}
-                type="button"
               >
-                <span className="material-symbols-outlined text-sm">print</span> Print Application Record
-              </button>
+                Print Record
+              </TactileButton>
             </div>
           </div>
         </div>
       )}
 
-      {/* Toast Notification Alert */}
+      {/* Industrial Toast Alert */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 max-w-md p-space-md rounded-xl bg-primary text-on-primary shadow-xl flex items-center gap-3 animate-in fade-in slide-in-from-bottom duration-200">
-          <span className="material-symbols-outlined text-tertiary-fixed text-2xl">check_circle</span>
-          <div className="flex flex-col">
-            <span className="font-title-sm text-title-sm font-bold">{toastMessage.title}</span>
-            <span className="font-body-sm text-body-sm text-primary-fixed-dim">{toastMessage.msg}</span>
+        <div className="fixed bottom-6 right-6 z-50 max-w-md p-4 rounded-xl bg-industrial-panel border border-industrial-border shadow-card flex items-center gap-3 animate-in fade-in slide-in-from-bottom duration-200">
+          <div className="w-9 h-9 rounded-lg bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center shrink-0">
+            <CheckCircle2 className="w-5 h-5 text-emerald-600" />
+          </div>
+          <div>
+            <div className="font-mono text-xs font-bold text-industrial-ink">
+              {toastMessage.title}
+            </div>
+            <div className="font-sans text-xs text-industrial-ink-light">
+              {toastMessage.msg}
+            </div>
           </div>
         </div>
       )}
     </div>
-  )
+  );
 }

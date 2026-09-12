@@ -1,93 +1,111 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import { AuthProvider } from './context/AuthContext'
-import ProtectedRoute from './components/ProtectedRoute'
-import AppShell from './components/layout/AppShell'
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
+import ProtectedRoute from "./components/ProtectedRoute";
+import AppShell from "./components/layout/AppShell";
 
 // Dynamically resolve page components as they get implemented in subsequent prompts
-const pageModules = import.meta.glob('./pages/*.jsx', { eager: true })
+const pageModules = import.meta.glob("./pages/*.jsx", { eager: true });
 
 function renderPage(moduleName, defaultElement) {
-  const mod = pageModules[`./pages/${moduleName}.jsx`]
+  const mod = pageModules[`./pages/${moduleName}.jsx`];
   if (mod && mod.default) {
-    const Component = mod.default
-    return <Component />
+    const Component = mod.default;
+    return <Component />;
   }
-  return defaultElement
+  return defaultElement;
 }
 
 const AuthPage = () =>
   renderPage(
-    'AuthPage',
+    "AuthPage",
     <div className="min-h-screen flex items-center justify-center bg-background text-on-surface p-4">
       <div className="p-8 max-w-md w-full text-center bg-surface border border-outline-variant/30 rounded-xl shadow-xs">
         <h1 className="text-2xl font-bold mb-2 text-primary">YojanaSetu</h1>
-        <p className="text-on-surface-variant text-sm">Auth page (Sign in / Sign up)</p>
+        <p className="text-on-surface-variant text-sm">
+          Auth page (Sign in / Sign up)
+        </p>
       </div>
-    </div>
-  )
+    </div>,
+  );
 
 const DashboardPage = () =>
   renderPage(
-    'DashboardPage',
+    "DashboardPage",
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-2">Dashboard</h1>
-      <p className="text-on-surface-variant text-sm">Welcome to YojanaSetu Dashboard</p>
-    </div>
-  )
+      <p className="text-on-surface-variant text-sm">
+        Welcome to YojanaSetu Dashboard
+      </p>
+    </div>,
+  );
 
 const RecommenderPage = () =>
   renderPage(
-    'RecommenderPage',
+    "RecommenderPage",
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-2">Scheme Recommender</h1>
       <p className="text-on-surface-variant text-sm">Recommender wizard</p>
-    </div>
-  )
+    </div>,
+  );
 
 const RecommendationResultPage = () =>
   renderPage(
-    'RecommendationResultPage',
+    "RecommendationResultPage",
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-2">Recommendation Result</h1>
-      <p className="text-on-surface-variant text-sm">Matched schemes and next steps</p>
-    </div>
-  )
+      <p className="text-on-surface-variant text-sm">
+        Matched schemes and next steps
+      </p>
+    </div>,
+  );
 
 const CalculatorPage = () =>
   renderPage(
-    'CalculatorPage',
+    "CalculatorPage",
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-2">Financial Calculator</h1>
       <p className="text-on-surface-variant text-sm">EMI projection</p>
-    </div>
-  )
+    </div>,
+  );
 
 const LocatorPage = () =>
   renderPage(
-    'LocatorPage',
+    "LocatorPage",
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-2">Partner Locator</h1>
-      <p className="text-on-surface-variant text-sm">Channel partner map and directory</p>
-    </div>
-  )
+      <p className="text-on-surface-variant text-sm">
+        Channel partner map and directory
+      </p>
+    </div>,
+  );
 
 const ApplicationsPage = () =>
   renderPage(
-    'ApplicationsPage',
+    "ApplicationsPage",
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-2">My Applications</h1>
-      <p className="text-on-surface-variant text-sm">Track your application status</p>
-    </div>
-  )
+      <p className="text-on-surface-variant text-sm">
+        Track your application status
+      </p>
+    </div>,
+  );
 
 const AdminPartnersPage = () =>
   renderPage(
-    'AdminPartnersPage',
+    "AdminPartnersPage",
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-2">Admin — Partner Management</h1>
-      <p className="text-on-surface-variant text-sm">Manage channel partners and schemes</p>
-    </div>
-  )
+      <p className="text-on-surface-variant text-sm">
+        Manage channel partners and schemes
+      </p>
+    </div>,
+  );
+
+const ProfilePage = () =>
+  renderPage("ProfilePage", <div className="p-6">Profile</div>);
+
+const PartnerPortalPage = () =>
+  renderPage("PartnerPortalPage", <div className="p-6">Partner workspace</div>);
 
 export default function App() {
   return (
@@ -164,6 +182,28 @@ export default function App() {
             }
           />
 
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <AppShell>
+                  <ProfilePage />
+                </AppShell>
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/partner"
+            element={
+              <ProtectedRoute requireRole="partner">
+                <AppShell>
+                  <PartnerPortalPage />
+                </AppShell>
+              </ProtectedRoute>
+            }
+          />
+
           {/* Admin route: requireRole="admin" */}
           <Route
             path="/admin"
@@ -181,5 +221,5 @@ export default function App() {
         </Routes>
       </BrowserRouter>
     </AuthProvider>
-  )
+  );
 }

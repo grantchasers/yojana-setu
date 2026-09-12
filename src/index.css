@@ -2,109 +2,187 @@
 @config "../tailwind.config.js";
 
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  /* Sapphire civic palette */
+  --chassis: #f5f0e9;
+  --panel: #f5f0e9;
+  --recessed: #d9cbc2;
+  --text-ink: #112250;
+  --text-muted: #3c5070;
+  --accent: #e0c58f;
+  --accent-fg: #ffffff;
+  --border-shadow: #c8b9b0;
+  --border-light: #f5f0e9;
+  --border-dark: #3c5070;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  /* Legacy mapping compatibility */
+  --text: #112250;
+  --text-h: #112250;
+  --bg: #f5f0e9;
+  --border: #d9cbc2;
+  --code-bg: #d9cbc2;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
+  /* Neumorphic Dual-Shadow System (Consistent Top-Left 45° Lighting) */
+  --shadow-card: 8px 8px 16px rgba(17, 34, 80, 0.16), -8px -8px 16px #f5f0e9;
+  --shadow-floating:
+    12px 12px 24px rgba(17, 34, 80, 0.18), -12px -12px 24px #f5f0e9,
+    inset 1px 1px 0 rgba(255, 255, 255, 0.65);
+  --shadow-pressed:
+    inset 6px 6px 12px rgba(17, 34, 80, 0.16), inset -6px -6px 12px #f5f0e9;
+  --shadow-recessed:
+    inset 4px 4px 8px rgba(17, 34, 80, 0.14), inset -4px -4px 8px #f5f0e9;
+  --shadow-sharp:
+    4px 4px 8px rgba(17, 34, 80, 0.2), -1px -1px 1px rgba(245, 240, 233, 0.8);
+  --shadow-glow: 0 0 10px 2px rgba(224, 197, 143, 0.7);
+  --shadow-glow-green: 0 0 10px 2px rgba(34, 197, 94, 0.7);
+  --shadow-btn-primary:
+    4px 4px 8px rgba(17, 34, 80, 0.35), -4px -4px 8px rgba(245, 240, 233, 0.75);
+
+  /* Typography */
+  --sans: "Inter", system-ui, -apple-system, sans-serif;
+  --mono: "JetBrains Mono", "Roboto Mono", ui-monospace, monospace;
+  --ease-mechanical: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  font-family: var(--sans);
+  color-scheme: light;
+  color: var(--text-ink);
+  background-color: var(--chassis);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
 }
 
 body {
   margin: 0;
+  background-color: var(--chassis);
+  color: var(--text-ink);
+  font-family: var(--sans);
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 #root {
   width: 100%;
-  min-height: 100svh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
+  background-color: var(--chassis);
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+/* Mechanical Embossed Typography */
+.embossed-text {
+  text-shadow: 0 1px 0 #ffffff;
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
+.embossed-text-dark {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Micro-noise Texture on Chassis */
+.noise-chassis {
+  background-color: var(--chassis);
+  background-image:
+    radial-gradient(rgba(255, 253, 249, 0.55) 1px, transparent 0),
+    radial-gradient(rgba(17, 34, 80, 0.05) 1px, transparent 0);
+  background-position:
+    0 0,
+    10px 10px;
+  background-size: 20px 20px;
+}
+
+/* Bolted Module Corner Screws (Radial Gradient Simulation at 12px from edges) */
+.corner-screws {
+  position: relative;
+}
+.corner-screws::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background-image:
+    radial-gradient(
+      circle at 12px 12px,
+      #3c5070 1.5px,
+      #f5f0e9 2.5px,
+      transparent 3.5px
+    ),
+    radial-gradient(
+      circle at calc(100% - 12px) 12px,
+      #3c5070 1.5px,
+      #f5f0e9 2.5px,
+      transparent 3.5px
+    ),
+    radial-gradient(
+      circle at 12px calc(100% - 12px),
+      #3c5070 1.5px,
+      #f5f0e9 2.5px,
+      transparent 3.5px
+    ),
+    radial-gradient(
+      circle at calc(100% - 12px) calc(100% - 12px),
+      #3c5070 1.5px,
+      #f5f0e9 2.5px,
+      transparent 3.5px
+    );
+}
+
+/* Ventilation Slots */
+.vent-slot {
+  width: 3px;
+  height: 20px;
+  border-radius: 9999px;
+  background-color: var(--recessed);
+  box-shadow:
+    inset 1px 1px 2px rgba(0, 0, 0, 0.25),
+    1px 1px 1px #ffffff;
+}
+
+/* CRT Scanlines for Technical Screens and Monospace Displays */
+.crt-scanlines {
+  position: relative;
+}
+.crt-scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%);
+  background-size: 100% 4px;
+}
+
+/* Blueprint / Schematic Grid */
+.schematic-grid {
+  background-image:
+    linear-gradient(#d9cbc2 1px, transparent 1px),
+    linear-gradient(90deg, #d9cbc2 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Cylindrical Connector Conduit / Pipe */
+.conduit-pipe {
+  height: 8px;
+  border-radius: 9999px;
+  background: #d9cbc2;
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.25),
+    0 1px 1px #ffffff;
+}
+
+/* Mechanical Easing Utilities */
+.transition-mechanical {
+  transition-timing-function: var(--ease-mechanical);
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
   }
 }
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
-}
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+.animate-slide-in-left {
+  animation: slideInLeft 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }

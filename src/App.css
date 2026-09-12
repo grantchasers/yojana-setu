@@ -167,7 +167,7 @@
 
   &::before,
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: -4.5px;
     border: 5px solid transparent;
@@ -180,5 +180,188 @@
   &::after {
     right: 0;
     border-right-color: var(--border);
+  }
+}
+
+/* Auth experiment: Royal Blue stage with warm, readable access surfaces. */
+.auth-page {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(60, 80, 125, 0.92),
+      transparent 34rem
+    ),
+    linear-gradient(135deg, #112250 0%, #1b3268 54%, #3c5070 100%);
+}
+
+.auth-page::before,
+.auth-page::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.auth-page::before {
+  width: 30rem;
+  height: 30rem;
+  left: -14rem;
+  top: 10%;
+  border: 1px solid rgba(224, 197, 143, 0.42);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 2rem rgba(224, 197, 143, 0.08),
+    0 0 0 4rem rgba(255, 253, 249, 0.05);
+}
+
+.auth-page::after {
+  width: 42rem;
+  height: 1px;
+  right: -8rem;
+  top: 22%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(224, 197, 143, 0.5),
+    transparent
+  );
+  transform: rotate(-28deg);
+}
+
+.auth-language {
+  animation: auth-rise 0.45s ease-out both;
+}
+
+.auth-language > div {
+  background: rgba(17, 34, 80, 0.72);
+  border-color: rgba(224, 197, 143, 0.42);
+  box-shadow: 0 8px 18px rgba(8, 18, 46, 0.24);
+}
+
+.auth-language button {
+  color: rgba(255, 253, 249, 0.76);
+}
+
+.auth-language button[class*="bg-industrial-chassis"] {
+  color: #112250;
+  background: #e0c58f;
+  border-color: rgba(255, 253, 249, 0.5);
+}
+
+.auth-card {
+  animation: auth-rise 0.55s 0.06s ease-out both;
+  filter: drop-shadow(14px 18px 20px rgba(8, 18, 46, 0.34));
+}
+
+.auth-card > div {
+  background: #112250;
+  border-color: rgba(224, 197, 143, 0.58);
+  box-shadow: 0 22px 44px rgba(8, 18, 46, 0.28);
+}
+
+.auth-header {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(145deg, rgba(60, 80, 125, 0.62), transparent 68%), #112250;
+  color: #f5f0e9;
+}
+
+.auth-header::after {
+  content: "";
+  position: absolute;
+  inset: auto 12% 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.9;
+}
+
+.auth-header > div:first-child {
+  color: #f5f0e9;
+  background: rgba(60, 80, 125, 0.72);
+  border-color: rgba(224, 197, 143, 0.44);
+}
+
+.auth-header h1,
+.auth-header p,
+.auth-header .text-industrial-ink,
+.auth-header .text-industrial-ink-muted {
+  color: #f5f0e9;
+}
+
+.auth-header .bg-industrial-recessed {
+  background: #3c5070;
+  border-color: rgba(224, 197, 143, 0.5);
+}
+
+.auth-form-panel {
+  background: rgba(255, 253, 249, 0.97);
+  border-top: 1px solid rgba(224, 197, 143, 0.6);
+}
+
+.auth-form-panel > .grid {
+  background: #d9cbc2;
+  border-color: rgba(17, 34, 80, 0.2);
+}
+
+.auth-form-panel > .grid button[class*="bg-industrial-panel"] {
+  background: #f5f0e9;
+  color: #112250;
+  border-color: rgba(17, 34, 80, 0.18);
+}
+
+.auth-form-panel input,
+.auth-form-panel .bg-industrial-recessed {
+  color: #112250;
+}
+
+.auth-form-panel form > div,
+.auth-form-panel form > button,
+.auth-form-panel > div {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.auth-form-panel input:focus {
+  caret-color: var(--accent);
+}
+
+.auth-form-panel form > button[type="submit"]:not(:disabled):hover {
+  transform: translateY(-1px);
+}
+
+@keyframes auth-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 520px) {
+  .auth-page {
+    justify-content: flex-start;
+    padding-top: 1.25rem;
+  }
+
+  .auth-card {
+    filter: none;
+  }
+
+  .auth-page::before {
+    left: -18rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .auth-language,
+  .auth-card {
+    animation: none;
   }
 }

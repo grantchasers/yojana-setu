@@ -14,11 +14,13 @@
     "@supabase/supabase-js": "^2.116.0",
     "i18next": "^26.4.2",
     "leaflet": "^1.9.4",
+    "lucide-react": "^1.45.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-i18next": "^17.0.13",
     "react-leaflet": "^5.0.0",
-    "react-router-dom": "^7.18.3"
+    "react-router-dom": "^7.18.3",
+    "sql.js": "^1.14.2"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",
